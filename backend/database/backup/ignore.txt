@@ -1,0 +1,4 @@
+database backup folder and add all the backups here
+
+backup file names will be similer to this
+ALG001_db_backup_2024.01.10.sql

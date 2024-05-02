@@ -1,0 +1,4 @@
+all the model files will goes here..
+
+root folder will be used to add common models
+if there is models that can be categoriesed in to a single group, they will be stored in a seperated folder with a category name
