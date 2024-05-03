@@ -9,7 +9,7 @@ Updated : 02-05-2024
 [@Janith Nirmal](https://github.com/janithnirmal) <br>
 [@Chaminka Aththanayake](https://github.com/CHAMINKA) <br>
 [@Eshmika Irosh](https://github.com/Eshmika) <br>
-[@Kaushal Virak](https://github.com/Viraj) <br>
+[@Kaushal Virak](https://github.com/kaushalkahapola) <br>
 [@Niman Wijerathne](https://github.com/nimmam) <br>
 [@Thivina Samarakkody](https://github.com/ThivinaSam) <br>
 

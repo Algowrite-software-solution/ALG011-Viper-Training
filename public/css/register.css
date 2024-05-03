@@ -1,0 +1,214 @@
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    margin-bottom: 15px;
+}
+
+label {
+    margin-left: 25px;
+    margin-bottom: px; 
+}
+
+input {
+    width: 100%;
+    padding: 15px 25px;
+    border: 3px solid;
+    border-radius: var(--rounded-large) !important;
+}
+
+input::-webkit-input-placeholder {
+    color: var(--light-50);
+}
+
+.forgot-password {
+    display: block;
+    text-decoration: underline;
+}
+
+.register-button {
+    position: relative; 
+    width: 50%;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+    font-size: var(--font-p-mid);
+    box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
+}
+
+
+p {
+    color: #666666;
+    margin: 0;
+}
+
+/* Divider Styles */
+.divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.line {
+    flex: 1;
+    height: 2px;
+}
+
+.or {
+    margin: 0 20px;
+}
+
+/* Link Styles */
+.login-link,
+.admin-access-link {
+    text-decoration: underline;
+}
+
+/* Additional Styles */
+/* Register Section Styles */
+#register {
+    display: flex;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+}
+
+.left-section {
+    flex: 1;
+    height: 100%;
+    max-width: 50vw;
+}
+
+.left-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    margin-bottom: 35px;
+    color: #333333;
+}
+
+.right-section {
+    position: relative;
+    height: 100vh;
+    width: 50vw;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-img {
+    width: 100%;
+    height: 100%;
+    object-position: 50% 0;
+    filter: grayscale(100%);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0385ff5e; 
+    backdrop-filter: blur(1px);
+    background-blend-mode:color-burn;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--light);
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.logo {
+    font-size: 50px;
+}
+
+@media screen and (min-width: 1200px) {
+    .left-section {
+        padding: 45px 120px;
+        max-width: 50vw;
+    }
+
+    .left-main {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .right-section {
+        max-width: 50vw;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 750px) {
+    .left-section {
+        padding: 45px 60px;
+        max-width: 60vw;
+    }
+
+    .right-section {
+        max-width: 40vw;
+    }
+
+    .logo {
+        font-size: 45px;
+    }
+
+    .circle {
+        width: 30px;
+        height: 30px;
+    }
+    .logo-container {
+        padding: 35px;
+    } 
+}
+
+@media screen and (max-width: 800px) and (min-width: 600px) {
+    .left-section {
+        padding: 45px 30px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .left-section {
+        padding: 45px 15px;
+    } 
+}
