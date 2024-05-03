@@ -2,7 +2,7 @@
 //routes
 define("ROUTES", [
     [
-        "routes" => ["", "pagename"],
+        "routes" => ["pagename"],
         "fileName" => "pagename",
         "title" => "Page Title",
         "js" => ["pagename"],
