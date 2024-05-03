@@ -30,4 +30,12 @@ define("ROUTES", [
         "css" => ["main"],
         "isCustom" => true
     ],
+    [
+        "routes" => ["register"],
+        "fileName" => "register",
+        "title" => "ALGLIB_002 | register Page",
+        "js" => [],
+        "css" => ["register"],
+        "isCustom" => true
+    ],
 ]);
