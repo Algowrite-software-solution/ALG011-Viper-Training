@@ -309,6 +309,26 @@
   color: #868686;
   font-weight: 500;
   margin-top: 10px;
-  text-align: center;
+  text-align: center;  
+}
 
+.graytxtline{
+  color: #868686;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;  
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.signinlinediv{
+  display: flex;  
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.signinline{
+  margin-top: 22px;
+  width: 44%;
+  border: 1.7px solid
 }
