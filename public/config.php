@@ -22,5 +22,12 @@ define("ROUTES", [
         "js" => [],
         "css" => ["home"],
         "isCustom" => true
+    ],[
+        "routes" => ["signin"],
+        "fileName" => "signin",
+        "title" => "ALGLIB_002 | Signin Page",
+        "js" => [],
+        "css" => ["main"],
+        "isCustom" => true
     ],
 ]);
