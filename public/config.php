@@ -15,5 +15,12 @@ define("ROUTES", [
         "js" => ["test"],
         "css" => ["test"],
         "isCustom" => false
+    ],[
+        "routes" => ["","home"],
+        "fileName" => "home",
+        "title" => "ALGLIB_002 | Home Page",
+        "js" => [],
+        "css" => ["home"],
+        "isCustom" => true
     ],
 ]);
