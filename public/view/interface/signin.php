@@ -26,8 +26,13 @@
                 <div class="signcentertxt">
                     <a href="#" class="forgotpassword">Forget your password</a><br>           
                     <button type="submit" class="signinsubmitbtn">Sign in</button><br><br>
-                    <span class="graytxt">Don't have an account </span><a href="#" >Register</a><br>
-                    <span class="graytxt">OR</span><br>
+                    <span class="graytxt">Don't have an account? </span><a href="#" >Register</a><br><br>
+                    <div class="signinlinediv">
+                        <hr class="signinline">
+                        <span class="graytxtline">OR</span>
+                        <hr class="signinline">
+                    </div>            
+                    <br>
                     <span class="graytxt">Request Admin Access </span><a href="#" >Here</a> 
                 </div>
             </form>
