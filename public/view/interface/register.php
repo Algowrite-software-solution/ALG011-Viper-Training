@@ -41,7 +41,7 @@
             </div>
             <div class="logo-container">
                 <div class="circle"></div>
-                <div class="logo alg-bold-medium">Algowrite</div>
+                <div class="logo alg-bold">Algowrite</div>
                 <div class="tagline alg-text-h2">Unleashing the magic of technology...!!</div>
             </div>
         </div>
