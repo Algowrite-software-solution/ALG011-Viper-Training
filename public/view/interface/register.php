@@ -2,7 +2,7 @@
         <div class="left-section alg-bg-light">
             <!-- Left section content goes here -->
             <div class="left-main">
-            <h1 class="alg-bold-medium alg-text-h1">Register</h1>
+            <h1 class="alg-bold-medium">Register</h1>
             <form action="/register" method="post">
                 <div class="input-group">
                     <label class="alg-bold alg-text-primary-dark"for="email">Email address</label>
@@ -33,7 +33,7 @@
          </div>
         </div>
 
-        <div class="right-section alg-bg-dark">
+        <div class="right-section">
             <!-- Right section content goes here -->
             <div class="img">
                 <img class="main-img" src="../../resources/images/register/main.jpg" alt="">
