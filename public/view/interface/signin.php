@@ -13,15 +13,15 @@
 
        <div class="signside">
             <p class="signintxt">Sign In</p>
-            <form>
+            <form action="/" method="post">
                 <div class="signintxtbox">
                     <label for="Email">Email address</label><br>
-                    <input type="email" class="emailbox" id="Email" placeholder="Enter your account email...">
+                    <input type="email" class="emailbox" id="Email" placeholder="Enter your account email..." required>
                 </div>
                 <br>
                 <div class="signintxtbox">
                     <label for="Password">Password</label>
-                    <input type="password" class="emailbox" id="Password" placeholder="Create a strong password...">
+                    <input type="password" class="emailbox" id="Password" placeholder="Create a strong password..." required>
                 </div>  
                 <div class="signcentertxt">
                     <a href="#" class="forgotpassword">Forget your password</a><br>           
