@@ -1,0 +1,265 @@
+/* typography */
+html{
+    font-size: 16px;
+}
+
+h1{
+    font-size: 2rem;
+    margin-bottom:1.25em;
+    color: #333333;
+}
+
+p {
+    color: #666666;
+    margin: 0;
+}
+
+/* layout */
+#register {
+    display: flex;
+    height: 100vh;
+}
+
+.col{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* right section */
+.col-right{
+    width: 100%
+}
+
+
+.main-img {
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    object-position: 50% 0;
+    filter: grayscale(100%);
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 135, 255, 1);
+    backdrop-filter: blur(1px);
+    mix-blend-mode: overlay;
+}
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--light);
+    width: 100%;
+    height: 100%;
+    padding: 4em;
+}
+
+.circle {
+    width: 3rem;
+    height: 3rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.logo {
+    font-size: 3.5rem;
+}
+
+.tagline {
+    font-size: 1.5rem;
+}
+
+/* left section */
+
+.main-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 90%;
+    width: 80%;
+    min-height: 500px;
+    max-width: 568px;
+    max-height: 600px;
+}
+
+
+.sub-left{
+    display: flex;
+    font-size: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+ 
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 80%;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+label {
+    margin-left: 1.5em;
+    margin-bottom: 0.4em;
+}
+
+input {
+    width: 100%;
+    padding: 1.25em 1.87em;
+    border: 3px solid;
+    border-radius: 4.93rem !important;
+}
+
+input::-webkit-input-placeholder {
+    color: var(--light-50);
+}
+
+.forgot-password {
+    text-decoration: underline;
+}
+
+.register-button {
+    position: relative;
+    width: 50%;
+    padding: 1.07em 2.85em;
+    border: none;
+    cursor: pointer;
+    border-radius: 84px ;
+    font-size: 0.875rem;
+    box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
+}
+
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.line {
+    flex: 1;
+    height: 0.125em;
+}
+
+.or {
+    margin: 0 1.25em;
+}
+
+/* media queries */
+@media screen and (max-width: 1200px) and (min-width: 750px) {
+    h1{
+        margin-bottom: 1em;
+    }
+    label {
+        margin-bottom: 0.2em;
+    }
+    input {
+        width: 100%;
+        padding: 1em 1.5em;
+        border: 3px solid;
+        border-radius: 4.93rem !important;
+    }
+    .register-button {
+        padding: auto 0.55em;
+    }
+}
+
+@media screen and (max-width: 750px), (max-height: 500px) and (orientation: landscape) {
+    #register {
+        flex-direction: column;
+        width: 100vw;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .col-right {
+        order: -1;
+        width: 100%;
+        max-height: 25vh;
+    }
+    .img {
+        max-height: inherit;
+    }
+    .col-left{
+        min-height: 650px;
+        width: 100%;
+    }
+    form{
+        min-height: 400px;
+    }
+    .sub-left{
+        min-height: 500px;
+    }
+    .logo-container {
+        padding: 2em 3.5em;
+    }
+    .logo {
+        font-size: 2rem;
+    }
+    
+    .tagline {
+        font-size: 1.125rem;
+    }
+    .register-button {
+        width: 50%;
+        padding: 1.07em 1.42em;
+    }
+}
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .col-right {
+        order: -1;
+        width: 100%;
+        max-height: 45vh;
+    }
+    .logo-container {
+        padding: 1em 3.5em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .logo-container {
+        padding: 1em 3em;
+    }
+
+    .logo {
+        font-size: 1.875rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+}

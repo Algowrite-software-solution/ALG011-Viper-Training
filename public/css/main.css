@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Poppins";
-  src: url("/public/resources/fonts/Poppins-Black.ttf") format("truetype");
+  src: url("/public/resources/font/FontsFree-Net-Poppins-Black.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -17,6 +17,14 @@
   --dark: rgba(17, 16, 14, 1);
   --orange: rgba(251, 135, 92, 1);
   --light: rgba(255, 255, 255, 1);
+  --primary-dark: #0387FF;
+  --primary:#4DAAFF;
+  --primary-light: #9ACFFF;
+  --light-100:#FFFFFF;
+  --light-75:#CDCDCD;
+  --light-50:#868686;
+  --dark-100:#000000;
+  --dark-80:#272727;
 
   /* transistion */
   --transition1: 200ms;
@@ -100,7 +108,72 @@
   background-color: var(--light);
 }
 
+
+.alg-bg-primary-dark {
+  background-color: var(--primary-dark);
+}
+
+.alg-bg-primary {
+  background-color: var(--primary);
+}
+
+.alg-bg-primary-light {
+  background-color: var(--primary-light);
+}
+
+.alg-bg-light-100 {
+  background-color: var(--light-100);
+}
+
+.alg-bg-light-75 {
+  background-color: var(--light-75);
+}
+
+.alg-bg-light-50 {
+  background-color: var(--light-50);
+}
+
+.alg-bg-dark-100 {
+  background-color: var(--dark-100);
+}
+
+.alg-bg-dark-80 {
+  background-color: var(--dark-80);
+}
+
 /* text-color */
+.alg-text-primary-dark {
+  color: var(--primary-dark);
+}
+
+.alg-text-primary {
+  color: var(--primary);
+}
+
+.alg-text-primary-light {
+  color: var(--primary-light);
+}
+
+.alg-text-light-100 {
+  color: var(--light-100);
+}
+
+.alg-text-light-75 {
+  color: var(--light-75);
+}
+
+.alg-text-light-50 {
+  color: var(--light-50);
+}
+
+.alg-text-dark-100 {
+  color: var(--dark-100);
+}
+
+.alg-text-dark-80 {
+  color: var(--dark-80);
+}
+
 .alg-text-dark {
   color: var(--darker);
 }
@@ -121,6 +194,38 @@
 /* input field */
 
 /* border color */
+.alg-border-primary-dark {
+  border-color: var(--primary-dark);
+}
+
+.alg-border-primary {
+  border-color: var(--primary);
+}
+
+.alg-border-primary-light {
+  border-color: var(--primary-light);
+}
+
+.alg-border-light-100 {
+  border-color: var(--light-100);
+}
+
+.alg-border-light-75 {
+  border-color: var(--light-75);
+}
+
+.alg-border-light-50 {
+  border-color: var(--light-50);
+}
+
+.alg-border-dark-100 {
+  border-color: var(--dark-100);
+}
+
+.alg-border-dark-80 {
+  border-color: var(--dark-80);
+}
+
 .alg-border-color {
   border-color: var(--light);
 }
