@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `alg011_db` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `alg011_db`;
+CREATE DATABASE  IF NOT EXISTS `algowrit_alg011_db` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `algowrit_alg011_db`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: alg011_db
+-- Host: 127.0.0.1    Database: algowrit_alg011_db
 -- ------------------------------------------------------
 -- Server version	8.0.19
 
