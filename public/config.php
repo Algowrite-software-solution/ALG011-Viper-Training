@@ -2,7 +2,7 @@
 //routes
 define("ROUTES", [
     [
-        "routes" => ["", "pagename"],
+        "routes" => ["pagename"],
         "fileName" => "pagename",
         "title" => "Page Title",
         "js" => ["pagename"],
@@ -15,5 +15,27 @@ define("ROUTES", [
         "js" => ["test"],
         "css" => ["test"],
         "isCustom" => false
+    ],[
+        "routes" => ["","home"],
+        "fileName" => "home",
+        "title" => "ALGLIB_002 | Home Page",
+        "js" => [],
+        "css" => ["home"],
+        "isCustom" => true
+    ],[
+        "routes" => ["signin"],
+        "fileName" => "signin",
+        "title" => "ALGLIB_002 | Signin Page",
+        "js" => [],
+        "css" => ["signin"],
+        "isCustom" => true
+    ],
+    [
+        "routes" => ["register"],
+        "fileName" => "register",
+        "title" => "ALGLIB_002 | register Page",
+        "js" => [],
+        "css" => ["register"],
+        "isCustom" => true
     ],
 ]);

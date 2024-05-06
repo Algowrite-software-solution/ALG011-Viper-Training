@@ -1,0 +1,139 @@
+.sig-imageside{
+    position: relative;       
+    width: 50vw;   
+  }
+  
+  .sig-image{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .sig-imagesidetxt{
+    width: 100%;
+    height: 100%;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    position: absolute;    
+    color: white;    
+  }
+  
+  .sig-circle{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+  
+  .sig-container{
+    display: flex;
+    height: 100vh;
+    width: 100vw;  
+  }
+  
+  .sig-side{    
+    max-width: 50vw; 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+  }
+  
+  .sig-txt{
+    font-size: 30px;
+    margin-top: 15%;  
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .sig-txtbox{
+    color: #0387FF;
+    font-weight: 700;   
+    width: 550px; 
+  }
+  
+  .sig-inputbox{
+    width: 100%;
+    height: 53px;
+    border-radius: 50px;
+    border: 3px solid #0387FF;
+    margin-top: 5px;
+    padding: 20px;
+  }
+
+  label{
+    margin-left: 25px;
+  }
+  
+  .sig-centertxt{
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .sig-forgotpassword{
+    color: black;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .sig-submitbtn{
+    width: 250px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0387FF;
+    color: white;
+    font-weight: 700;
+    margin-top: 10px;  
+    box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
+  }
+  
+  .sig-submitbtn:hover{
+    background-color: #4DAAFF;
+  }
+  
+  .sig-graytxt{
+    color: #868686;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;  
+  }
+  
+  .sig-graytxtline{
+    color: #868686;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;  
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  
+  .sig-linediv{
+    display: flex;      
+  }
+  
+  .sig-line{
+    margin-top: 22px;
+    width: 44%;
+    border: 1.7px solid
+  }
+
+  @media screen and (min-width: 1070px) {
+    
+  }
+  
+  @media screen and (max-width: 1070px) and (min-width: 575px) {
+    
+  }
+  
+  @media screen and (max-width: 575px) {
+    
+  }
+  
