@@ -128,7 +128,7 @@ form{
 
 label {
     margin-left: 1.5em;
-    margin-bottom: 0.4em;
+    /* margin-bottom: 0.4em; */
 }
 
 input {
