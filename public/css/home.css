@@ -1,6 +1,6 @@
 /* author : Niman Wijerathna
 Created : 2024/05/02
-Description : this is the home layout css (hs- home section) */
+Description : this is the home layout css (hp- home page) */
 
 body {
   display: flex;
@@ -8,11 +8,11 @@ body {
   margin: 0;
 }
 
-.hs-s1-container {
+.hp-s1-container {
   display: flex;
 }
 
-.hs-s1-sidebar {
+.hp-s1-sidebar {
   background: #0387FF;
   color: #FFFFFF;
   width: 280px;
@@ -20,7 +20,13 @@ body {
   padding: 20px;
 }
 
-.hs-s1-logo {
+.hp-s1-menu-icon img{
+display: flex;
+inline-size: 16px;
+margin-right: 10px;
+}
+
+.hp-s1-logo {
   text-align: center;
   margin-bottom: 70px;
   margin-top: 10px;
@@ -29,7 +35,7 @@ body {
   line-height: 20.4px;
 }
 
-.hs-s1-logo .icon {
+.hp-s1-logo .icon {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -39,7 +45,7 @@ body {
   margin-top: -5px;
 }
 
-.hs-s1-logo .icon::before {
+.hp-s1-logo .icon::before {
   content: "";
   position: absolute;
   width: 15px;
@@ -51,7 +57,7 @@ body {
   border: 8px solid #0387FF;
 }
 
-.hs-s1-logo img .image {
+.hp-s1-logo img .image {
   background-color: #FFFFFF;
   background-size: r;
   width: 30px;
@@ -59,16 +65,16 @@ body {
   border: 8px 0px 0px 0px;
 }
 
-.hs-s1-menu {
+.hp-s1-menu {
   list-style-type: none;
   padding: 0;
 }
 
-.hs-s1-menu li {
+.hp-s1-menu li {
   margin-bottom: 40px;
 }
 
-.hs-s1-menu li a {
+.hp-s1-menu li a {
   color: #9ACFFF;
   text-decoration: none;
   display: block;
@@ -77,11 +83,11 @@ body {
   line-height: 14.28px;
 }
 
-.hs-s1-menu li a:hover {
+.hp-s1-menu li a:hover {
   text-decoration: none;
 }
 
-.hs-s1-menu li a img {
+.hp-s1-menu li a img {
   width: 18px;
   height: 18px;
   margin-right: 10px;
@@ -89,7 +95,7 @@ body {
   color: #9ACFFF;
 }
 
-.hs-s1-content {
+.hp-s1-content {
   flex: 1;
   background: #FFFFFF;
   padding: 20px;
@@ -99,20 +105,20 @@ body {
   display: none;
 }
 
-.hs-s1-profile {
+.hp-s1-profile {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.hs-s1-title {
+.hp-s1-title {
   font-size: 20px;
   font-weight: 500;
   line-height: 20px;
   margin-right: auto;
 }
 
-.hs-s1-profile .hs-s1-user-icon {
+.hp-s1-profile .hp-s1-user-icon {
   width: 32px;
   height: 32px;
   border-radius: 98px;
@@ -125,7 +131,7 @@ body {
   font-size: 14px;
 }
 
-.hs-s1-profile button {
+.hp-s1-profile button {
   text-decoration: none;
   padding: 5px 12px 5px 12px;
   border-radius: 68px;
@@ -135,7 +141,7 @@ body {
 
 }
 
-.hs-s1-profile button .hs-s1-btn {
+.hp-s1-profile button .hp-s1-btn {
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
@@ -144,30 +150,43 @@ body {
 
 /* meadia queries */
 
-@media screen and (max-width: 1070px) {}
+@media screen and (max-width: 1070px) {
+  
+}
 
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+  .hp-s1-menu-icon img {
+    display: none; 
+    }
+}
 
 @media screen and (max-width: 992px) {}
 
 @media screen and (max-width: 768px) {
-  .hs-s1-container {
+  .hp-s1-container {
     flex-direction: column;
   }
 
-  .hs-s1-sidebar {
+  .hp-s1-content {
     width: 100%;
   }
 
-  .hs-s1-content {
-    width: 100%;
-  }
+  
+
+
+  
+
 }
 
-@media screen and (max-width: 600px) {}
+@media screen and (max-width: 600px) {
+  
+}
 
 @media screen and (max-width: 426px) {}
 
-@media screen and (max-width: 375px) {}
+@media screen and (max-width: 375px) {
+  
+}
+
 
 @media screen and (max-width: 320px) {}
