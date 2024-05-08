@@ -1,8 +1,4 @@
 /* typography */
-html{
-    font-size: 16px;
-}
-
 h1{
     font-size: 2rem;
     margin-bottom:1.25em;
@@ -127,12 +123,12 @@ form{
 .input-group {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 label {
     margin-left: 1.5em;
-    margin-bottom: 0.4em;
+    /* margin-bottom: 0.4em; */
 }
 
 input {
@@ -146,9 +142,20 @@ input::-webkit-input-placeholder {
     color: var(--light-50);
 }
 
+.input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(3, 135, 255, 0.25); /* Add a focus shadow */
+}
+
 .forgot-password {
     text-decoration: underline;
 }
+
+/* Hover effect on the forgot password link */
+.forgot-password:hover {
+    color: #ff0e3a;
+}
+
 
 .register-button {
     position: relative;
@@ -159,7 +166,13 @@ input::-webkit-input-placeholder {
     border-radius: 84px ;
     font-size: 0.875rem;
     box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.register-button:hover {
+    background-color: #0364cb;
+}
+
 
 
 /* Divider */
