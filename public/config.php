@@ -23,7 +23,7 @@ define("ROUTES", [
         "css" => ["home"],
         "isCustom" => true
     ],[
-        "routes" => ["signin"],
+        "routes" => ["login"],
         "fileName" => "signin",
         "title" => "ALGLIB_002 | Signin Page",
         "js" => [],

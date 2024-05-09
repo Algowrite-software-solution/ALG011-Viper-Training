@@ -26,7 +26,7 @@
                 <div class="sig-centertxt">
                     <a href="#" class="sig-forgotpassword">Forget your password</a><br>           
                     <button type="submit" class="sig-submitbtn">Sign in</button><br><br>
-                    <span class="sig-graytxt">Don't have an account? </span><a href="#" >Register</a><br><br>
+                    <span class="sig-graytxt">Don't have an account? </span><a href="/register" >Register</a><br><br>
                     <div class="sig-linediv">
                         <hr class="sig-line">
                         <span class="sig-graytxtline">OR</span>

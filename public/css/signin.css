@@ -54,7 +54,9 @@
   .sig-txtbox{
     color: #0387FF;
     font-weight: 700;   
-    width: 550px; 
+    width: 550px;    
+    margin-right: 0%;    
+    margin-left: 0%;
   }
   
   .sig-inputbox{
@@ -126,14 +128,26 @@
   }
 
   @media screen and (min-width: 1070px) {
-    
+    .sig-txtbox{
+      max-width: 100%; 
+      margin-right: 0%;    
+      margin-left: 0%;
+    }
   }
   
   @media screen and (max-width: 1070px) and (min-width: 575px) {
-    
+    .sig-txtbox{
+      max-width: 60%; 
+      margin-right: -100px;    
+      margin-left: 100px;  
+    }
   }
   
   @media screen and (max-width: 575px) {
-    
+    .sig-txtbox{
+      max-width: 40%; 
+      margin-right: -100px;    
+      margin-left: 100px;  
+    }
   }
   
