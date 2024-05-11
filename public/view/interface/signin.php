@@ -11,16 +11,16 @@
             <img src="../../resources/images/signin/signinimage.png" alt="signinimage" class="sig-image">
        </div>
 
-       <div class="sig-side">
-            <p class="sig-txt">Sign In</p>
+       <div class="sig-side">      
             <form action="/" method="post">
+                <p class="sig-txt">Sign In</p>
                 <div class="sig-txtbox">
                     <label for="Email">Email address</label><br>
                     <input type="email" class="sig-inputbox" id="Email" placeholder="Enter your account email..." required>
                 </div>
                 <br>
                 <div class="sig-txtbox">
-                    <label for="Password">Password</label>
+                    <label for="Password">Password</label><br>
                     <input type="password" class="sig-inputbox" id="Password" placeholder="Create a strong password..." required>
                 </div>  
                 <div class="sig-centertxt">

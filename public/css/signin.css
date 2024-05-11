@@ -1,153 +1,277 @@
-.sig-imageside{
-    position: relative;       
-    width: 50vw;   
-  }
-  
-  .sig-image{
-    width: 100%;
-    height: 100%;
-  }
-  
-  .sig-imagesidetxt{
-    width: 100%;
-    height: 100%;
-    padding: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    position: absolute;    
-    color: white;    
-  }
-  
-  .sig-circle{
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    background-color: white;
-    margin-bottom: 10px;
-  }
-  
-  .sig-container{
-    display: flex;
-    height: 100vh;
-    width: 100vw;  
-  }
-  
-  .sig-side{    
-    max-width: 50vw; 
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;    
-  }
-  
-  .sig-txt{
-    font-size: 30px;
-    margin-top: 15%;  
-    font-weight: 500;
-    text-align: center;
-  }
-  
-  .sig-txtbox{
-    color: #0387FF;
-    font-weight: 700;   
-    width: 550px;    
-    margin-right: 0%;    
-    margin-left: 0%;
-  }
-  
-  .sig-inputbox{
-    width: 100%;
+.sig-imageside {
+  position: relative;
+  max-width: 50vw;
+  width: 100%;
+  height: 100%;
+}
+
+.sig-image {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.sig-imagesidetxt {
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  position: absolute;
+  color: white;
+}
+
+.sig-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.sig-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+  max-width: 100vw;
+}
+
+.sig-side {
+  max-width: 50vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sig-txt {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.sig-txtbox {
+  color: #0387FF;
+  font-weight: 700;
+}
+
+.sig-inputbox {
+  width: 600px;
+  height: 53px;
+  border-radius: 50px;
+  border: 3px solid #0387FF;
+  margin-top: 5px;
+  padding: 20px;
+  margin-left: 0%;
+}
+
+label {
+  margin-left: 25px;
+}
+
+.sig-centertxt {
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.sig-forgotpassword {
+  color: black;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.sig-submitbtn {
+  width: 250px;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  background-color: #0387FF;
+  color: white;
+  font-weight: 700;
+  margin-top: 10px;
+  box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
+}
+
+.sig-submitbtn:hover {
+  background-color: #0364cb;
+}
+
+.sig-graytxt {
+  color: #868686;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.sig-graytxtline {
+  color: #868686;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.sig-linediv {
+  display: flex;
+}
+
+.sig-line {
+  margin-top: 22px;
+  width: 100%;
+  border: 1.7px solid;
+}
+
+@media screen and (min-width: 1400px) {
+  .sig-inputbox {
+    max-width: 100%;
     height: 53px;
     border-radius: 50px;
     border: 3px solid #0387FF;
     margin-top: 5px;
     padding: 20px;
+    margin-left: 0%;
   }
 
-  label{
-    margin-left: 25px;
+  .sig-linediv {
+    display: flex;
   }
-  
-  .sig-centertxt{
-    margin-top: 10px;
-    text-align: center;
+
+  .sig-line {
+    margin-top: 22px;
     width: 100%;
+    border: 1.7px solid;
   }
-  
-  .sig-forgotpassword{
-    color: black;
-    font-weight: 500;
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .sig-submitbtn{
-    width: 250px;
+    
+  .sig-submitbtn {
+    width: 220px;
     height: 50px;
     border-radius: 50px;
     border: none;
     background-color: #0387FF;
     color: white;
     font-weight: 700;
-    margin-top: 10px;  
+    margin-top: 10px;
+    box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1200px) {
+  .sig-inputbox {
+    max-width: 90%;
+    height: 53px;
+    border-radius: 50px;
+    border: 3px solid #0387FF;
+    margin-top: 5px;
+    padding: 20px;
+    margin-left: 5%;
+  }
+  label {
+    margin-left: 55px;
+  }
+
+  .sig-linediv {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sig-line {
+    margin-top: 22px;
+    width: 220px;
+    border: 1.7px solid;
+  }
+  
+  .sig-submitbtn {
+    width: 210px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0387FF;
+    color: white;
+    font-weight: 700;
+    margin-top: 10px;
     box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
   }
   
-  .sig-submitbtn:hover{
-    background-color: #4DAAFF;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 800px) {
+  .sig-inputbox {
+    max-width: 65%;
+    height: 53px;
+    border-radius: 50px;
+    border: 3px solid #0387FF;
+    margin-top: 5px;
+    padding: 20px;
+    margin-left: 18%;
   }
-  
-  .sig-graytxt{
-    color: #868686;
-    font-weight: 500;
-    margin-top: 10px;
-    text-align: center;  
-  }
-  
-  .sig-graytxtline{
-    color: #868686;
-    font-weight: 500;
-    margin-top: 10px;
-    text-align: center;  
-    margin-left: 30px;
-    margin-right: 30px;
-  }
-  
-  .sig-linediv{
-    display: flex;      
-  }
-  
-  .sig-line{
-    margin-top: 22px;
-    width: 44%;
-    border: 1.7px solid
+  label {
+    margin-left: 130px;
   }
 
-  @media screen and (min-width: 1070px) {
-    .sig-txtbox{
-      max-width: 100%; 
-      margin-right: 0%;    
-      margin-left: 0%;
-    }
+  .sig-linediv {
+    display: flex;
+    justify-content: center;
   }
-  
-  @media screen and (max-width: 1070px) and (min-width: 575px) {
-    .sig-txtbox{
-      max-width: 60%; 
-      margin-right: -100px;    
-      margin-left: 100px;  
-    }
+
+  .sig-line {
+    margin-top: 22px;
+    width: 150px;
+    border: 1.7px solid;
   }
-  
-  @media screen and (max-width: 575px) {
-    .sig-txtbox{
-      max-width: 40%; 
-      margin-right: -100px;    
-      margin-left: 100px;  
-    }
+
+  .sig-submitbtn {
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0387FF;
+    color: white;
+    font-weight: 700;
+    margin-top: 10px;
+    box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
   }
-  
+}
+
+@media screen and (max-width: 800px) {
+  .sig-inputbox {
+    max-width: 50%;
+    height: 53px;
+    border-radius: 50px;
+    border: 3px solid #0387FF;
+    margin-top: 5px;
+    padding: 20px;
+    margin-left: 25%;
+  }
+  label {
+    margin-left: 170px;
+  }
+  .sig-linediv {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sig-line {
+    margin-top: 22px;
+    width: 100px;
+    border: 1.7px solid;
+  }
+  .sig-submitbtn {
+    width: 190px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0387FF;
+    color: white;
+    font-weight: 700;
+    margin-top: 10px;
+    box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
+  }
+}
