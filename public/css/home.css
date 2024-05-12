@@ -15,7 +15,7 @@ Description : this is the home layout css (hp- home page) */
   position: fixed;
   left: -100%;
   top: 0;
-  transition: all .5s ease;
+  transition: all .6s ease-in-out;
 }
 
 .hp-s1-sidebar.active {
@@ -31,7 +31,7 @@ Description : this is the home layout css (hp- home page) */
   line-height: 20.4px;
 }
 
-.hp-s1-logo .icon {
+.hp-s1-logo .hp-s1-rounded-icon {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -41,7 +41,7 @@ Description : this is the home layout css (hp- home page) */
   margin-top: -5px;
 }
 
-.hp-s1-logo .icon::before {
+.hp-s1-logo .hp-s1-rounded-icon::before {
   content: "";
   position: absolute;
   width: 15px;
@@ -97,10 +97,6 @@ Description : this is the home layout css (hp- home page) */
   padding: 20px;
 }
 
-.tab-content {
-  display: none;
-}
-
 .hp-s1-profile {
   display: flex;
   align-items: center;
@@ -128,6 +124,10 @@ Description : this is the home layout css (hp- home page) */
   font-size: 14px;
 }
 
+.hp-s1-profile .hp-s1-user-icon:hover {
+  cursor: pointer;
+}
+
 .hp-s1-profile button {
   text-decoration: none;
   padding: 5px 12px 5px 12px;
@@ -144,6 +144,10 @@ Description : this is the home layout css (hp- home page) */
   color: #272727;
 }
 
+.hp-s1-btn:hover{
+  box-shadow: 0px 1px 2px 1px  #007bff;
+}
+
 .hp-s1-close-icon {
   cursor: pointer;
   position: absolute;
@@ -155,7 +159,7 @@ Description : this is the home layout css (hp- home page) */
 }
 
 .hp-s1-close-icon img {
-  height: 24px;
+  height: 28px;
 }
 
 .hp-s1-menu-icon {
@@ -170,31 +174,33 @@ Description : this is the home layout css (hp- home page) */
 }
 
 @media (min-width: 992px) {
-  .hp-s1-sidebar{
+  .hp-s1-sidebar {
     left: 0;
     position: fixed;
   }
 
-  .hp-s1-close-icon{
+  .hp-s1-close-icon {
     display: none;
   }
 
-  .hp-s1-menu-icon{
+  .hp-s1-menu-icon {
     display: none;
+  }
+
+  .hp-s1-title {
+    margin-left: 280px;
+    transition: all .6s ease-in-out;
   }
 }
 
-@media screen and (max-width: 992px) {
- 
-}
+@media screen and (max-width: 992px) {}
 
-@media screen and (max-width: 768px) {
-}
+@media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 600px) {}
 
 @media screen and (max-width: 426px) {
-  .hp-s1-sidebar{
+  .hp-s1-sidebar {
     display: none;
   }
 }

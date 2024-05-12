@@ -3,13 +3,14 @@
      created : 2024/05/02
      Description : this is the Home Page Layout-->
 <!-- home page (hp) -->
+
 <section class="hp-s1-container">
     <div class="hp-s1-menu-icon">
         <img src="../../resources/images/home/menuicon.png" alt="Menu Icon">
     </div>
     <div class="hp-s1-sidebar" id="sidebar">
         <div class="hp-s1-logo">
-            <div class="icon"></div>
+            <div class="hp-s1-rounded-icon"></div>
             Algowrite
         </div>
         <div class="hp-s1-close-icon">
