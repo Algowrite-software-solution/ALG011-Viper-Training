@@ -19,7 +19,7 @@ define("ROUTES", [
         "routes" => ["","home"],
         "fileName" => "home",
         "title" => "ALGLIB_002 | Home Page",
-        "js" => [],
+        "js" => ["home"],
         "css" => ["home"],
         "isCustom" => true
     ],[

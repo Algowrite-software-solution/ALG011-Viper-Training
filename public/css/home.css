@@ -2,12 +2,6 @@
 Created : 2024/05/02
 Description : this is the home layout css (hp- home page) */
 
-body {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
-
 .hp-s1-container {
   display: flex;
 }
@@ -18,13 +12,16 @@ body {
   width: 280px;
   height: 100vh;
   padding: 20px;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  transition: all .5s ease;
 }
 
-.hp-s1-menu-icon img{
-display: flex;
-inline-size: 16px;
-margin-right: 10px;
+.hp-s1-sidebar.active {
+  left: 0;
 }
+
 
 .hp-s1-logo {
   text-align: center;
@@ -49,11 +46,11 @@ margin-right: 10px;
   content: "";
   position: absolute;
   width: 15px;
-  height: 15px; 
-  border-radius: 50%; 
+  height: 15px;
+  border-radius: 50%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   border: 8px solid #0387FF;
 }
 
@@ -116,6 +113,7 @@ margin-right: 10px;
   font-weight: 500;
   line-height: 20px;
   margin-right: auto;
+  margin-left: 40px;
 }
 
 .hp-s1-profile .hp-s1-user-icon {
@@ -148,45 +146,67 @@ margin-right: 10px;
   color: #272727;
 }
 
-/* meadia queries */
-
-@media screen and (max-width: 1070px) {
-  
+.hp-s1-menu-icon {
+  display: none;
 }
+
+.close-icon {
+  cursor: pointer;
+  position: absolute;
+  font-size: 24px;
+  color: white;
+  right: 0;
+  top: 0;
+  margin: 22px;
+  /* display: none; */
+}
+
+.close-icon img {
+  height: 24px;
+}
+
+.menu-icon {
+  cursor: pointer;
+  position: absolute;
+  color: white;
+  margin: 25px;
+}
+
+.menu-icon img {
+  height: 22px;
+}
+
 
 @media (min-width: 992px) {
-  .hp-s1-menu-icon img {
-    display: none; 
-    }
+  .hp-s1-sidebar{
+    left: 0;
+    position: fixed;
+  }
+
+  .close-icon{
+    display: none;
+  }
+
+  .menu-icon{
+    display: none;
+  }
 }
 
-@media screen and (max-width: 992px) {}
+@media screen and (max-width: 992px) {
+ 
+}
 
 @media screen and (max-width: 768px) {
-  .hp-s1-container {
-    flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {}
+
+@media screen and (max-width: 426px) {
+  .hp-s1-sidebar{
+    display: none;
   }
-
-  .hp-s1-content {
-    width: 100%;
-  }
-
-  
-
-
-  
-
 }
 
-@media screen and (max-width: 600px) {
-  
-}
-
-@media screen and (max-width: 426px) {}
-
-@media screen and (max-width: 375px) {
-  
-}
-
+@media screen and (max-width: 375px) {}
 
 @media screen and (max-width: 320px) {}
