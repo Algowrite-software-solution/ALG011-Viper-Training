@@ -22,7 +22,6 @@ Description : this is the home layout css (hp- home page) */
   left: 0;
 }
 
-
 .hp-s1-logo {
   text-align: center;
   margin-bottom: 70px;
@@ -136,7 +135,6 @@ Description : this is the home layout css (hp- home page) */
   margin-right: 20px;
   background-color: #9ACFFF;
   border: none;
-
 }
 
 .hp-s1-profile button .hp-s1-btn {
@@ -146,11 +144,7 @@ Description : this is the home layout css (hp- home page) */
   color: #272727;
 }
 
-.hp-s1-menu-icon {
-  display: none;
-}
-
-.close-icon {
+.hp-s1-close-icon {
   cursor: pointer;
   position: absolute;
   font-size: 24px;
@@ -158,24 +152,22 @@ Description : this is the home layout css (hp- home page) */
   right: 0;
   top: 0;
   margin: 22px;
-  /* display: none; */
 }
 
-.close-icon img {
+.hp-s1-close-icon img {
   height: 24px;
 }
 
-.menu-icon {
+.hp-s1-menu-icon {
   cursor: pointer;
   position: absolute;
   color: white;
   margin: 25px;
 }
 
-.menu-icon img {
+.hp-s1-menu-icon img {
   height: 22px;
 }
-
 
 @media (min-width: 992px) {
   .hp-s1-sidebar{
@@ -183,11 +175,11 @@ Description : this is the home layout css (hp- home page) */
     position: fixed;
   }
 
-  .close-icon{
+  .hp-s1-close-icon{
     display: none;
   }
 
-  .menu-icon{
+  .hp-s1-menu-icon{
     display: none;
   }
 }
