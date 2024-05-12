@@ -8,7 +8,7 @@
 // import statements
 require_once __DIR__ . '/../router/Api.php';
 
-class APIName extends Api
+class User extends Api
 {
        public function __construct($apiPath)
        {
@@ -17,31 +17,46 @@ class APIName extends Api
               $this->init($this);
        }
        //data method
-       protected function processname()
+       protected function register()
        {
-              //if (!self::isGetMethod()) {
-              //       return (INVALID_REQUEST_METHOD);
-              //}
-              //return self::response(1, "testing mode on"); // json response
-//
-              //self::setResponseToText(); // text response
-              //return "testing mode on";
+              if (!self::isPostMethod()) {
+                    return (INVALID_REQUEST_METHOD);
+              }                         
+              
+              $data = $_POST;  
+              $email = $data['email'];              
 
-              //Example Usage of methods
-              // $userId = $_GET['user_id'] ?? null; // getting query parameters from requests
+              $validator = new DataValidator();
 
-              // using data validators (you must configoure the validator model)
-              // $validateReadyArray = [
-              //        "password" => [ "password" => $password]
-              // ];
-              // return ($error = $this->validateData($validateReadyArray)) ? $error : "success";
+              $validationRules = [
+                     'email' => ['email' => $email] 
+              ];
 
-              // access database and proform queris with prepared statements or jsut queris.
-              // return $this->dbCall("SELECT * FROM `user` WHERE `user_id`=?", 'i', [$userId]);
+              $validationErrors = $validator->validate($validationRules);
 
-              $databaseOperation = $this->crudOperator;
-             // $databaseOperation->insert('test_1',$_POST);
-              //$databaseOperation->update('test_1',$_POST,array('col_1'=>34,'col_2'=>'hf'));
+              if (count((array)$validationErrors) > 0) {                     
+                     return ("Email has error");
+                 } else {                    
+                     $email = $_POST['email'];
+                     $password = $_POST['password'];
+                     // return($email . " " . $password);
+
+                     $tableName = 'user';
+                     $insertData = [
+                            'email' => $email,
+                            'password' => $password
+                        ];
+
+                     $databaseOperation = $this->crudOperator;
+                     $result = $databaseOperation->insert($tableName, $insertData);
+
+                     if ($result) {
+                            return "User registered successfully";
+                     } else {
+                            return "User registration failed"; 
+                     }
+              }
+
 
        }
 }
