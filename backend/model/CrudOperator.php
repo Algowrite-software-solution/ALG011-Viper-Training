@@ -122,6 +122,8 @@ class CrudOperator
         $insertQuery .= "(" . implode(", ", $columns) . ") ";
         $insertQuery .= "VALUES (" . implode(", ", $placeholders) . ")";
 
+        //var_dump($insertQuery);
+
         // Execute the insert query
         $result = $this->databaseDriver->execute_query($insertQuery, $types, $params);
         return $result;
