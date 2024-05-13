@@ -7,7 +7,7 @@ define("SESSION_VARIABLE_USER", "alg011_user");
 // database config
 define("DB_SERVER", "localhost");
 define("DB_USERNAME", "root");
-define("DB_PASSWORD", "******");
+define("DB_PASSWORD", "KaviskaDilshan12#$");
 define("DB_DATABASE", "alg011_db");
 
 //constants

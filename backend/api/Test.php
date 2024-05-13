@@ -11,22 +11,27 @@ require_once __DIR__ . '/../model/DatabaseBackupHandler.php';
 
 class Test extends Api
 {
-       public function __construct($apiPath)
+       private $isApi;
+
+       public function __construct($apiPath, $isApi = true)
        {
               //pares apiPath parent class constructor
               parent::__construct($apiPath);
-              $this->init($this);
+              $this->isApi=$isApi;
+
+              if ($isApi) {
+                     $this->init($this);
+              }
        }
 
        //data method
-       protected function process()
+       public function process()
        {
-              // $operator = new DatabaseBackup($this->databaseDriver->connection, DB_DATABASE);
-              // $operator->createBackup();
-              $dbResults = $this->crudOperator->select("user", ["user_id" => 20]);
-              if (count($dbResults)) {
-                     return self::response(1, $dbResults);
+              if($this->isApi){
+              return self::response(1,$_GET);
+
+
               }
-              return self::response(2, "no result found");
+              return self::response(1,"test rank");
        }
 }
