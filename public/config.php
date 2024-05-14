@@ -8,21 +8,21 @@ define("ROUTES", [
         "js" => ["pagename"],
         "css" => ["pagename"],
         "isCustom" => false
-    ],[
+    ], [
         "routes" => ["test"],
         "fileName" => "test",
         "title" => "ALGLIB_002 | Test Page",
         "js" => ["test"],
         "css" => ["test"],
         "isCustom" => false
-    ],[
-        "routes" => ["","home"],
+    ], [
+        "routes" => ["", "home"],
         "fileName" => "home",
         "title" => "ALGLIB_002 | Home Page",
         "js" => ["home"],
         "css" => ["home"],
         "isCustom" => true
-    ],[
+    ], [
         "routes" => ["login"],
         "fileName" => "signin",
         "title" => "ALGLIB_002 | Signin Page",
@@ -36,6 +36,13 @@ define("ROUTES", [
         "title" => "ALGLIB_002 | register Page",
         "js" => [],
         "css" => ["register"],
+        "isCustom" => true
+    ], [
+        "routes" => ["password-reset"],
+        "fileName" => "resetPassword",
+        "title" => "ALGLIB_002 | Password Reset Page",
+        "js" => ["resetPassword"],
+        "css" => ["resetPassword"],
         "isCustom" => true
     ],
 ]);
