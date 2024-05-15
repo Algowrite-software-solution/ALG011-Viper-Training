@@ -29,11 +29,14 @@
   }
 
   .sig-left-panel{
-    height: 30vh;
+    height: 25vh;
   }
 
   .sig-right-panel{
-    height: 70vh;
-    margin-top: 30px;
+    height: 75vh;    
+  }
+
+  .sig-input-area{
+    margin-top: -20px;
   }
 }
