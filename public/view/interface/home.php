@@ -6,7 +6,7 @@
 
 <section class="hp-s1-container">
     <div class="hp-s1-menu-icon">
-        <img src="../../resources/images/home/menuicon.png" alt="Menu Icon">
+        <img src="../resources/images/home/menuicon.png" alt="Menu Icon">
     </div>
     <div class="hp-s1-sidebar" id="sidebar">
         <div class="hp-s1-logo">
