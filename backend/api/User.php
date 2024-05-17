@@ -11,6 +11,7 @@ require_once __DIR__ . '/../router/Api.php';
 require_once __DIR__ . '/../model/PasswordHash.php';
 require_once __DIR__ . '/../model/UniqueIDGenerator.php';
 require_once __DIR__ . '/../model/mail/MailSender.php';
+require_once __DIR__ . '/../model/SessionManager.php';
 
 
 require_once __DIR__ . '/Test.php';
@@ -150,7 +151,12 @@ class User extends Api
                      return self::response(5, 'password incorrect');
               }
 
-
-              return self::response(1);
+              //sign in user to session
+              $sessionManager = new SessionManager();
+              $sessionManager->login($result[0]['id']);
+              
+              //return success massege
+              return self::response(1);   
+              
        }
 }
