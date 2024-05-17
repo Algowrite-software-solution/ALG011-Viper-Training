@@ -3,7 +3,7 @@
 }
 
 .vp-right-panel {
-  background-image: url("/resources/images/reset-password/bg-image.jpg");
+  background-image: url("/resources/images/verificationpage/signinimage.png");
   background-size: cover;
   background-position: center;
 }
@@ -59,6 +59,11 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.vc-expired {
+  color: red;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {

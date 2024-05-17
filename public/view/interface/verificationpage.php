@@ -12,7 +12,11 @@
                                    <input type="text" class="vp-input" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
                                    <input type="text" class="vp-input" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
                             </div>
-                            <button type="submit" onclick="verificationcode()"  class="alg-btn vp-input-width">Continue</button>
+                            <div class="h-50"></div>
+                            <div class="d-flex flex-row justify-content-center ms-0">
+                                   <img src="../../resources/images/verificationpage/timer.png" alt="timer" width="30" height="30"><div id="countdown" class="alg-text-primary fw-bold fs-5"></div>
+                            </div>                            
+                            <button type="submit" onclick="verificationcode()"  class="mt-1 alg-btn vp-input-width">Continue</button>
                      </div>
                      <div class="vp-right-panel col-12 col-md-6 bg-primary d-flex flex-column justify-content-center p-5 alg-text-light gap-2 order-md-2 order-1">
                             <div class="vp-dot"></div>
