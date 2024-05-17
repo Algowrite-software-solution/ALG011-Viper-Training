@@ -106,4 +106,51 @@ class User extends Api
               //return success massege
               return self::response(1);
        }
+
+       protected function signin()
+       {
+              if (!self::isPostMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }
+
+              //catch request parameter sent data
+
+              if (self::postMethodHasError('email', 'password')) {
+                     return self::response(2, 'missing parameters');
+              }
+
+              $email = $_POST['email'] ?? null;
+              $password = $_POST['password'] ?? null;
+
+              //validate data
+
+              $validateReadyArray = [                     
+                     "email" => ["email" => $email],
+                     "password" => ["password" => $password]                   
+
+              ];
+              $error = $this->validateData($validateReadyArray);
+              if (!empty($error)) {
+                     return self::response(3, $error);
+              }
+
+              //validate if user exist or not
+
+              $result = $this->crudOperator->select('user', array('email' => $email));
+
+              if (count($result) == 0) {
+                     return self::response(4, 'email not found');
+              }
+
+              $hash = $result[0]['password_hash'];
+
+              $passwordHasher = new PasswordHash();
+
+              if (!$passwordHasher->isValid($password, $hash)) {
+                     return self::response(5, 'password incorrect');
+              }
+
+
+              return self::response(1);
+       }
 }
