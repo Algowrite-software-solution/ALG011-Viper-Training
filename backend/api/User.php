@@ -159,4 +159,53 @@ class User extends Api
               return self::response(1);   
               
        }
+
+
+       protected function userverify()
+       {            
+              if (!self::isPostMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }
+
+              //catch request parameter sent data
+
+              if (self::postMethodHasError('email','verification_code')) {
+                     return self::response(2, 'missing parameters');
+              }
+
+              $email = $_POST['email'] ?? null;
+              $verification_code = $_POST['verification_code'] ?? null;
+
+              //validate data
+
+              $validateReadyArray = [    
+                     "email" => ["email" => $email],                 
+                     "id_int" => ["id_int" => $verification_code]                   
+
+              ];
+
+              $error = $this->validateData($validateReadyArray);
+              if (!empty($error)) {
+                     return self::response(3, $error);
+              }
+
+              //check if the code is valid for the email of the user
+              $result = $this->crudOperator->select('user', array('email' => $email));
+
+              if (count($result) == 0) {
+                     return self::response(4, 'email not found');
+              }
+
+              if($result[0]['verification_code'] != $verification_code){
+                     return self::response(5, 'verification code incorrect');
+              }
+
+              //call sign in
+              $this->signin();
+              
+              //response
+              return self::response(1);
+              
+              
+       }
 }
