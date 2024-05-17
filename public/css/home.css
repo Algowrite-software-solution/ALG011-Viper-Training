@@ -114,13 +114,14 @@ Description : this is the home layout css (hp- home page) */
 .hp-s1-profile .hp-s1-user-icon {
   width: 32px;
   height: 32px;
-  border-radius: 98px;
+  border-radius: 20px;
   background-color: #007bff;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  line-height: 14px;
   font-size: 14px;
 }
 
@@ -172,6 +173,37 @@ Description : this is the home layout css (hp- home page) */
 .hp-s1-menu-icon img {
   height: 22px;
 }
+
+/* User Profile */
+
+.hp-s2-profile-container{
+
+}
+
+.hp-s2-about-user{
+
+}
+
+.hp-s2-edit-btn{
+
+}
+
+.hp-s2-personal-informations{
+
+}
+
+.hp-s2-imformations{
+
+}
+
+.hp-s2-address{
+
+}
+
+.hp-s2-address-info{
+
+}
+
 
 @media (min-width: 992px) {
   .hp-s1-sidebar {

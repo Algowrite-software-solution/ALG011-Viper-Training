@@ -25,9 +25,64 @@
 
     <div class="hp-s1-content">
         <div class="hp-s1-profile">
-            <div class="hp-s1-title">Product</div>
+            <div class="hp-s1-title">My Profile</div>
             <button class="hp-s1-btn">Sign Out</button>
-            <div class="hp-s1-user-icon">JN</div>
+            <div class="hp-s1-user-icon">BT</div>
         </div>
+    </div>
+</section>
+
+<section class="hp-s2-profile-container">
+    <div class="hp-s2-about-user">
+        <h2></h2>
+        <h4></h4>
+        <!-- <img src="" alt="Profile Image"> -->
+        <div class="hp-s2-edit-btn">
+            <span></span>
+            <!-- <button></button> -->
+        </div>
+    </div>
+    <div class="hp-s2-personal-informations">
+        <h2></h2>
+        <div class="hp-s2-edit-btn">
+            <span></span>
+            <!-- <button></button> -->
+        </div>
+        <div class="hp-s2-imformations">
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+            <span></span>
+        </div>
+    </div>
+    <div class="hp-s2-address">
+        <div class="hp-s2-edit-btn">
+            <span></span>
+            <!-- <button></button> -->
+        </div>
+        <div class="hp-s2-address-info">
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+            <span></span>
+            <h4></h4>
+        </div>
+    </div>
+    <div class="hp-s2-save-btn">
+        <!-- <button></button> -->
     </div>
 </section>
