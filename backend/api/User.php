@@ -1,12 +1,19 @@
+
 <?php
 
 /**
- * @author : Eshmika
- * @description : Register API
+ * @author : Author Name
+ * @description : This file is an Example for developing an API
  */
 
 // import statements
 require_once __DIR__ . '/../router/Api.php';
+require_once __DIR__ . '/../model/PasswordHash.php';
+require_once __DIR__ . '/../model/UniqueIDGenerator.php';
+require_once __DIR__ . '/../model/mail/MailSender.php';
+
+
+require_once __DIR__ . '/Test.php';
 
 class User extends Api
 {
@@ -16,47 +23,87 @@ class User extends Api
               parent::__construct($apiPath);
               $this->init($this);
        }
-       //data method
-       protected function register()
+    
+       public function register()
        {
+
+              //check whether request method is post
               if (!self::isPostMethod()) {
-                    return (INVALID_REQUEST_METHOD);
-              }                         
-              
-              $data = $_POST;  
-              $email = $data['email'];              
+                     return INVALID_REQUEST_METHOD;
+              }
+              //check whether post method has error
+              if (self::postMethodHasError('name', 'email', 'password', 'role')) {
+                     return self::response(2, 'missing parameters');
+              }
 
-              $validator = new DataValidator();
+              //get post data
+              $name = $_POST['name'] ?? null;
+              $email = $_POST['email'] ?? null;
+              $password = $_POST['password'] ?? null;
+              $role = $_POST['role'] ?? null;
+              $mobile1 = $_POST['mobile1'] ?? null;
+              $mobile2 = $_POST['mobile2'] ?? null;
 
-              $validationRules = [
-                     'email' => ['email' => $email] 
+              // validate the data
+              $validateReadyArray = [
+                     "name" => ["name" => $name],
+                     "email" => ["email" => $email],
+                     "password" => ["password" => $password],
+
               ];
+              $error = $this->validateData($validateReadyArray);
+              if (!empty($error)) {
+                     return self::response(3, $error);
+              }
 
-              $validationErrors = $validator->validate($validationRules);
+              ///check whether email already exists
+              $result = $this->crudOperator->select('user', array('email' => $email));
 
-              if (count((array)$validationErrors) > 0) {                     
-                     return ("Email has error");
-                 } else {                    
-                     $email = $_POST['email'];
-                     $password = $_POST['password'];
-                     // return($email . " " . $password);
 
-                     $tableName = 'user';
-                     $insertData = [
+              if (count($result) > 0) {
+                     return self::response(4, 'email already exists');
+              }
+
+              //hash the password
+
+              $passwordHasher = new PasswordHash();
+              $hash = $passwordHasher->hash($password);
+
+              //genearte 4 uniq numbers and save it ti ti verification variable
+              $verification = rand(100000, 999999);
+
+              $uniqeIdGenerator = new UniqueIDGenerator($this->databaseDriver);
+              $id = $uniqeIdGenerator->generateUniqueID('user', 'id', 10);
+
+              //insert data to the database
+              $result = $this->crudOperator->insert(
+                     'user',
+                     [
+                            'id' => $id,
+                            'name' => $name,
                             'email' => $email,
-                            'password' => $password
-                        ];
+                            'password_hash' => $hash,
+                            'user_role_id' => $role,
+                            'verification_code' => $verification,
+                            'registered_date' => date('Y-m-d H:i:s'),
+                            'last_logged' => date('Y-m-d H:i:s'),
+                            'mobile_1' => $mobile1,
+                            'mobile_2' => $mobile2,
+                            'user_status_id' => 1,
+                            'user_type_id' => 2
 
-                     $databaseOperation = $this->crudOperator;
-                     $result = $databaseOperation->insert($tableName, $insertData);
-
-                     if ($result) {
-                            return "User registered successfully";
-                     } else {
-                            return "User registration failed"; 
-                     }
+                     ]
+              );
+              //send the mail
+              $mailSender = new MailSender($email);
+              $mailSender->mailInitiate('Verification Code', 'Verification Code', 'Your verification code is ' . $verification);
+              if(!$mailSender->sendMail()){
+                     return self::response(5,'mail sending failed');
               }
 
 
+
+              //return success massege
+              return self::response(1);
        }
 }
