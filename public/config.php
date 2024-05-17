@@ -44,5 +44,12 @@ define("ROUTES", [
         "js" => ["resetPassword"],
         "css" => ["resetPassword"],
         "isCustom" => true
+    ],[
+        "routes" => ["verification"],
+        "fileName" => "verificationpage",
+        "title" => "ALGLIB_002 | Verification Code Page",
+        "js" => ["verificationpage"],
+        "css" => ["verificationpage"],
+        "isCustom" => true
     ],
 ]);

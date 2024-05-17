@@ -1,0 +1,81 @@
+.vp-left-panel {
+  position: relative;
+}
+
+.vp-right-panel {
+  background-image: url("/resources/images/reset-password/bg-image.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.vp-rounded-border {
+  display: none;
+  position: absolute;
+  top: -40px;
+  width: 100%;
+  height: 40px;
+  border-radius: 40px 40px 0 0;
+  background-color: var(--light);
+}
+
+.vp-dot {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: var(--light);
+}
+
+.vp-model {
+  background-color: var(--light);
+}
+
+.vp-input-width {
+  max-width: 500px;
+  min-width: 250px;      
+}
+
+.vp-input {      
+  padding-top: 7px;
+  padding-bottom: 7px;
+  text-align: center;
+  font-size: 30px;
+  border: solid 3px #0387FF;    
+  outline: none;
+  width: 15%;
+  transition: all .2s ease-in-out;
+  border-radius: 8px;
+}
+
+.vp-model-body {
+  width: 250px;
+  margin: 0 auto;
+  background-color: rgb(206, 206, 206);
+}
+
+.vp-check {
+  width: 70px;
+  height: 70px;
+  background-image: url("/resources/images/reset-password/check-mark.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+  .vp-dot {
+    width: 20px;
+    height: 20px;
+  }
+
+  .vp-rounded-border {
+    display: block;
+  }
+
+  .vp-right-panel {
+    height: 35vh;
+  }
+
+  .vp-left-panel {
+    height: 65vh;
+  }
+}
