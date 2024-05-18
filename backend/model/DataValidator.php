@@ -2,11 +2,20 @@
 
 ## developer - janith nirmal (02-07-2023)
 ## validatable types 
-## --  id_int
-## --  email
-## --  text_255
-## --  name
-## --  password
+##-  id_int
+##-- email
+##-- text_255
+##-- date
+##-- phone_number
+##-- url
+##-- boolean
+##-- float
+##-- array
+##-- json
+##-- file
+##-- image
+##-- name
+##-- password
 
 final class DataValidator
 {
@@ -202,6 +211,118 @@ final class DataValidator
 
         if ($textLength < $minLength || $textLength > $maxLength) {
             $this->errorObject->$key =  "Invalid text length for " . $key; // Text is empty
+        }
+    }
+    // phone_number validator
+    private function phone_number_validator(...$dataToValidate)
+    {
+        $key = $dataToValidate[0];
+        $value = $dataToValidate[1];
+
+        // Remove leading/trailing white spaces
+        $phoneNumber = trim($value);
+
+        // Check if the phone number is empty
+        if (empty($phoneNumber)) {
+            $this->errorObject->$key =  "Empty phone number for " . $key;
+        }
+
+        // Validate phone number format
+        if (!preg_match('/^\+?[0-9]{10,15}$/', $phoneNumber)) {
+            $this->errorObject->$key =  "Invalid Phone Number for " . $key;
+        }
+    }
+
+    // url validator
+    private function url_validator(...$dataToValidate)
+    {
+        $key = $dataToValidate[0];
+        $value = $dataToValidate[1];
+
+        // Remove leading/trailing white spaces
+        $url = trim($value);
+
+        // Check if the url is empty
+        if (empty($url)) {
+            $this->errorObject->$key =  "Empty url for " . $key;
+        }
+
+        // Validate url format
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            $this->errorObject->$key =  "Invalid URL for " . $key;
+        }
+    }
+
+    // boolean validator
+    private function boolean_validator(...$dataToValidate)
+    {
+        $key = $dataToValidate[0];
+        $value = $dataToValidate[1];
+
+        // Check if the value is a boolean
+        if (!is_bool($value)) {
+            $this->errorObject->$key =  "Invalid boolean for " . $key;
+        }
+    }
+
+    // float validator
+    private function float_validator(...$dataToValidate)
+    {
+        $key = $dataToValidate[0];
+        $value = $dataToValidate[1];
+
+        // Check if the value is a float
+        if (!is_float($value)) {
+            $this->errorObject->$key =  "Invalid float for " . $key;
+        }
+    }
+
+    // array validator
+    private function array_validator(...$dataToValidate)
+    {
+        $key = $dataToValidate[0];
+        $value = $dataToValidate[1];
+
+        // Check if the value is an array
+        if (!is_array($value)) {
+            $this->errorObject->$key =  "Invalid array for " . $key;
+        }
+    }
+
+    // json validator
+    private function json_validator(...$dataToValidate)
+    {
+        $key = $dataToValidate[0];
+        $value = $dataToValidate[1];
+
+        // Check if the value is a valid JSON
+        json_decode($value);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            $this->errorObject->$key =  "Invalid JSON for " . $key;
+        }
+    }
+
+    // file validator
+    private function file_validator(...$dataToValidate)
+    {
+        $key = $dataToValidate[0];
+        $value = $dataToValidate[1];
+
+        // Check if the file exists
+        if (!file_exists($value)) {
+            $this->errorObject->$key =  "File does not exist for " . $key;
+        }
+    }
+
+    // image validator
+    private function image_validator(...$dataToValidate)
+    {
+        $key = $dataToValidate[0];
+        $value = $dataToValidate[1];
+
+        // Check if the file is an image
+        if (!getimagesize($value)) {
+            $this->errorObject->$key =  "Invalid image for " . $key;
         }
     }
 }
