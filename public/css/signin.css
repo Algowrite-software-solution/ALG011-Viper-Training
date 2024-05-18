@@ -22,7 +22,7 @@
   height: 0.125em;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
   .sig-dot {
     width: 15px;
     height: 15px;

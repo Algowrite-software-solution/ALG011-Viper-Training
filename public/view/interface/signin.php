@@ -12,7 +12,7 @@
 
             <div class="sig-right-panel gap-4 col-12 col-md-6 py-4 d-flex flex-column justify-content-center align-items-center ">
                 <h2>Sign In</h2>
-                <div class="sig-input-area gap-4 w-100 px-5">
+                <div class="sig-input-area gap-4 w-100 px-1 px-md-3 px-lg-5">
                     <form action="/" method="post"> 
                             <div class="alg-text-primary fw-bold px-4">
                                     <label class="ps-4" for="Email">Email address</label><br>

@@ -36,4 +36,14 @@
 }
 
 @media screen and (max-width: 750px) {
+  .alg-btn {
+    padding: 7px 16px;
+  }
+
+  .alg-input {
+    width: 100%;
+    margin: 5px auto;
+    font-size: var(--font-p-sm);
+    padding: 10px 15px;
+  }
 }
