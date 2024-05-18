@@ -33,7 +33,7 @@ class User extends Api
                      return INVALID_REQUEST_METHOD;
               }
               //check whether post method has error
-              if (self::postMethodHasError('name', 'email', 'password', 'role')) {
+              if (self::postMethodHasError('name', 'email', 'password', 'role', 'mobile1', 'mobile2')) {
                      return self::response(2, 'missing parameters');
               }
 
@@ -49,8 +49,9 @@ class User extends Api
               $validateReadyArray = [
                      "name" => ["name" => $name],
                      "email" => ["email" => $email],
-                     "password" => ["password" => $password],
-
+                     "password" => ["password" => $password],                     
+                     "phone_number" => ["phone_number" => $mobile1],
+                     "phone_number" => ["phone_number" => $mobile2],
               ];
               $error = $this->validateData($validateReadyArray);
               if (!empty($error)) {
@@ -101,8 +102,6 @@ class User extends Api
               if(!$mailSender->sendMail()){
                      return self::response(5,'mail sending failed');
               }
-
-
 
               //return success massege
               return self::response(1);
