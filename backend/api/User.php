@@ -178,9 +178,7 @@ class User extends Api
               //validate data
 
               $validateReadyArray = [    
-                     "email" => ["email" => $email],                 
-                     "id_int" => ["id_int" => $verification_code]                   
-
+                     "email" => ["email" => $email],      
               ];
 
               $error = $this->validateData($validateReadyArray);
