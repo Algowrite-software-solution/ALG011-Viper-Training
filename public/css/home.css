@@ -194,8 +194,6 @@ Description : this is the home layout css (hp- home page) */
 .hp-s2-profile-card img {
   width: 64px;
   height: 64px;
-  gap: 0px;
-  opacity: 0px;
 }
 
 .profile-image {
@@ -204,7 +202,7 @@ Description : this is the home layout css (hp- home page) */
 
 .hp-s2-profile-card .profile-name {
   font-size: 16px;
-  font-weight: 770;
+  font-weight: 700;
 }
 
 .hp-s2-profile-card .profile-position,
@@ -285,7 +283,7 @@ Description : this is the home layout css (hp- home page) */
   border-right: 0px;
   border-bottom: 3px solid rgb(188, 221, 253);
   border-left: 3px solid rgb(188, 221, 253);
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 16.94px;
