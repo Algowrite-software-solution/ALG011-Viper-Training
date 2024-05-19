@@ -104,6 +104,6 @@
     </div>
 
     <div class="hp-s2-save-btn">
-         <button>Save</button>
+        <button>Save</button>
     </div>
 </section>

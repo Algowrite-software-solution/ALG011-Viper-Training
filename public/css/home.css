@@ -176,11 +176,6 @@ Description : this is the home layout css (hp- home page) */
 
 /* User Profile */
 
-.hp-s2-profile-container {
-  margin-left: 300px;
-  margin-right: 20px;
-}
-
 .hp-s2-profile-card {
   border: 1px solid #E2D9D9;
   padding: 15px;
@@ -295,7 +290,6 @@ Description : this is the home layout css (hp- home page) */
 }
 
 
-
 @media (min-width: 992px) {
   .hp-s1-sidebar {
     left: 0;
@@ -314,13 +308,38 @@ Description : this is the home layout css (hp- home page) */
     margin-left: 280px;
     transition: all .6s ease-in-out;
   }
+
+  .hp-s2-profile-container {
+    margin-left: 300px;
+    margin-right: 20px;
+  }
+
+  .hp-s2-save-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 }
 
 @media screen and (max-width: 992px) {}
 
 @media screen and (max-width: 768px) {}
 
-@media screen and (max-width: 600px) {}
+@media screen and (max-width: 600px) {
+  .personal-info-wrapper {
+    gap: 5px;
+  }
+
+  .address-info-wrapper {
+    gap: 100px;
+  }
+
+  .hp-s2-save-btn {
+    margin-top: 130px;
+    margin-bottom: 80px;
+  }
+}
 
 @media screen and (max-width: 426px) {
   .hp-s1-sidebar {
