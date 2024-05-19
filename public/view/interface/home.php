@@ -33,56 +33,77 @@
 </section>
 
 <section class="hp-s2-profile-container">
-    <div class="hp-s2-about-user">
-        <h2></h2>
-        <h4></h4>
-        <!-- <img src="" alt="Profile Image"> -->
-        <div class="hp-s2-edit-btn">
-            <span></span>
-            <!-- <button></button> -->
+    <div class="hp-s2-profile-card">
+        <img src="../../resources/images/home/profileimage.png" alt="Profile Picture">
+        <div class="hp-s2-profile-info">
+            <button class="hp-s2-edit-btn">
+                <img src="../../resources/images/home/editicon.png" alt="Edit Icon" class="button-icon"> Edit
+            </button>
+            <div class="profile-details">
+                <span class="profile-name">Bathiya Thissera</span>
+                <span class="profile-position">Admin</span>
+                <span class="profile-location">Dematagoda, Colombo, Sri Lanka</span>
+            </div>
         </div>
     </div>
-    <div class="hp-s2-personal-informations">
-        <h2></h2>
-        <div class="hp-s2-edit-btn">
-            <span></span>
-            <!-- <button></button> -->
-        </div>
-        <div class="hp-s2-imformations">
-            <h4></h4>
-            <span></span>
-            <h4></h4>
-            <span></span>
-            <h4></h4>
-            <span></span>
-            <h4></h4>
-            <span></span>
-            <h4></h4>
-            <span></span>
-            <h4></h4>
-            <span></span>
-            <h4></h4>
-            <span></span>
-            <h4></h4>
-            <span></span>
-        </div>
-    </div>
-    <div class="hp-s2-address">
-        <div class="hp-s2-edit-btn">
-            <span></span>
-            <!-- <button></button> -->
-        </div>
-        <div class="hp-s2-address-info">
-            <h4></h4>
-            <span></span>
-            <h4></h4>
-            <span></span>
-            <h4></h4>
-            <span></span>
-            <h4></h4>
+
+    <div class="hp-s2-profile-card">
+        <div class="hp-s2-profile-info">
+            <button class="hp-s2-edit-btn">
+                <img src="../../resources/images/home/editicon.png" alt="Edit Icon" class="button-icon"> Edit
+            </button>
+            <div class="personal-info-wrapper">
+                <div class="personal-details personal-info">
+                    <span class="profile-name">Personal information</span><br>
+                    <span class="profile-position">Name</span>
+                    <span class="profile-location">Bathiya Thissera</span>
+                    <br>
+                    <span class="profile-position">Email</span>
+                    <span class="profile-location">Bathiya Thissera</span>
+                    <br>
+                    <span class="profile-position">Mobile 1</span>
+                    <span class="profile-location">0772233439</span>
+                </div>
+                <div class="personal-details personal-info">
+                    <br><br>
+                    <span class="profile-position">ID</span>
+                    <span class="profile-location">302012</span>
+                    <br>
+                    <span class="profile-position">Joined date</span>
+                    <span class="profile-location">29 Dec 2022</span>
+                    <br>
+                    <span class="profile-position">Mobile 2</span>
+                    <span class="profile-location">0773222654</span>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="hp-s2-profile-card">
+        <div class="hp-s2-profile-info">
+            <button class="hp-s2-edit-btn">
+                <img src="../../resources/images/home/editicon.png" alt="Edit Icon" class="button-icon"> Edit
+            </button>
+            <div class="personal-info-wrapper address-info-wrapper">
+                <div class="personal-details personal-info">
+                    <span class="profile-name">Address</span><br>
+                    <span class="profile-position">Country</span>
+                    <span class="profile-location">Sri Lanka</span>
+                    <br>
+                    <span class="profile-position">Postal Code</span>
+                    <span class="profile-location">022231</span>
+                </div>
+                <div class="personal-details address-info">
+                    <br><br>
+                    <span class="profile-position">City/Province</span>
+                    <span class="profile-location">Dematagoda, Western province</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="hp-s2-save-btn">
-        <!-- <button></button> -->
+         <button>Save</button>
     </div>
 </section>

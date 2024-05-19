@@ -145,8 +145,8 @@ Description : this is the home layout css (hp- home page) */
   color: #272727;
 }
 
-.hp-s1-btn:hover{
-  box-shadow: 0px 1px 2px 1px  #007bff;
+.hp-s1-btn:hover {
+  box-shadow: 0px 1px 2px 1px #007bff;
 }
 
 .hp-s1-close-icon {
@@ -176,33 +176,124 @@ Description : this is the home layout css (hp- home page) */
 
 /* User Profile */
 
-.hp-s2-profile-container{
-
+.hp-s2-profile-container {
+  margin-left: 300px;
+  margin-right: 20px;
 }
 
-.hp-s2-about-user{
-
+.hp-s2-profile-card {
+  border: 1px solid #E2D9D9;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.hp-s2-edit-btn{
-
+.hp-s2-profile-card h2 {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.005em;
 }
 
-.hp-s2-personal-informations{
-
+.hp-s2-profile-card img {
+  width: 64px;
+  height: 64px;
+  gap: 0px;
+  opacity: 0px;
 }
 
-.hp-s2-imformations{
-
+.hp-s2-profile-card .profile-name {
+  font-size: 16px;
+  font-weight: 770;
 }
 
-.hp-s2-address{
-
+.hp-s2-profile-card .profile-position,
+.profile-location {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 20px;
 }
 
-.hp-s2-address-info{
-
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  margin-bottom: 10px;
 }
+
+.hp-s2-profile-info button {
+  position: absolute;
+  top: auto;
+  background-color: #C7CED5;
+  color: #000000;
+  padding: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 300;
+  right: 40px;
+  width: 80px;
+  border-radius: 20px;
+}
+
+.hp-s2-edit-btn .button-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.personal-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.hp-s2-profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-info-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+}
+
+.personal-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.address-info-wrapper {
+  gap: 240px;
+}
+
+.hp-s2-save-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hp-s2-save-btn button {
+  width: 301px;
+  height: 50px;
+  padding: 4px;
+  border-radius: 32px;
+  background: #0387FF;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 3px solid rgb(188, 221, 253);
+  border-left: 3px solid rgb(188, 221, 253);
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.94px;
+  color: #FFFFFF;
+}
+
 
 
 @media (min-width: 992px) {
