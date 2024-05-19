@@ -189,7 +189,6 @@ Description : this is the home layout css (hp- home page) */
   font-size: 15px;
   font-weight: 700;
   line-height: 20px;
-  letter-spacing: 0.005em;
 }
 
 .hp-s2-profile-card img {
@@ -197,6 +196,10 @@ Description : this is the home layout css (hp- home page) */
   height: 64px;
   gap: 0px;
   opacity: 0px;
+}
+
+.profile-image {
+  margin-left: 20px;
 }
 
 .hp-s2-profile-card .profile-name {
@@ -250,7 +253,7 @@ Description : this is the home layout css (hp- home page) */
   flex-direction: column;
 }
 
-.personal-info-wrapper {
+.hp-s2-personal-info-wrapper {
   display: flex;
   flex-direction: row;
   gap: 150px;
@@ -289,7 +292,6 @@ Description : this is the home layout css (hp- home page) */
   color: #FFFFFF;
 }
 
-
 @media (min-width: 992px) {
   .hp-s1-sidebar {
     left: 0;
@@ -327,12 +329,20 @@ Description : this is the home layout css (hp- home page) */
 @media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 600px) {
-  .personal-info-wrapper {
+  .hp-s2-personal-info-wrapper {
     gap: 5px;
   }
 
   .address-info-wrapper {
     gap: 100px;
+  }
+
+  .hp-s2-profile-card {
+    margin: 15px;
+  }
+
+  .profile-details {
+    margin-left: 15px;
   }
 
   .hp-s2-save-btn {

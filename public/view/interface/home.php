@@ -14,7 +14,7 @@
             Algowrite
         </div>
         <div class="hp-s1-close-icon">
-            <img src="../../resources/images/home/closeicon.png" alt=" Close Icon">
+            <img src="../../resources/images/home/closeicon.png" alt="Close Icon">
         </div>
         <ul class="hp-s1-menu">
             <li><a href="#" class="active"><img src="../../resources/images/home/category.png" alt="Dashboard Icon">Dashboard</a></li>
@@ -32,12 +32,13 @@
     </div>
 </section>
 
+<!-- User -->
 <section class="hp-s2-profile-container">
     <div class="hp-s2-profile-card">
-        <img src="../../resources/images/home/profileimage.png" alt="Profile Picture">
+        <img src="../../resources/images/home/profileimage.png" class="profile-image" alt="Profile Picture">
         <div class="hp-s2-profile-info">
             <button class="hp-s2-edit-btn">
-                <img src="../../resources/images/home/editicon.png" alt="Edit Icon" class="button-icon"> Edit
+                <img src="../../resources/images/home/editicon.png" class="button-icon" alt="Edit Icon"> Edit
             </button>
             <div class="profile-details">
                 <span class="profile-name">Bathiya Thissera</span>
@@ -47,12 +48,13 @@
         </div>
     </div>
 
+    <!-- Personal information -->
     <div class="hp-s2-profile-card">
         <div class="hp-s2-profile-info">
             <button class="hp-s2-edit-btn">
                 <img src="../../resources/images/home/editicon.png" alt="Edit Icon" class="button-icon"> Edit
             </button>
-            <div class="personal-info-wrapper">
+            <div class="hp-s2-personal-info-wrapper">
                 <div class="personal-details personal-info">
                     <span class="profile-name">Personal information</span><br>
                     <span class="profile-position">Name</span>
@@ -79,12 +81,13 @@
         </div>
     </div>
 
+    <!-- Address -->
     <div class="hp-s2-profile-card">
         <div class="hp-s2-profile-info">
             <button class="hp-s2-edit-btn">
-                <img src="../../resources/images/home/editicon.png" alt="Edit Icon" class="button-icon"> Edit
+                <img src="../../resources/images/home/editicon.png" class="button-icon" alt="Edit Icon"> Edit
             </button>
-            <div class="personal-info-wrapper address-info-wrapper">
+            <div class="hp-s2-personal-info-wrapper address-info-wrapper">
                 <div class="personal-details personal-info">
                     <span class="profile-name">Address</span><br>
                     <span class="profile-position">Country</span>
@@ -97,12 +100,12 @@
                     <br><br>
                     <span class="profile-position">City/Province</span>
                     <span class="profile-location">Dematagoda, Western province</span>
-
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Save Button -->
     <div class="hp-s2-save-btn">
         <button>Save</button>
     </div>
