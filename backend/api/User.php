@@ -221,4 +221,23 @@ class User extends Api
               }
 
        }
+
+       protected function adminVerification()
+       {
+              if (!self::isGetMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }       
+              
+              $sessionManager = new SessionManager(); 
+              if (!$sessionManager->isLoggedIn()) {
+                     return self::response(3, 'not logged in');
+              }else{
+                     $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
+                     if($result[0]['user_type_id'] == 1){
+                            return self::response(1, 'admin');
+                     }else{
+                            return self::response(2, 'not admin');
+                     }
+              }             
+       }
 }
