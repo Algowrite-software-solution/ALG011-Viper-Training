@@ -197,12 +197,12 @@ class User extends Api
                      return self::response(5, 'verification code incorrect');
               }
 
-              //call sign in
-              $this->signin();
+              // call sign in
+              $sessionManager = new SessionManager();
+              $sessionManager->login($result[0]['id']);
               
               //response
               return self::response(1);
-              
               
        }
 }
