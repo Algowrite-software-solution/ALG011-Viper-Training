@@ -200,9 +200,25 @@ class User extends Api
               // call sign in
               $sessionManager = new SessionManager();
               $sessionManager->login($result[0]['id']);
-              
+
               //response
               return self::response(1);
               
+       }
+
+       protected function isLoged()
+       {
+              if (!self::isGetMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }
+
+              //catch request parameter sent data
+              $sessionManager = new SessionManager();
+              if ($sessionManager->isLoggedIn()) {
+                     return self::response(1, 'logged in');
+              } else {
+                     return self::response(2, 'not logged in');
+              }
+
        }
 }
