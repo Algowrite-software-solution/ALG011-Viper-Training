@@ -240,4 +240,54 @@ class User extends Api
                      }
               }             
        }
+
+       protected function passwordReset()
+       {
+              if (!self::isPostMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }
+
+              //catch request parameter sent data
+
+              if (self::postMethodHasError('password','reenter_password')) {
+                     return self::response(2, 'missing parameters');
+              }
+             
+              $password = $_POST['password'] ?? null;
+              $reenter_password = $_POST['reenter_password'] ?? null;
+
+              //validate data
+
+              $validateReadyArray = [                         
+                     "password" => ["password" => $password],
+                     "password" => ["reenter_password" => $reenter_password]     
+              ];
+
+              $error = $this->validateData($validateReadyArray);
+              if (!empty($error)) {
+                     return self::response(3, $error);
+              }
+
+              //catch request parameter sent data
+
+              $sessionManager = new SessionManager();
+              if ($sessionManager->isLoggedIn()) {
+                     $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
+                     $hash = $result[0]['password_hash'];
+
+                     $passwordHasher = new PasswordHash();
+
+                     if (!$passwordHasher->isValid($password, $hash)) {
+                            return self::response(5, 'password incorrect');
+                     }else{
+                            //update password
+                            $hash2 = $passwordHasher->hash($reenter_password);
+                            $result = $this->crudOperator->update('user', array('password_hash' => $hash2), array('id' => $sessionManager->getUserId()));
+                            return self::response(1, 'password updated');
+                     }
+              } else {
+                     return self::response(2, 'not logged in');
+              }
+             
+       }
 }
