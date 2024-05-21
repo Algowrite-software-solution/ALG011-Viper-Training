@@ -290,4 +290,20 @@ class User extends Api
               }
              
        }
+
+       protected function profileListView()
+       {
+              if (!self::isGetMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }
+
+              $sessionManager = new SessionManager();
+              if (!$sessionManager->isLoggedIn()) {
+                     return self::response(3, 'not logged in');
+              }else{
+                     //get user data
+                     $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
+                     return self::response(1, $result);
+              }
+       }
 }
