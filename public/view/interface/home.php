@@ -35,10 +35,10 @@
 <!-- User -->
 <section class="hp-s2-profile-container">
     <div class="hp-s2-profile-card">
-        <img src="../../resources/images/home/profileimage.png" class="profile-image" alt="Profile Picture">
+        <img src="../../resources/images/home/profileimage.png" class="profile-image" alt="User Profile Picture">
         <div class="hp-s2-profile-info">
             <button class="hp-s2-edit-btn">
-                <img src="../../resources/images/home/editicon.png" class="button-icon" alt="Edit Icon"> Edit
+                <img src="../../resources/images/home/editicon.png" class="button-icon" alt="Button Edit Icon"> Edit
             </button>
             <div class="profile-details">
                 <span class="profile-name">Bathiya Thissera</span>
@@ -52,7 +52,7 @@
     <div class="hp-s2-profile-card">
         <div class="hp-s2-profile-info">
             <button class="hp-s2-edit-btn">
-                <img src="../../resources/images/home/editicon.png" alt="Edit Icon" class="button-icon"> Edit
+                <img src="../../resources/images/home/editicon.png" class="button-icon" alt="Button Edit Icon" > Edit
             </button>
             <div class="hp-s2-personal-info-wrapper">
                 <div class="personal-details personal-info">
@@ -85,7 +85,7 @@
     <div class="hp-s2-profile-card">
         <div class="hp-s2-profile-info">
             <button class="hp-s2-edit-btn">
-                <img src="../../resources/images/home/editicon.png" class="button-icon" alt="Edit Icon"> Edit
+                <img src="../../resources/images/home/editicon.png" class="button-icon" alt="Button Edit Icon"> Edit
             </button>
             <div class="hp-s2-personal-info-wrapper address-info-wrapper">
                 <div class="personal-details personal-info">
