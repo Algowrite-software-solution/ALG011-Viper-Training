@@ -353,6 +353,18 @@ class User extends Api
               }
        }
 
+       protected function profileListView()
+       {
+              if (!self::isGetMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }
+             
+              //get all user data
+              $result = $this->crudOperator->select('user');              
+              return self::response(1, $result);
+              
+       }
+
        protected function profileListupdate()
        {
               if (!self::isPostMethod()) {
