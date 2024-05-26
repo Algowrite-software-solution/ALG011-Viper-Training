@@ -215,9 +215,26 @@ class User extends Api
               //catch request parameter sent data
               $sessionManager = new SessionManager();
               if ($sessionManager->isLoggedIn()) {
-                     return self::response(1, 'logged in');
+                     return self::response(1, 'logged in');                     
               } else {
-                     return self::response(2, 'not logged in');
+                     return self::response(1, 'not logged in');
+                     
+              }
+
+       }
+
+       protected function ChechIsLogged()
+       {
+              if (!self::isGetMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }
+
+              //catch request parameter sent data
+              $sessionManager = new SessionManager();
+              if ($sessionManager->isLoggedIn()) {                     
+                     return true;
+              } else {                     
+                     return false;
               }
 
        }
@@ -343,13 +360,13 @@ class User extends Api
                      return INVALID_REQUEST_METHOD;
               }
 
-              $sessionManager = new SessionManager();
-              if (!$sessionManager->isLoggedIn()) {
-                     return self::response(3, 'not logged in');
-              }else{
+              if ($this->ChechIsLogged()==true) {
                      //get user data
+                     $sessionManager = new SessionManager();
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      return self::response(1, $result);
+              }else{
+                     return self::response(2, 'not logged in'); 
               }
        }
 
