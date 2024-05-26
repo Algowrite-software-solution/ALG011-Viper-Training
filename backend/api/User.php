@@ -352,4 +352,63 @@ class User extends Api
                      return self::response(1, $result);
               }
        }
+
+       protected function profileListupdate()
+       {
+              if (!self::isPostMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }
+
+              //check whether post method has error
+              if (self::postMethodHasError('name', 'email', 'password', 'role', 'mobile1', 'mobile2')) {
+                     return self::response(2, 'missing parameters');
+              }
+
+              //get post data
+              $name = $_POST['name'] ?? null;
+              $email = $_POST['email'] ?? null;
+              $password = $_POST['password'] ?? null;
+              $role = $_POST['role'] ?? null;
+              $mobile1 = $_POST['mobile1'] ?? null;
+              $mobile2 = $_POST['mobile2'] ?? null;
+
+              // validate the data
+              $validateReadyArray = [
+                     "name" => ["name" => $name],
+                     "email" => ["email" => $email],
+                     "password" => ["password" => $password],                     
+                     "phone_number" => ["phone_number" => $mobile1],
+                     "phone_number" => ["phone_number" => $mobile2],
+              ];
+              $error = $this->validateData($validateReadyArray);
+              if (!empty($error)) {
+                     return self::response(3, $error);
+              }
+
+              $sessionManager = new SessionManager();
+              if (!$sessionManager->isLoggedIn()) {
+                     return self::response(3, 'not logged in');
+              }else{
+                     //hash the password
+                     $passwordHasher = new PasswordHash();
+                     $hash = $passwordHasher->hash($password);
+
+                     //update data to the database
+                     $result = $this->crudOperator->update(
+                            'user',
+                            [
+                                   'name' => $name,
+                                   'email' => $email,
+                                   'password_hash' => $hash,
+                                   'user_role_id' => $role,
+                                   'mobile_1' => $mobile1,
+                                   'mobile_2' => $mobile2
+                            ],
+                            array('id' => $sessionManager->getUserId())
+                     );
+
+                     //return success massege
+                     return self::response(1, 'profile updated');
+              }
+       }
 }
