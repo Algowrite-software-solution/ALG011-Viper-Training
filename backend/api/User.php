@@ -337,7 +337,7 @@ class User extends Api
               }
        }
 
-       protected function profileListView()
+       protected function getProfile()
        {
               if (!self::isGetMethod()) {
                      return INVALID_REQUEST_METHOD;
