@@ -244,28 +244,29 @@ class User extends Api
               if (!self::isGetMethod()) {
                      return INVALID_REQUEST_METHOD;
               }       
-              
-              $sessionManager = new SessionManager(); 
-              if (!$sessionManager->isLoggedIn()) {
-                     return self::response(3, 'not logged in');
-              }else{
+                            
+              if ($this->ChechIsLogged()==true) {
+                     $sessionManager = new SessionManager(); 
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      if($result[0]['user_type_id'] == 1){
                             return self::response(1, 'admin');
                      }else{
                             return self::response(2, 'not admin');
-                     }
+                     }                     
+              }else{                     
+                     return self::response(3, 'not logged in');
               }             
        }
 
        protected function verify(){
-              if (!self::isPostMethod()) {
+              if (!self::isGetMethod()) {
                      return INVALID_REQUEST_METHOD;
               }
 
               $verification = rand(100000, 999999);
-              $sessionManager = new SessionManager();
-              if ($sessionManager->isLoggedIn()) {
+              
+              if ($this->ChechIsLogged()==true) {
+                     $sessionManager = new SessionManager();
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      $email = $result[0]['email'];
                      $result = $this->crudOperator->update('user', array('verification_code' => $verification), array('id' => $sessionManager->getUserId()));
@@ -275,9 +276,9 @@ class User extends Api
                      if(!$mailSender->sendMail()){
                             return self::response(5,'mail sending failed');
                      }
-                     $verify_time = time(); 
+                     // $verify_time = time(); 
                      return self::response(1, 'verification code sent');
-                     return $verify_time;
+                     // return $verify_time;
 
               } else {
                      return self::response(2, 'not logged in');
