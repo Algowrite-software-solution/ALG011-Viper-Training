@@ -92,7 +92,8 @@ class User extends Api
                             'mobile_1' => $mobile1,
                             'mobile_2' => $mobile2,
                             'user_status_id' => 1,
-                            'user_type_id' => 2
+                            'user_type_id' => 2,
+                            'verification_code_time' => date('Y-m-d H:i:s')
 
                      ]
               );
@@ -269,16 +270,14 @@ class User extends Api
                      $sessionManager = new SessionManager();
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      $email = $result[0]['email'];
-                     $result = $this->crudOperator->update('user', array('verification_code' => $verification), array('id' => $sessionManager->getUserId()));
+                     $result = $this->crudOperator->update('user', array('verification_code' => $verification,'verification_code_time' => date('Y-m-d H:i:s')), array('id' => $sessionManager->getUserId()));
                      //send the mail
                      $mailSender = new MailSender($email);
                      $mailSender->mailInitiate('Verification Code', 'Verification Code', 'Your verification code is ' . $verification);
                      if(!$mailSender->sendMail()){
                             return self::response(5,'mail sending failed');
-                     }
-                     // $verify_time = time(); 
-                     return self::response(1, 'verification code sent');
-                     // return $verify_time;
+                     }                     
+                     return self::response(1, 'verification code sent');                     
 
               } else {
                      return self::response(2, 'not logged in');
@@ -319,25 +318,31 @@ class User extends Api
               //catch request parameter sent data
 
                $sessionManager = new SessionManager();
-              if ($sessionManager->isLoggedIn()) {                     
-                     $current_time = time();                         
+              if ($this->ChechIsLogged()==true) {                     
+                     $current_time = date('Y-m-d H:i:s');                         
 
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      $hash = $result[0]['password_hash'];
                      $verification = $result[0]['verification_code']; 
+                     $verificationTime = $result[0]['verification_code_time'];     
+                                     
+                     $dateTime = new DateTime($verificationTime);
+
+                     $dateTime->modify('+1 minutes');
+
+                     $updatedTime = $dateTime->format('Y-m-d H:i:s');
+                     
                      $passwordHasher = new PasswordHash();
 
                      if (!$passwordHasher->isValid($password, $hash)) {
                             return self::response(5, 'password incorrect');                            
                      }else{
-                            if($verification == $verification_code){                                     
-                                   $maxLifetime = 5 ; // 5 minutes in seconds
-                                   $verificationTime = $current_time + $maxLifetime;                                   
+                            if($verification == $verification_code){  
 
-                                   if ($current_time > $verificationTime){
-                                          // Regenerate a new verification code
+                                   if ($current_time > $updatedTime){
+                                          // Regenerate a new verification code verify() 
                                           $this->verify();
-                                          return self::response(7, 'verification code expired, new code generated');
+                                          return self::response(2, 'verification code expired, new code generated');
                                    }else{
                                           if($new_password == $reenter_newpassword){                                          
                                                  //update password
