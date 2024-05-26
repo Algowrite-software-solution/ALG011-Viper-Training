@@ -258,7 +258,9 @@ class User extends Api
                      if(!$mailSender->sendMail()){
                             return self::response(5,'mail sending failed');
                      }
+                     $verify_time = time(); 
                      return self::response(1, 'verification code sent');
+                     return $verify_time;
 
               } else {
                      return self::response(2, 'not logged in');
@@ -299,9 +301,8 @@ class User extends Api
               //catch request parameter sent data
 
                $sessionManager = new SessionManager();
-              if ($sessionManager->isLoggedIn()) {
-                     $this->verify();
-                     $verificationTime = time();
+              if ($sessionManager->isLoggedIn()) {                     
+                     $current_time = time();                         
 
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      $hash = $result[0]['password_hash'];
@@ -311,11 +312,11 @@ class User extends Api
                      if (!$passwordHasher->isValid($password, $hash)) {
                             return self::response(5, 'password incorrect');                            
                      }else{
-                            if($verification == $verification_code){  
-                                   $currentTime = time();
-                                   $maxLifetime = 5 * 60; // 5 minutes in seconds
+                            if($verification == $verification_code){                                     
+                                   $maxLifetime = 5 ; // 5 minutes in seconds
+                                   $verificationTime = $current_time + $maxLifetime;                                   
 
-                                   if (($currentTime - $verificationTime) > $maxLifetime){
+                                   if ($current_time > $verificationTime){
                                           // Regenerate a new verification code
                                           $this->verify();
                                           return self::response(7, 'verification code expired, new code generated');
