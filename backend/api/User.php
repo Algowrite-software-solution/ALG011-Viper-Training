@@ -241,6 +241,31 @@ class User extends Api
               }             
        }
 
+       protected function verify(){
+              if (!self::isPostMethod()) {
+                     return INVALID_REQUEST_METHOD;
+              }
+
+              $verification = rand(100000, 999999);
+              $sessionManager = new SessionManager();
+              if ($sessionManager->isLoggedIn()) {
+                     $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
+                     $email = $result[0]['email'];
+                     $result = $this->crudOperator->update('user', array('verification_code' => $verification), array('id' => $sessionManager->getUserId()));
+                     //send the mail
+                     $mailSender = new MailSender($email);
+                     $mailSender->mailInitiate('Verification Code', 'Verification Code', 'Your verification code is ' . $verification);
+                     if(!$mailSender->sendMail()){
+                            return self::response(5,'mail sending failed');
+                     }
+                     return self::response(1, 'verification code sent');
+
+              } else {
+                     return self::response(2, 'not logged in');
+              }
+              
+       }
+
        protected function passwordReset()
        {
               if (!self::isPostMethod()) {
@@ -249,19 +274,22 @@ class User extends Api
 
               //catch request parameter sent data
 
-              if (self::postMethodHasError('password','reenter_password')) {
+              if (self::postMethodHasError('password','verification_code','new_password','reenter_newpassword')) {
                      return self::response(2, 'missing parameters');
               }
              
-              $password = $_POST['password'] ?? null;
-              $reenter_password = $_POST['reenter_password'] ?? null;
+              $password = $_POST['password'] ?? null;              
+              $verification_code = $_POST['verification_code'] ?? null;
+              $new_password = $_POST['new_password'] ?? null;
+              $reenter_newpassword = $_POST['reenter_newpassword'] ?? null;
 
               //validate data
 
-              $validateReadyArray = [                         
-                     "password" => ["password" => $password],
-                     "password" => ["reenter_password" => $reenter_password]     
-              ];
+              $validateReadyArray = [    
+                     "password" => ["password" => $password],                                        
+                     "password" => ["new_password" => $new_password],
+                     "password" => ["reenter_newpassword" => $reenter_newpassword]                    
+              ];              
 
               $error = $this->validateData($validateReadyArray);
               if (!empty($error)) {
@@ -270,25 +298,42 @@ class User extends Api
 
               //catch request parameter sent data
 
-              $sessionManager = new SessionManager();
+               $sessionManager = new SessionManager();
               if ($sessionManager->isLoggedIn()) {
+                     $this->verify();
+                     $verificationTime = time();
+
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      $hash = $result[0]['password_hash'];
-
+                     $verification = $result[0]['verification_code']; 
                      $passwordHasher = new PasswordHash();
 
                      if (!$passwordHasher->isValid($password, $hash)) {
-                            return self::response(5, 'password incorrect');
+                            return self::response(5, 'password incorrect');                            
                      }else{
-                            //update password
-                            $hash2 = $passwordHasher->hash($reenter_password);
-                            $result = $this->crudOperator->update('user', array('password_hash' => $hash2), array('id' => $sessionManager->getUserId()));
-                            return self::response(1, 'password updated');
+                            if($verification == $verification_code){  
+                                   $currentTime = time();
+                                   $maxLifetime = 5 * 60; // 5 minutes in seconds
+
+                                   if (($currentTime - $verificationTime) > $maxLifetime){
+                                          // Regenerate a new verification code
+                                          $this->verify();
+                                          return self::response(7, 'verification code expired, new code generated');
+                                   }else{
+                                          if($new_password == $reenter_newpassword){                                          
+                                                 //update password
+                                                 $hash2 = $passwordHasher->hash($reenter_newpassword);
+                                                 $result = $this->crudOperator->update('user', array('password_hash' => $hash2), array('id' => $sessionManager->getUserId()));
+                                                 return self::response(1, 'password updated');
+                                          }  
+                                   }                       
+                                   return self::response(6, 'passwords do not match');
+                            }
+                            return self::response(5, 'verification code incorrect');                           
                      }
               } else {
                      return self::response(2, 'not logged in');
               }
-             
        }
 
        protected function profileListView()
