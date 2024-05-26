@@ -414,16 +414,14 @@ class User extends Api
                      return self::response(3, $error);
               }
 
-              $sessionManager = new SessionManager();
-              if (!$sessionManager->isLoggedIn()) {
-                     return self::response(3, 'not logged in');
-              }else{
+              if ($this->ChechIsLogged()==true) {
                      //hash the password
                      $passwordHasher = new PasswordHash();
                      $hash = $passwordHasher->hash($password);
 
                      //update data to the database
-                     $result = $this->crudOperator->update(
+                     $sessionManager = new SessionManager();
+                     $this->crudOperator->update(
                             'user',
                             [
                                    'name' => $name,
@@ -437,7 +435,9 @@ class User extends Api
                      );
 
                      //return success massege
-                     return self::response(1, 'profile updated');
+                     return self::response(1, 'profile updated');                     
+              }else{                     
+                     return self::response(2, 'not logged in'); 
               }
        }
 }
