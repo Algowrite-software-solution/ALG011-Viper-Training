@@ -260,7 +260,7 @@ class User extends Api
        }
 
        protected function verify(){
-              if (!self::isGetMethod()) {
+              if (!self::isPostMethod()) {
                      return INVALID_REQUEST_METHOD;
               }
 
