@@ -25,7 +25,7 @@
 
     <div class="hp-s1-content">
         <div class="hp-s1-profile">
-            <div class="hp-s1-title">Title</div>
+            <div class="hp-s1-title"></div>
             <button class="hp-s1-btn">Sign Out</button>
             <div class="hp-s1-user-icon" id="my-profile-btn">BT</div>
         </div>

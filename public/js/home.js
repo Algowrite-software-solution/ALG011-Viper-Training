@@ -16,31 +16,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-//display User Mangement
+// User Mangement and My Profile View with the Title
 document.addEventListener('DOMContentLoaded', () => {
     const userManagementBtn = document.getElementById('user-management-btn');
     const userManagementSection = document.getElementById('user-management-section');
-
-    if (userManagementSection.style.display === 'none') {
-        userManagementSection.style.display = 'none';
-    }
-
+  
+    const myProfileBtn = document.getElementById('my-profile-btn');
+    const myProfileSection = document.getElementById('my-profile-section');
+  
+    const titleElement = document.querySelector('.hp-s1-title'); 
+  
+    const clearDisplayedSection = () => {
+      userManagementSection.style.display = 'none'; 
+      myProfileSection.style.display = 'none';
+    };
+  
+    const showSectionAndSetTitle = (sectionElement, titleText) => {
+      clearDisplayedSection();
+      sectionElement.style.display = 'block';
+      titleElement.textContent = titleText; 
+    };
+  
     userManagementBtn.addEventListener('click', () => {
-        userManagementSection.style.display = 'block';
+      showSectionAndSetTitle(userManagementSection, 'User Management');
     });
-});
-
-//display My Profile
-document.addEventListener('DOMContentLoaded', () => {
-    const userProfileBtn = document.getElementById('my-profile-btn');
-    const userProfileSection = document.getElementById('my-profile-section');
-
-    if (userProfileSection.style.display === 'd-none') {
-        userProfileSection.style.display = 'none';
-    }
-
-    userProfileBtn.addEventListener('click', () => {
-        userProfileSection.style.display = 'block';
+  
+    myProfileBtn.addEventListener('click', () => {
+      showSectionAndSetTitle(myProfileSection, 'My Profile');
     });
-});
+  });
 
