@@ -589,16 +589,6 @@ Description : this is the home layout css (hp- home page) */
 
 
 
-
-
-
-
-
-
-
-
-
-
 @media (min-width: 992px) {
   .hp-s1-sidebar {
     left: 0;
@@ -631,3 +621,89 @@ Description : this is the home layout css (hp- home page) */
   }
 }
 
+@media screen and (max-width: 992px) {}
+
+@media screen and (max-width: 768px) {
+
+  .container, .search-bar, .user-table,  .filters ,.pagination-info ,.pagination {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hp-s2-personal-info-wrapper {
+    gap: 5px;
+  }
+
+  .address-info-wrapper {
+    gap: 100px;
+  }
+
+  .hp-s2-profile-card {
+    margin: 15px;
+  }
+
+  .profile-details {
+    margin-left: 15px;
+  }
+
+  .hp-s2-save-btn {
+    margin-top: 130px;
+    margin-bottom: 80px;
+  }
+
+  .hp-s2-profile-card#user-management {
+    margin-left: 0px;
+  }
+
+  .search-bar {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+  }
+
+  .search-btn button,
+  .export-btn button {
+    text-indent: -9999px;
+  }
+
+  .container,
+  .filters {
+    margin-left: 0;
+  }
+
+  .user-table {
+    margin-left: 0px;
+  }
+
+  .user-info p {
+    margin: 38px 0px 1px 50px;
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .pagination-info {
+    margin-left: 10px;
+  }
+
+
+
+}
+
+@media screen and (max-width: 426px) {
+  .hp-s1-sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {}
+
+@media screen and (max-width: 320px) {}
