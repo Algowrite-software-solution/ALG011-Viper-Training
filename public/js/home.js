@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userProfileBtn = document.getElementById('my-profile-btn');
     const userProfileSection = document.getElementById('my-profile-section');
 
-    if (userProfileSection.style.display === 'none') {
+    if (userProfileSection.style.display === 'd-none') {
         userProfileSection.style.display = 'none';
     }
 

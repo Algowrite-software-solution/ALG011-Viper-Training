@@ -298,7 +298,7 @@ Description : this is the home layout css (hp- home page) */
   border: none;
 }
 
-.search-bar {
+.hp-s3-search-bar {
   align-items: center;
   background-color: rgba(154, 207, 255, 1);
   border-radius: 20px;
@@ -309,12 +309,12 @@ Description : this is the home layout css (hp- home page) */
   display: flex;
 }
 
-.search-bar input:focus {
+.hp-s3-search-bar input:focus {
   outline: none;
   border: none;
 }
 
-.search-bar img {
+.hp-s3-search-bar img {
   width: 20px;
   height: 20px;
   margin-left: 10px;
@@ -325,21 +325,21 @@ Description : this is the home layout css (hp- home page) */
   margin-left: 10px;
 }
 
-.search-bar input {
+.hp-s3-search-bar input {
   border: none;
   background-color: rgba(154, 207, 255, 1);
   flex-grow: 1;
 }
 
-.search-bar input::placeholder {
+.hp-s3-search-bar input::placeholder {
   color: rgba(77, 170, 255, 1);
 }
 
-.search-bar .search-btn {
+.hp-s3-search-bar .search-btn {
   margin-left: 10px;
 }
 
-.search-bar .search-btn button {
+.hp-s3-search-bar .search-btn button {
   padding: 9px;
   background-color: rgba(3, 135, 255, 1);
   color: white;
@@ -350,20 +350,20 @@ Description : this is the home layout css (hp- home page) */
   align-items: center;
 }
 
-.search-bar .search-btn img {
+.hp-s3-search-bar .search-btn img {
   width: 20px;
   height: 20px;
 }
 
-.button-group {
+.hp-s3-button-group {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
 }
 
-.button-group .search-btn button,
-.button-group .export-btn button {
+.hp-s3-button-group .search-btn button,
+.hp-s3-button-group .export-btn button {
   padding: 9px;
   border: none;
   border-radius: 20px;
@@ -372,13 +372,13 @@ Description : this is the home layout css (hp- home page) */
   align-items: center;
 }
 
-.button-group .search-btn button {
+.hp-s3-button-group .search-btn button {
   background-color: rgba(3, 135, 255, 1);
   color: white;
   font-size: 14px;
 }
 
-.button-group .export-btn button {
+.hp-s3-button-group .export-btn button {
   background-color: rgba(3, 135, 255, 0.15);
   color: rgba(3, 135, 255, 1);
   font-size: 15px;
@@ -386,8 +386,8 @@ Description : this is the home layout css (hp- home page) */
   line-height: 20px;
 }
 
-.button-group .search-btn img,
-.button-group .export-btn img {
+.hp-s3-button-group .search-btn img,
+.hp-s3-button-group .export-btn img {
   width: 20px;
   height: 20px;
   margin-right: 5px;
@@ -397,7 +397,7 @@ Description : this is the home layout css (hp- home page) */
   margin-left: 200px;
 }
 
-.filters {
+.hp-s3-filters {
   display: flex;
   border: 1px solid rgba(224, 226, 231, 1);
   padding: 9px;
@@ -422,14 +422,14 @@ Description : this is the home layout css (hp- home page) */
   background-color: rgba(58, 91, 255, 0.15);
 }
 
-.user-table {
+.hp-s3-user-table {
   margin-top: 0;
   width: 93%;
   margin-left: 90px;
   border-collapse: collapse;
 }
 
-.user-table td a {
+.hp-s3-user-table td a {
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -437,28 +437,28 @@ Description : this is the home layout css (hp- home page) */
   color: rgba(3, 135, 255, 1);
 }
 
-.user-table th,
-.user-table td {
+.hp-s3-user-table th,
+.hp-s3-user-table td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
 
-.user-table th {
+.hp-s3-user-table th {
   font-size: 15px;
   font-weight: 700;
 }
 
-.user-table th img {
+.hp-s3-user-table th img {
   width: 20px;
   height: 20px;
   margin-right: 7px;
 }
 
-.user-table td {
+.hp-s3-user-table td {
   background-color: #f9f9f9;
 }
 
-.user-table .details {
+.hp-s3-user-table .details {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -546,7 +546,7 @@ Description : this is the home layout css (hp- home page) */
   height: 16px;
 }
 
-.pagination-container {
+.hp-s3-pagination-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -555,7 +555,7 @@ Description : this is the home layout css (hp- home page) */
   width: 100%;
 }
 
-.pagination-info {
+.hp-s3-pagination-info {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -563,7 +563,7 @@ Description : this is the home layout css (hp- home page) */
   margin: 90px;
 }
 
-.pagination {
+.hp-s3-pagination {
   display: flex;
 }
 
@@ -625,7 +625,7 @@ Description : this is the home layout css (hp- home page) */
 
 @media screen and (max-width: 768px) {
 
-  .container, .search-bar, .user-table,  .filters ,.pagination-info ,.pagination {
+  .container, .hp-s3-search-bar, .hp-s3-user-table,  .hp-s3-filters ,.hp-s3-pagination-info ,.pagination {
     margin-left: 0;
   }
 }
@@ -656,7 +656,7 @@ Description : this is the home layout css (hp- home page) */
     margin-left: 0px;
   }
 
-  .search-bar {
+  .hp-s3-search-bar {
     margin-left: 0;
     width: 100%;
     display: flex;
@@ -668,11 +668,11 @@ Description : this is the home layout css (hp- home page) */
   }
 
   .container,
-  .filters {
+  .hp-s3-filters {
     margin-left: 0;
   }
 
-  .user-table {
+  .hp-s3-user-table {
     margin-left: 0px;
   }
 
@@ -690,12 +690,9 @@ Description : this is the home layout css (hp- home page) */
     margin-top: 20px;
   }
 
-  .pagination-info {
+  .hp-s3-pagination-info {
     margin-left: 10px;
   }
-
-
-
 }
 
 @media screen and (max-width: 426px) {

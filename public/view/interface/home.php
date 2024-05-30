@@ -114,12 +114,11 @@
 <!-- User Management -->
 <div id="user-management-section" style="display: none;">
     <section class="hp-s2-profile-card edit">
-        <div class="search-bar">
+        <div class="hp-s3-search-bar">
             <img src="../../resources/images/home/searchicon.png" alt="Search Icon">
             <input type="text" placeholder="Search User...">
-
         </div>
-        <div class="button-group">
+        <div class="hp-s3-button-group">
             <div class="search-btn">
                 <button type="button">
                     Search <img src="../../resources/images/home/searchicon2.png" alt="Search Icon">
@@ -134,16 +133,16 @@
     </section>
 
     <section class="container">
-        <div class="filters">
+        <div class="hp-s3-filters">
             <button class="filter-button active">All Users</button>
             <button class="filter-button">Active</button>
             <button class="filter-button">Inactive</button>
         </div>
-        <table class="user-table">
+        <table class="hp-s3-user-table">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th><img src="../../resources/images/home/user-panel.png" alt="User Panel Icon">Name</th>
+                    <th><img src="../../resources/images/home/user-panel.png" alt="Minimise Icon">Name</th>
                     <th>Joined Date</th>
                     <th>Email</th>
                     <th>Mobile 1</th>
@@ -257,11 +256,11 @@
             </tbody>
         </table>
 
-        <div class="pagination-container">
-            <div class="pagination-info">
+        <div class="hp-s3-pagination-container">
+            <div class="hp-s3-pagination-info">
                 Showing 1-4 from 20
             </div>
-            <div class="pagination">
+            <div class="hp-s3-pagination">
                 <button class="page-button">&lt;</button>
                 <button class="page-button active">1</button>
                 <button class="page-button">2</button>
