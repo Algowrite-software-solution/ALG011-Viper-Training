@@ -1,7 +1,7 @@
 /* typography */
-h1{
+h1 {
     font-size: 2rem;
-    margin-bottom:1.25em;
+    margin-bottom: 1.25em;
     color: #333333;
 }
 
@@ -16,7 +16,7 @@ p {
     height: 100vh;
 }
 
-.col{
+.col {
     width: 50%;
     height: 100%;
     display: flex;
@@ -27,10 +27,9 @@ p {
 }
 
 /* right section */
-.col-right{
-    width: 100%
+.rp-s1-col-right {
+    width: 100%;
 }
-
 
 .main-img {
     width: 100%;
@@ -57,7 +56,8 @@ p {
     backdrop-filter: blur(1px);
     mix-blend-mode: overlay;
 }
-.logo-container {
+
+.rp-s1-logo-container {
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -88,7 +88,7 @@ p {
 
 /* left section */
 
-.main-left{
+.rp-s1-main-left {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -100,8 +100,7 @@ p {
     max-height: 600px;
 }
 
-
-.sub-left{
+.rp-s1-sub-left {
     display: flex;
     font-size: 1rem;
     flex-direction: column;
@@ -110,8 +109,8 @@ p {
     width: 100%;
     height: 100%;
 }
- 
-form{
+
+form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -144,7 +143,8 @@ input::-webkit-input-placeholder {
 
 .input-group input:focus {
     outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(3, 135, 255, 0.25); /* Add a focus shadow */
+    box-shadow: 0 0 0 0.2rem rgba(3, 135, 255, 0.25);
+    /* Add a focus shadow */
 }
 
 .forgot-password {
@@ -156,14 +156,13 @@ input::-webkit-input-placeholder {
     color: #ff0e3a;
 }
 
-
 .register-button {
     position: relative;
     width: 50%;
     padding: 1.07em 2.85em;
     border: none;
     cursor: pointer;
-    border-radius: 84px ;
+    border-radius: 84px;
     font-size: 0.875rem;
     box-shadow: -2px 2px 0px 0px rgba(77, 170, 255, 1);
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -172,8 +171,6 @@ input::-webkit-input-placeholder {
 .register-button:hover {
     background-color: #0364cb;
 }
-
-
 
 /* Divider */
 .divider {
@@ -193,24 +190,28 @@ input::-webkit-input-placeholder {
 
 /* media queries */
 @media screen and (max-width: 1200px) and (min-width: 750px) {
-    h1{
+    h1 {
         margin-bottom: 1em;
     }
+
     label {
         margin-bottom: 0.2em;
     }
+
     input {
         width: 100%;
         padding: 1em 1.5em;
         border: 3px solid;
         border-radius: 4.93rem !important;
     }
+
     .register-button {
         padding: auto 0.55em;
     }
 }
 
-@media screen and (max-width: 750px), (max-height: 500px) and (orientation: landscape) {
+@media screen and (max-width: 750px),
+(max-height: 500px) and (orientation: landscape) {
     #register {
         flex-direction: column;
         width: 100vw;
@@ -218,34 +219,42 @@ input::-webkit-input-placeholder {
         align-items: center;
         justify-content: space-between;
     }
-    .col-right {
+
+    .rp-s1-col-right {
         order: -1;
         width: 100%;
         max-height: 25vh;
     }
+
     .img {
         max-height: inherit;
     }
-    .col-left{
+
+    .rp-s1-col-left {
         min-height: 650px;
         width: 100%;
     }
-    form{
+
+    form {
         min-height: 400px;
     }
-    .sub-left{
+
+    .rp-s1-sub-left {
         min-height: 500px;
     }
-    .logo-container {
+
+    .rp-s1-logo-container {
         padding: 2em 3.5em;
     }
+
     .logo {
         font-size: 2rem;
     }
-    
+
     .tagline {
         font-size: 1.125rem;
     }
+
     .register-button {
         width: 50%;
         padding: 1.07em 1.42em;
@@ -253,18 +262,19 @@ input::-webkit-input-placeholder {
 }
 
 @media screen and (max-height: 500px) and (orientation: landscape) {
-    .col-right {
+    .rp-s1-col-right {
         order: -1;
         width: 100%;
         max-height: 45vh;
     }
+
     .logo-container {
         padding: 1em 3.5em;
     }
 }
 
 @media screen and (max-width: 400px) {
-    .logo-container {
+    .rp-s1-logo-container {
         padding: 1em 3em;
     }
 
