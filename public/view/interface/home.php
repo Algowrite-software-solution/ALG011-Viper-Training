@@ -133,11 +133,19 @@
     </section>
 
     <section class="container">
+        <div class="hp-s3-filter-container">
         <div class="hp-s3-filters">
             <button class="filter-button active">All Users</button>
             <button class="filter-button">Active</button>
             <button class="filter-button">Inactive</button>
         </div>
+        <div class="filter-btn">
+            <button type="button">
+                <img src="../../resources/images/home/filtericon.png" alt="Filter Icon">Filters
+            </button>
+        </div>
+        </div>
+
         <table class="hp-s3-user-table">
             <thead>
                 <tr>

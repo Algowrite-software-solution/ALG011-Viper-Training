@@ -397,6 +397,34 @@ Description : this is the home layout css (hp- home page) */
   margin-left: 200px;
 }
 
+.hp-s3-filter-container {
+  flex-direction: row;
+  display: flex;
+  gap: 20px;
+}
+
+.filter-btn {
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.filter-btn button {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(224, 226, 231, 1);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(102, 112, 133, 1);
+}
+
+.filter-btn button img {
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+}
+
 .hp-s3-filters {
   display: flex;
   border: 1px solid rgba(224, 226, 231, 1);
@@ -625,9 +653,25 @@ Description : this is the home layout css (hp- home page) */
 
 @media screen and (max-width: 768px) {
 
-  .container, .hp-s3-search-bar, .hp-s3-user-table,  .hp-s3-filters ,.hp-s3-pagination-info ,.pagination {
+  .container,
+  .hp-s3-search-bar,
+  .hp-s3-user-table,
+  .hp-s3-filters,
+  .hp-s3-pagination-info,
+  .pagination {
     margin-left: 0;
   }
+
+  .hp-s3-filter-container {
+    flex-direction: row;
+    justify-content: flex-end;
+   
+  }
+
+  .filter-btn button {
+    margin-top: 95%;
+  }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -692,6 +736,10 @@ Description : this is the home layout css (hp- home page) */
 
   .hp-s3-pagination-info {
     margin-left: 10px;
+  }
+
+  .filter-btn {
+    margin-top: -80px;
   }
 }
 
