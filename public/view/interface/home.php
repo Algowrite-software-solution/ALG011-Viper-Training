@@ -19,7 +19,7 @@
         <ul class="hp-s1-menu">
             <li><a href="#" class="active"><img src="../../resources/images/home/category.png" alt="Dashboard Icon">Dashboard</a></li>
             <li><a href="#" id="user-management-btn"><img src="../../resources/images/home/2-user.png" alt="User Icon">User Management</a></li>
-            <li><a href="#"><img src="../../resources/images/home/bag.png" alt="Bag Icon"> Project Management</a></li>
+            <li><a href="#" id="project-management-btn"><img src="../../resources/images/home/bag.png" alt="Bag Icon"> Project Management</a></li>
         </ul>
     </div>
 
@@ -134,16 +134,16 @@
 
     <section class="container">
         <div class="hp-s3-filter-container">
-        <div class="hp-s3-filters">
-            <button class="filter-button active">All Users</button>
-            <button class="filter-button">Active</button>
-            <button class="filter-button">Inactive</button>
-        </div>
-        <div class="filter-btn">
-            <button type="button">
-                <img src="../../resources/images/home/filtericon.png" alt="Filter Icon">Filters
-            </button>
-        </div>
+            <div class="hp-s3-filters">
+                <button class="filter-button active">All Users</button>
+                <button class="filter-button">Active</button>
+                <button class="filter-button">Inactive</button>
+            </div>
+            <div class="filter-btn">
+                <button type="button">
+                    <img src="../../resources/images/home/filtericon.png" alt="Filter Icon">Filters
+                </button>
+            </div>
         </div>
 
         <table class="hp-s3-user-table">
@@ -279,6 +279,140 @@
         </div>
     </section>
 </div>
+
+<!-- Project Management -->
+<section id="project-management-section" style="display: none;">
+    <div class="hp-s4-container">
+        <div class="project-card">
+            <div class="project-header">
+                <h2>Project Name</h2>
+                <div class="project-status">
+                    <span class="status-dot green"></span>
+                    <span class="status-text">started</span>
+                </div>
+            </div>
+            <div class="project-details">
+                <p class="project-id">ALG001</p>
+                <p class="project-dates">
+                    <span>Start:</span>2024/05/30
+                    <span>End:</span>2024/05/30
+                </p>
+            </div>
+            <hr class="hp-s4-divider">
+            <div class="project-tasks">
+                <h3>Tasks</h3>
+                <div class="task">
+                    <span class="task-id">A003</span>
+                    <span class="task-status green"></span>
+                    <span class="task-name">Create UI</span>
+                </div>
+                <div class="task">
+                    <span class="task-id">A012</span>
+                    <span class="task-status yellow"></span>
+                    <span class="task-name">Develop admin panel</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h2>Project Name</h2>
+                <div class="project-status">
+                    <span class="status-dot yellow"></span>
+                    <span class="status-text">hold</span>
+                </div>
+            </div>
+            <div class="project-details">
+                <p class="project-id">ALG001</p>
+                <p class="project-dates">
+                    <span>Start:</span>2024/05/30
+                    <span>End:</span>2024/05/30
+                </p>
+            </div>
+            <hr class="hp-s4-divider">
+            <div class="project-tasks">
+                <h3>Tasks</h3>
+                <div class="task">
+                    <span class="task-id">A003</span>
+                    <span class="task-status green"></span>
+                    <span class="task-name">Create UI</span>
+                </div>
+                <div class="task">
+                    <span class="task-id">A012</span>
+                    <span class="task-status yellow"></span>
+                    <span class="task-name">Develop admin panel</span>
+                </div>
+                <div class="task">
+                    <span class="task-id">A012</span>
+                    <span class="task-status red"></span>
+                    <span class="task-name">Server hosting part</span>
+                </div>
+                <div class="task">
+                    <span class="task-id">A012</span>
+                    <span class="task-status blue"></span>
+                    <span class="task-name">create login UI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Component Section -->
+<section id="project-component-section" class="project-component-section d-none">
+    <div class="component-section-card bg-white">
+        <div class="project-header">
+            <h2>Task Name</h2>
+        </div>
+        <div class="project-details">
+            <p class="project-id">A003</p>
+            <p class="project-dates">
+                <span>Start:</span>2024/05/30
+                <span>End:</span>2024/05/30
+            </p>
+        </div>
+        <div class="project-component-tasks task2">
+            <div class="toggle-container">
+                <input type="checkbox" id="toggle-1" class="toggle-checkbox">
+                <label for="toggle-1" class="toggle-label">
+                    <span class="toggle-switch"></span>
+                </label>
+                <span class="toggle-text">Pending</span>
+            </div>
+
+            <div class="toggle-container">
+                <input type="checkbox" id="toggle-2" class="toggle-checkbox">
+                <label for="toggle-2" class="toggle-label">
+                    <span class="toggle-switch"></span>
+                </label>
+                <span class="toggle-text">In Progress</span>
+            </div>
+
+            <div class="toggle-container">
+                <input type="checkbox" id="toggle-3" class="toggle-checkbox">
+                <label for="toggle-3" class="toggle-label">
+                    <span class="toggle-switch"></span>
+                </label>
+                <span class="toggle-text">Completed</span>
+            </div>
+
+            <div class="toggle-container">
+                <input type="checkbox" id="toggle-4" class="toggle-checkbox">
+                <label for="toggle-4" class="toggle-label">
+                    <span class="toggle-switch"></span>
+                </label>
+                <span class="toggle-text">Deleted</span>
+            </div>
+
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text. “It's not Latin, though it looks like it, and it actually says nothing,” Before & After magazine answered a curious reader, “Its ‘words’ loosely approximate the frequency with which letters occur in English, which is why at a glance it looks pretty real.”</p>
+        </div>
+
+    </div>
+</section>
 
 </body>
 
