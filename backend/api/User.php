@@ -446,4 +446,35 @@ class User extends Api
                      return self::response(2, 'not logged in'); 
               }
        }
+
+       protected function delete()
+       {
+              // check REQ method is POST
+              if (!self::isPostMethod()) {
+                     return self::response(2, INVALID_REQUEST_METHOD);
+              }
+
+              // get current logged user
+              $id = $this->sessionManager->getUserId();
+
+              // check verification code
+              //check whether post method has error
+              if (self::postMethodHasError('code')) {
+                     return self::response(2, 'missing parameters');
+              }
+
+              $code = $_POST['code']??null;
+              $result  = $this->crudOperator->select('user', ['verification_code'=>$code,'id'=> $id]);
+              if (count($result) == 0) {
+                     return self::response(2, 'Invalid verification code');
+              }
+
+              // delete record from DB
+              $this->crudOperator->delete('user', ['id'=>$id]);
+
+              $this->sessionManager->logout();
+
+              // response
+              return self::response(1);
+       }
 }
