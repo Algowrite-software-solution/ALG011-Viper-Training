@@ -24,7 +24,7 @@ class User extends Api
               parent::__construct($apiPath);
               $this->init($this);
        }
-    
+
        public function register()
        {
 
@@ -49,7 +49,7 @@ class User extends Api
               $validateReadyArray = [
                      "name" => ["name" => $name],
                      "email" => ["email" => $email],
-                     "password" => ["password" => $password],                     
+                     "password" => ["password" => $password],
                      "phone_number" => ["phone_number" => $mobile1],
                      "phone_number" => ["phone_number" => $mobile2],
               ];
@@ -100,8 +100,8 @@ class User extends Api
               //send the mail
               $mailSender = new MailSender($email);
               $mailSender->mailInitiate('Verification Code', 'Verification Code', 'Your verification code is ' . $verification);
-              if(!$mailSender->sendMail()){
-                     return self::response(5,'mail sending failed');
+              if (!$mailSender->sendMail()) {
+                     return self::response(5, 'mail sending failed');
               }
 
               //return success massege
@@ -125,9 +125,9 @@ class User extends Api
 
               //validate data
 
-              $validateReadyArray = [                     
+              $validateReadyArray = [
                      "email" => ["email" => $email],
-                     "password" => ["password" => $password]                   
+                     "password" => ["password" => $password]
 
               ];
               $error = $this->validateData($validateReadyArray);
@@ -154,22 +154,21 @@ class User extends Api
               //sign in user to session
               $sessionManager = new SessionManager();
               $sessionManager->login($result[0]['id']);
-              
+
               //return success massege
-              return self::response(1);   
-              
+              return self::response(1);
        }
 
 
        protected function userverify()
-       {            
+       {
               if (!self::isPostMethod()) {
                      return INVALID_REQUEST_METHOD;
               }
 
               //catch request parameter sent data
 
-              if (self::postMethodHasError('email','verification_code')) {
+              if (self::postMethodHasError('email', 'verification_code')) {
                      return self::response(2, 'missing parameters');
               }
 
@@ -178,8 +177,8 @@ class User extends Api
 
               //validate data
 
-              $validateReadyArray = [    
-                     "email" => ["email" => $email],      
+              $validateReadyArray = [
+                     "email" => ["email" => $email],
               ];
 
               $error = $this->validateData($validateReadyArray);
@@ -194,7 +193,7 @@ class User extends Api
                      return self::response(4, 'email not found');
               }
 
-              if($result[0]['verification_code'] != $verification_code){
+              if ($result[0]['verification_code'] != $verification_code) {
                      return self::response(5, 'verification code incorrect');
               }
 
@@ -204,7 +203,6 @@ class User extends Api
 
               //response
               return self::response(1);
-              
        }
 
        protected function isLoged()
@@ -216,12 +214,10 @@ class User extends Api
               //catch request parameter sent data
               $sessionManager = new SessionManager();
               if ($sessionManager->isLoggedIn()) {
-                     return self::response(1, 'logged in');                     
+                     return self::response(1, 'logged in');
               } else {
                      return self::response(1, 'not logged in');
-                     
               }
-
        }
 
        protected function ChechIsLogged()
@@ -232,57 +228,55 @@ class User extends Api
 
               //catch request parameter sent data
               $sessionManager = new SessionManager();
-              if ($sessionManager->isLoggedIn()) {                     
+              if ($sessionManager->isLoggedIn()) {
                      return true;
-              } else {                     
+              } else {
                      return false;
               }
-
        }
 
        protected function adminVerification()
        {
               if (!self::isGetMethod()) {
                      return INVALID_REQUEST_METHOD;
-              }       
-                            
-              if ($this->ChechIsLogged()==true) {
-                     $sessionManager = new SessionManager(); 
+              }
+
+              if ($this->ChechIsLogged() == true) {
+                     $sessionManager = new SessionManager();
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
-                     if($result[0]['user_type_id'] == 1){
+                     if ($result[0]['user_type_id'] == 1) {
                             return self::response(1, 'admin');
-                     }else{
+                     } else {
                             return self::response(2, 'not admin');
-                     }                     
-              }else{                     
+                     }
+              } else {
                      return self::response(3, 'not logged in');
-              }             
+              }
        }
 
-       protected function verify(){
+       protected function verify()
+       {
               if (!self::isPostMethod()) {
                      return INVALID_REQUEST_METHOD;
               }
 
               $verification = rand(100000, 999999);
-              
-              if ($this->ChechIsLogged()==true) {
+
+              if ($this->ChechIsLogged() == true) {
                      $sessionManager = new SessionManager();
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      $email = $result[0]['email'];
-                     $result = $this->crudOperator->update('user', array('verification_code' => $verification,'verification_code_time' => date('Y-m-d H:i:s')), array('id' => $sessionManager->getUserId()));
+                     $result = $this->crudOperator->update('user', array('verification_code' => $verification, 'verification_code_time' => date('Y-m-d H:i:s')), array('id' => $sessionManager->getUserId()));
                      //send the mail
                      $mailSender = new MailSender($email);
                      $mailSender->mailInitiate('Verification Code', 'Verification Code', 'Your verification code is ' . $verification);
-                     if(!$mailSender->sendMail()){
-                            return self::response(5,'mail sending failed');
-                     }                     
-                     return self::response(1, 'verification code sent');                     
-
+                     if (!$mailSender->sendMail()) {
+                            return self::response(5, 'mail sending failed');
+                     }
+                     return self::response(1, 'verification code sent');
               } else {
                      return self::response(2, 'not logged in');
               }
-              
        }
 
        protected function passwordReset()
@@ -293,22 +287,22 @@ class User extends Api
 
               //catch request parameter sent data
 
-              if (self::postMethodHasError('password','verification_code','new_password','reenter_newpassword')) {
+              if (self::postMethodHasError('password', 'verification_code', 'new_password', 'reenter_newpassword')) {
                      return self::response(2, 'missing parameters');
               }
-             
-              $password = $_POST['password'] ?? null;              
+
+              $password = $_POST['password'] ?? null;
               $verification_code = $_POST['verification_code'] ?? null;
               $new_password = $_POST['new_password'] ?? null;
               $reenter_newpassword = $_POST['reenter_newpassword'] ?? null;
 
               //validate data
 
-              $validateReadyArray = [    
-                     "password" => ["password" => $password],                                        
+              $validateReadyArray = [
+                     "password" => ["password" => $password],
                      "password" => ["new_password" => $new_password],
-                     "password" => ["reenter_newpassword" => $reenter_newpassword]                    
-              ];              
+                     "password" => ["reenter_newpassword" => $reenter_newpassword]
+              ];
 
               $error = $this->validateData($validateReadyArray);
               if (!empty($error)) {
@@ -317,43 +311,43 @@ class User extends Api
 
               //catch request parameter sent data
 
-               $sessionManager = new SessionManager();
-              if ($this->ChechIsLogged()==true) {                     
-                     $current_time = date('Y-m-d H:i:s');                         
+              $sessionManager = new SessionManager();
+              if ($this->ChechIsLogged() == true) {
+                     $current_time = date('Y-m-d H:i:s');
 
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      $hash = $result[0]['password_hash'];
-                     $verification = $result[0]['verification_code']; 
-                     $verificationTime = $result[0]['verification_code_time'];     
-                                     
+                     $verification = $result[0]['verification_code'];
+                     $verificationTime = $result[0]['verification_code_time'];
+
                      $dateTime = new DateTime($verificationTime);
 
                      $dateTime->modify('+1 minutes');
 
                      $updatedTime = $dateTime->format('Y-m-d H:i:s');
-                     
+
                      $passwordHasher = new PasswordHash();
 
                      if (!$passwordHasher->isValid($password, $hash)) {
-                            return self::response(5, 'password incorrect');                            
-                     }else{
-                            if($verification == $verification_code){  
+                            return self::response(5, 'password incorrect');
+                     } else {
+                            if ($verification == $verification_code) {
 
-                                   if ($current_time > $updatedTime){
+                                   if ($current_time > $updatedTime) {
                                           // Regenerate a new verification code verify() 
                                           $this->verify();
                                           return self::response(2, 'verification code expired, new code generated');
-                                   }else{
-                                          if($new_password == $reenter_newpassword){                                          
+                                   } else {
+                                          if ($new_password == $reenter_newpassword) {
                                                  //update password
                                                  $hash2 = $passwordHasher->hash($reenter_newpassword);
                                                  $result = $this->crudOperator->update('user', array('password_hash' => $hash2), array('id' => $sessionManager->getUserId()));
                                                  return self::response(1, 'password updated');
-                                          }  
-                                   }                       
+                                          }
+                                   }
                                    return self::response(6, 'passwords do not match');
                             }
-                            return self::response(5, 'verification code incorrect');                           
+                            return self::response(5, 'verification code incorrect');
                      }
               } else {
                      return self::response(2, 'not logged in');
@@ -366,13 +360,13 @@ class User extends Api
                      return INVALID_REQUEST_METHOD;
               }
 
-              if ($this->ChechIsLogged()==true) {
+              if ($this->ChechIsLogged() == true) {
                      //get user data
                      $sessionManager = new SessionManager();
                      $result = $this->crudOperator->select('user', array('id' => $sessionManager->getUserId()));
                      return self::response(1, $result);
-              }else{
-                     return self::response(2, 'not logged in'); 
+              } else {
+                     return self::response(2, 'not logged in');
               }
        }
 
@@ -381,11 +375,10 @@ class User extends Api
               if (!self::isGetMethod()) {
                      return INVALID_REQUEST_METHOD;
               }
-             
+
               //get all user data
-              $result = $this->crudOperator->select('user');              
+              $result = $this->crudOperator->select('user');
               return self::response(1, $result);
-              
        }
 
        protected function profileListupdate()
@@ -411,7 +404,7 @@ class User extends Api
               $validateReadyArray = [
                      "name" => ["name" => $name],
                      "email" => ["email" => $email],
-                     "password" => ["password" => $password],                     
+                     "password" => ["password" => $password],
                      "phone_number" => ["phone_number" => $mobile1],
                      "phone_number" => ["phone_number" => $mobile2],
               ];
@@ -420,7 +413,7 @@ class User extends Api
                      return self::response(3, $error);
               }
 
-              if ($this->ChechIsLogged()==true) {
+              if ($this->ChechIsLogged() == true) {
                      //hash the password
                      $passwordHasher = new PasswordHash();
                      $hash = $passwordHasher->hash($password);
@@ -441,9 +434,9 @@ class User extends Api
                      );
 
                      //return success massege
-                     return self::response(1, 'profile updated');                     
-              }else{                     
-                     return self::response(2, 'not logged in'); 
+                     return self::response(1, 'profile updated');
+              } else {
+                     return self::response(2, 'not logged in');
               }
        }
 
@@ -463,18 +456,74 @@ class User extends Api
                      return self::response(2, 'missing parameters');
               }
 
-              $code = $_POST['code']??null;
-              $result  = $this->crudOperator->select('user', ['verification_code'=>$code,'id'=> $id]);
+              $code = $_POST['code'] ?? null;
+              $result  = $this->crudOperator->select('user', ['verification_code' => $code, 'id' => $id]);
               if (count($result) == 0) {
                      return self::response(2, 'Invalid verification code');
               }
 
               // delete record from DB
-              $this->crudOperator->delete('user', ['id'=>$id]);
+              $this->crudOperator->delete('user', ['id' => $id]);
 
               $this->sessionManager->logout();
 
               // response
               return self::response(1);
+       }
+
+       protected function update()
+       {
+              // check REQ method is POST
+              if (!self::isPostMethod()) {
+                     return self::response(2, INVALID_REQUEST_METHOD);
+              }
+
+              // get current logged user
+              $id = $this->sessionManager->getUserId();
+
+              // validate required fields
+              $requiredFields = ['name', 'role', 'mobile1', 'mobile2'];
+              foreach ($requiredFields as $field) {
+                     if (self::postMethodHasError($field)) {
+                            return self::response(2, 'missing parameters');
+                     }
+              }
+
+              // get data from POST request
+              $name = $_POST['name'] ?? null;
+              $role = $_POST['role'] ?? null;
+              $mobile1 = $_POST['mobile1'] ?? null;
+              $mobile2 = $_POST['mobile2'] ?? null;
+
+              // Validate the data
+              $validateReadyArray = [
+                     "name" => ["name" => $name],
+                     "phone_number" => ["phone_number" => $mobile1],
+                     "phone_number" => ["phone_number" => $mobile2],
+              ];
+
+              $error = $this->validateData($validateReadyArray);
+              if (!empty($error)) {
+                     return self::response(3, $error);
+              }
+
+              // check if user exists
+              $user = $this->crudOperator->select('user', ['id' => $id]);
+              if (count($user) == 0) {
+                     return self::response(2, 'User not found');
+              }
+
+              // update user details in DB
+              $updateData = [
+                     'name' => $name,
+                     'user_role_id' => $role,
+                     'mobile_1' => $mobile1,
+                     'mobile_2' => $mobile2
+              ];
+
+              $this->crudOperator->update('user', $updateData, ['id' => $id]);
+
+              // response
+              return self::response(1, 'User details updated successfully');
        }
 }
