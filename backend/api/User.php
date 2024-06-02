@@ -97,6 +97,8 @@ class User extends Api
                      "name" => ["name" => $name],
                      "email" => ["email" => $email],
                      "password" => ["password" => $password],
+                     "json"=>["json"=>json_encode(array('name'=>'sachin','age'=>23))],
+                     "url"=>["url"=>'https://www.google.com'],
 
               ];
               $error = $this->validateData($validateReadyArray);
