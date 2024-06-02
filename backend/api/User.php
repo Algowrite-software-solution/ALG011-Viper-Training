@@ -473,59 +473,97 @@ class User extends Api
 
        protected function update()
        {
-              // check REQ method is POST
+              // Check if the request method is POST
               if (!self::isPostMethod()) {
-                     return self::response(2, INVALID_REQUEST_METHOD);
+                     return self::response(2, 'Invalid request method');
               }
 
-              // get current logged user
+              // Get the current logged user ID from the session
               $id = $this->sessionManager->getUserId();
 
-              // validate required fields
-              $requiredFields = ['name', 'role', 'mobile1', 'mobile2'];
-              foreach ($requiredFields as $field) {
-                     if (self::postMethodHasError($field)) {
-                            return self::response(2, 'missing parameters');
-                     }
-              }
-
-              // get data from POST request
-              $name = $_POST['name'] ?? null;
-              $role = $_POST['role'] ?? null;
-              $mobile1 = $_POST['mobile1'] ?? null;
-              $mobile2 = $_POST['mobile2'] ?? null;
-
-              // Validate the data
-              $validateReadyArray = [
-                     "name" => ["name" => $name],
-                     "phone_number" => ["phone_number" => $mobile1],
-                     "phone_number" => ["phone_number" => $mobile2],
-              ];
-
-              $error = $this->validateData($validateReadyArray);
-              if (!empty($error)) {
-                     return self::response(3, $error);
-              }
-
-              // check if user exists
-              $user = $this->crudOperator->select('user', ['id' => $id]);
-              if (count($user) == 0) {
+              // Get the current logged user's details
+              $currentUser = $this->crudOperator->select('user', ['id' => $id]);
+              if (count($currentUser) == 0) {
                      return self::response(2, 'User not found');
               }
 
-              // update user details in DB
-              $updateData = [
-                     'name' => $name,
-                     'user_role_id' => $role,
-                     'mobile_1' => $mobile1,
-                     'mobile_2' => $mobile2
-              ];
+              $currentUser = $currentUser[0];
 
+              // Determine if the user is an admin or a regular user
+              $isAdminUpdate = isset($currentUser['user_type_id']) && $currentUser['user_type_id'] == 1 && isset($_POST['id']) && $_POST['id'] !== null;
+
+              if($isAdminUpdate){
+                     $id = $_POST['id'];
+              }
+
+              // Define allowed fields based on user type
+              $allowedFields = $isAdminUpdate
+                     ? ['user_status_id', 'user_type_id', 'user_role_id']
+                     : ['name', 'mobile_1', 'mobile_2'];
+
+              // Initialize the update data array
+              $updateData = [];
+
+              // Populate the update data array with non-null values from POST
+              foreach ($allowedFields as $field) {
+                     if (isset($_POST[$field]) && $_POST[$field] !== null) {
+                            $updateData[$field] = $_POST[$field];
+                     }
+              }
+
+              // Ensure there's data to update
+              if (empty($updateData)) {
+                     return self::response(2, 'No data provided for update');
+              }
+
+              if ($isAdminUpdate) {
+                     // Validate IDs if provided
+                     $validationErrors = [];
+                     if (isset($updateData['user_role_id']) && !$this->isValidId('user_role', $updateData['user_role_id'])) {
+                            $validationErrors[] = 'Invalid user role ID';
+                     }
+                     if (isset($updateData['user_status_id']) && !$this->isValidId('user_status', $updateData['user_status_id'])) {
+                            $validationErrors[] = 'Invalid user status ID';
+                     }
+                     if (isset($updateData['user_type_id']) && !$this->isValidId('user_type', $updateData['user_type_id'])) {
+                            $validationErrors[] = 'Invalid user type ID';
+                     }
+
+                     if (!empty($validationErrors)) {
+                            return self::response(3, $validationErrors);
+                     }
+              } else {
+                     // Validate the data
+                     $validateReadyArray = [];
+                     if (isset($updateData['name'])) {
+                            $validateReadyArray['name'] = ["name" => $updateData['name']];
+                     }
+                     if (isset($updateData['mobile_1'])) {
+                            $validateReadyArray['phone_number'] = ["phone_number" => $updateData['mobile_1']];
+                     }
+                     if (isset($updateData['mobile_2'])) {
+                            $validateReadyArray['phone_number'] = ["phone_number" => $updateData['mobile_2']];
+                     }
+
+                     $error = $this->validateData($validateReadyArray);
+                     if (!empty($error)) {
+                            return self::response(3, $error);
+                     }
+              }
+
+              // Update user details in the database
               $this->crudOperator->update('user', $updateData, ['id' => $id]);
 
-              // response
+              // Return success response
               return self::response(1, 'User details updated successfully');
        }
+
+       protected function isValidId($table, $id)
+       {
+              $result = $this->crudOperator->select($table, ['id' => $id]);
+              return count($result) > 0;
+       }
+
 
        public function display()
        {
@@ -556,14 +594,14 @@ class User extends Api
                      ";
 
               // Execute the query using dbCall
-              $userDetails = $this->dbCall($query,"i", [$id]);
-              
+              $userDetails = $this->dbCall($query, "i", [$id]);
+
               // Check if the user exists
               if (count($userDetails) == 0) {
                      return self::response(2, 'User not found');
               }
 
-              
+
               $userDetails = $userDetails[0];
 
               $responseData = [
