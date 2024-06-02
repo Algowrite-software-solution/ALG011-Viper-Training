@@ -526,4 +526,63 @@ class User extends Api
               // response
               return self::response(1, 'User details updated successfully');
        }
+
+       public function display()
+       {
+              // Check if the request method is GET
+              if (!self::isGetMethod()) {
+                     return self::response(2, INVALID_REQUEST_METHOD);
+              }
+
+              // Get the user ID from the session
+              $id = $this->sessionManager->getUserId();
+
+              // Fetch the user details along with role, status, and type using INNER JOIN
+              $query = "
+                     SELECT 
+                            u.id, u.name, u.email, u.mobile_1, u.mobile_2, u.registered_date, u.last_logged,
+                            u.user_role_id, u.user_status_id, u.user_type_id,
+                            ur.role, us.status, ut.type
+                     FROM 
+                            user u
+                     INNER JOIN 
+                            user_role ur ON u.user_role_id = ur.id
+                     INNER JOIN 
+                            user_status us ON u.user_status_id = us.id
+                     INNER JOIN 
+                            user_type ut ON u.user_type_id = ut.id
+                     WHERE 
+                            u.id = ?
+                     ";
+
+              // Execute the query using dbCall
+              $userDetails = $this->dbCall($query,"i", [$id]);
+              
+              // Check if the user exists
+              if (count($userDetails) == 0) {
+                     return self::response(2, 'User not found');
+              }
+
+              
+              $userDetails = $userDetails[0];
+
+              $responseData = [
+                     'id' => $userDetails['id'],
+                     'name' => $userDetails['name'],
+                     'email' => $userDetails['email'],
+                     'user_role_id' => $userDetails['user_role_id'],
+                     'role' => $userDetails['role'],
+                     'mobile1' => $userDetails['mobile_1'],
+                     'mobile2' => $userDetails['mobile_2'],
+                     'registered_date' => $userDetails['registered_date'],
+                     'last_logged' => $userDetails['last_logged'],
+                     'user_status_id' => $userDetails['user_status_id'],
+                     'user_status' => $userDetails['status'],
+                     'user_type_id' => $userDetails['user_type_id'],
+                     'user_type' => $userDetails['type']
+              ];
+
+              // Return the response
+              return self::response(1, $responseData);
+       }
 }
