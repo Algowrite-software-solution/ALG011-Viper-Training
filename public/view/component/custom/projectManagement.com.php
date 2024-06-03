@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    
     <form action="/home.php">
         <!-- Project Component Section -->
         <section id="project-component-section" class="project-component-section d-none">
