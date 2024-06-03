@@ -450,6 +450,11 @@ class User extends Api
               // get current logged user
               $id = $this->sessionManager->getUserId();
 
+              // Check if the user is logged in
+              if ($id === null) {
+                     return self::response(2, 'User not logged in');
+              }
+
               // check verification code
               //check whether post method has error
               if (self::postMethodHasError('code')) {
@@ -481,6 +486,11 @@ class User extends Api
               // Get the current logged user ID from the session
               $id = $this->sessionManager->getUserId();
 
+              // Check if the user is logged in
+              if ($id === null) {
+                     return self::response(2, 'User not logged in');
+              }
+
               // Get the current logged user's details
               $currentUser = $this->crudOperator->select('user', ['id' => $id]);
               if (count($currentUser) == 0) {
@@ -492,7 +502,7 @@ class User extends Api
               // Determine if the user is an admin or a regular user
               $isAdminUpdate = isset($currentUser['user_type_id']) && $currentUser['user_type_id'] == 1 && isset($_POST['id']) && $_POST['id'] !== null;
 
-              if($isAdminUpdate){
+              if ($isAdminUpdate) {
                      $id = $_POST['id'];
               }
 
@@ -574,6 +584,11 @@ class User extends Api
 
               // Get the user ID from the session
               $id = $this->sessionManager->getUserId();
+
+              // Check if the user is logged in
+              if ($id === null) {
+                     return self::response(2, 'User not logged in');
+              }
 
               // Fetch the user details along with role, status, and type using INNER JOIN
               $query = "
