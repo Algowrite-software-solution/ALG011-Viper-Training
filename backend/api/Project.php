@@ -183,4 +183,96 @@ class Project extends Api
         // Return the response
         return self::response(1, 'project added successfully');
     }
+
+    protected function edit()
+    {
+        // Check if the request method is POST
+        if (!self::isPostMethod()) {
+            return self::response(2, INVALID_REQUEST_METHOD);
+        }
+
+        // Get the user ID from the session
+        $userId = $this->sessionManager->getUserId();
+
+        // Check if the user is logged in
+        if ($userId === null) {
+            return self::response(2, 'User not logged in');
+        }
+
+        // Get the project ID from the query parameters
+        if (self::postMethodHasError('project_id')) {
+            return self::response(2, 'missing parameters');
+        }
+
+        // Get the current logged user's details
+        $currentUser = $this->crudOperator->select('user', ['id' => $userId]);
+        if (count($currentUser) == 0) {
+            return self::response(2, 'User not found');
+        }
+
+        $currentUser = $currentUser[0];
+
+        // Determine if the user is an admin
+        $isAdmin = isset($currentUser['user_type_id']) && $currentUser['user_type_id'] == 1;
+
+        // If user is not an admin, they cannot add projects
+        if (!$isAdmin) {
+            return self::response(2, 'Unauthorized');
+        }
+
+        // Get data from POST request
+        $projectId = $_POST['project_id'] ?? null;
+        $projectName = $_POST['project_name'] ?? null;
+        $description = $_POST['description'] ?? null;
+        $startDate = $_POST['start_date'] ?? null;
+        $endDate = $_POST['end_date'] ?? null;
+        $projectStatusId = $_POST['project_status_id'] ?? null;
+
+        // Fetch the project details to ensure it exists
+        $project = $this->crudOperator->select('project', ['project_id' => $projectId]);
+        if (count($project) == 0) {
+            return self::response(2, 'project not found');
+        }
+
+        // Prepare data for validation and update
+        $validateReadyArray = [];
+        $updateData = [];
+        if ($projectName !== null) {
+            $validateReadyArray['name'] = ["name" => $projectName];
+            $updateData['project_name'] = $projectName;
+        }
+        if ($startDate !== null) {
+            $validateReadyArray['date'] = ["date" => $startDate];
+            $updateData['start_date'] = $startDate;
+        }
+        if ($endDate !== null) {
+            $validateReadyArray['date'] = ["date" => $endDate];
+            $updateData['end_date'] = $endDate;
+        }
+
+        $error = $this->validateData($validateReadyArray);
+
+        if (!empty($error)) {
+            return self::response(3, $error);
+        }
+
+        if ($description !== null) {
+            $updateData['description'] = $description;
+        }
+
+        if ($projectStatusId !== null) {
+            // Check if project status exists
+            $projectStatus = $this->crudOperator->select('project_status', ['status_id' => $projectStatusId]);
+            if (count($projectStatus) == 0) {
+                return self::response(2, 'project status not found');
+            }
+            $updateData['project_status_status_id'] = $projectStatusId;
+        }
+
+        // Update project details in the database
+        $this->crudOperator->update('project', $updateData, ['project_id' => $projectId]);
+
+        // Return the response
+        return self::response(1, 'project updated successfully');
+    }
 }
