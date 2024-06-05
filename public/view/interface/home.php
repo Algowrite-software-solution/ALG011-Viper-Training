@@ -11,6 +11,35 @@ include "../public/view/component/custom/projectManagement.com.php";
 
 ?>
 
+<!-- Sidebar -->
+<section class="hp-s1-container">
+    <div class="hp-s1-menu-icon">
+        <img src="../resources/images/home/menuicon.png" alt="Menu Icon">
+    </div>
+    <div class="hp-s1-sidebar" id="sidebar">
+        <div class="hp-s1-logo">
+            <div class="hp-s1-rounded-icon"></div>
+            Algowrite
+        </div>
+        <div class="hp-s1-close-icon">
+            <img src="../../resources/images/home/closeicon.png" alt="Close Icon">
+        </div>
+        <ul class="hp-s1-menu">
+            <li><a href="#" class="active"><img src="../../resources/images/home/category.png" alt="Dashboard Icon">Dashboard</a></li>
+            <li><a href="#" id="user-management-btn"><img src="../../resources/images/home/2-user.png" alt="User Icon">User Management</a></li>
+            <li><a href="#" id="project-management-btn"><img src="../../resources/images/home/bag.png" alt="Bag Icon"> Project Management</a></li>
+        </ul>
+    </div>
+
+    <div class="hp-s1-content">
+        <div class="hp-s1-profile">
+            <div class="hp-s1-title"></div>
+            <button class="hp-s1-btn">Sign Out</button>
+            <div class="hp-s1-user-icon" id="my-profile-btn">BT</div>
+        </div>
+    </div>
+</section>
+
 <!-- User Management -->
 <div id="user-management-section" style="display: none;">
     <section class="hp-s2-profile-card edit">
