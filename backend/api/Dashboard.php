@@ -24,7 +24,7 @@ class Dashboard extends Api
     }
 
 
-    protected function dashboard()
+    protected function load()
     {
         // Check if the request method is GET
         if (!self::isPostMethod()) {
