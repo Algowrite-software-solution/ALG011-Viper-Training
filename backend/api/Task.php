@@ -13,13 +13,16 @@ require_once __DIR__ . '/../model/UniqueIDGenerator.php';
 require_once __DIR__ . '/../model/mail/MailSender.php';
 require_once __DIR__ . '/../model/SessionManager.php';
 
+
 class Task extends Api
 {
-    public function __construct($apiPath)
+    public function __construct($apiPath, protected $isAPI = true)
     {
         //pares apiPath parent class constructor
         parent::__construct($apiPath);
-        $this->init($this);
+        if ($isAPI) {
+            $this->init($this);
+     }
     }
 
     //data method
@@ -65,27 +68,27 @@ class Task extends Api
         }
 
         $query = "
-        SELECT 
-            t.*, 
-            u.id as user_id, u.name as user_name, 
-            p.project_name, 
-            ts.status as task_status, 
-            ps.status as project_status
-        FROM 
-            task t
-        INNER JOIN 
-            assigned_to at ON t.task_id = at.task_task_id
-        INNER JOIN 
-            user u ON at.user_id = u.id
-        INNER JOIN 
-            project p ON t.project_project_id = p.project_id
-        INNER JOIN 
-            task_status ts ON t.task_status_status_id = ts.status_id
-        INNER JOIN 
-            project_status ps ON p.project_status_status_id = ps.status_id
-        WHERE 
-            t.task_id = ?
-    ";
+            SELECT 
+                t.*, 
+                u.id as user_id, u.name as user_name, 
+                p.project_name, 
+                ts.status as task_status, 
+                ps.status as project_status
+            FROM 
+                task t
+            INNER JOIN 
+                assigned_to at ON t.task_id = at.task_task_id
+            INNER JOIN 
+                user u ON at.user_id = u.id
+            INNER JOIN 
+                project p ON t.project_project_id = p.project_id
+            INNER JOIN 
+                task_status ts ON t.task_status_status_id = ts.status_id
+            INNER JOIN 
+                project_status ps ON p.project_status_status_id = ps.status_id
+            WHERE 
+                t.task_id = ?
+        ";
 
         // Execute the query using dbCall
         $task = $this->dbCall($query, "s", [$id]);
@@ -293,8 +296,11 @@ class Task extends Api
         return self::response(1, 'Task updated successfully');
     }
 
-    protected function delete()
+    public function delete($task_Id = null)
     {
+        if($task_Id){
+            $taskId = $task_Id;
+        }else{
         // Check if the request method is POST
         if (!self::isPostMethod()) {
             return self::response(2, INVALID_REQUEST_METHOD);
@@ -331,11 +337,12 @@ class Task extends Api
 
         // Get data from POST request
         $taskId = $_POST['task_id'] ?? null;
+    }
 
         // Fetch the task details to ensure it exists
         $task = $this->crudOperator->select('task', ['task_id' => $taskId]);
         if (count($task) == 0) {
-            return self::response(2, 'Task not found');
+            return ($this->isAPI) ? self::response(2, 'Task not found'): false;
         }
 
         // Delete the assignments related to the task
@@ -345,6 +352,6 @@ class Task extends Api
         $this->crudOperator->delete('task', ['task_id' => $taskId]);
 
         // Return the response
-        return self::response(1, 'Task deleted successfully');
+        return ($this->isAPI) ? self::response(1, 'Task deleted successfully'): true;
     }
 }

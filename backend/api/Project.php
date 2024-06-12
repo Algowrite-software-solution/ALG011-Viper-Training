@@ -13,9 +13,11 @@ require_once __DIR__ . '/../model/UniqueIDGenerator.php';
 require_once __DIR__ . '/../model/mail/MailSender.php';
 require_once __DIR__ . '/../model/SessionManager.php';
 
+require_once __DIR__ . '/Task.php';
+
 class Project extends Api
 {
-    public function __construct($apiPath)
+    public function __construct(protected $apiPath)
     {
         //pares apiPath parent class constructor
         parent::__construct($apiPath);
@@ -65,27 +67,27 @@ class Project extends Api
         }
 
         $query = "
-        SELECT 
-        p.*,
-        ps.status as project_status,
-        u.id as user_id,
-        u.name as user_name,
-        GROUP_CONCAT(t.project_name SEPARATOR ', ') as project_names
-    FROM 
-        project p
-    INNER JOIN 
-        user_has_project up ON p.project_id = up.project_id
-    INNER JOIN 
-        user u ON up.user_id = u.id
-    INNER JOIN 
-        project_status ps ON p.project_status_status_id = ps.status_id
-    LEFT JOIN 
-        project t ON p.project_id = t.project_project_id
-    WHERE 
-        p.project_id = ?
-    GROUP BY
-        p.project_id    
-    ";
+            SELECT 
+                p.*,
+                ps.status as project_status,
+                u.id as user_id,
+                u.name as user_name,
+                GROUP_CONCAT(t.project_name SEPARATOR ', ') as project_names
+            FROM 
+                project p
+            INNER JOIN 
+                user_has_project up ON p.project_id = up.project_id
+            INNER JOIN 
+                user u ON up.user_id = u.id
+            INNER JOIN 
+                project_status ps ON p.project_status_status_id = ps.status_id
+            LEFT JOIN 
+                project t ON p.project_id = t.project_project_id
+            WHERE 
+                p.project_id = ?
+            GROUP BY
+                p.project_id    
+            ";
 
         // Execute the query using dbCall
         $project = $this->dbCall($query, "s", [$id]);
@@ -274,5 +276,75 @@ class Project extends Api
 
         // Return the response
         return self::response(1, 'project updated successfully');
+    }
+
+    protected function delete()
+    {
+        // Check if the request method is POST
+        if (!self::isPostMethod()) {
+            return self::response(2, INVALID_REQUEST_METHOD);
+        }
+
+        // Get the user ID from the session
+        $userId = $this->sessionManager->getUserId();
+
+        // Check if the user is logged in
+        if ($userId === null) {
+            return self::response(2, 'User not logged in');
+        }
+
+        // Get the project ID from the query parameters
+        if (self::postMethodHasError('project_id')) {
+            return self::response(2, 'missing parameters');
+        }
+
+        // Get the current logged user's details
+        $currentUser = $this->crudOperator->select('user', ['id' => $userId]);
+        if (count($currentUser) == 0) {
+            return self::response(2, 'User not found');
+        }
+
+        $currentUser = $currentUser[0];
+
+        // Determine if the user is an admin
+        $isAdmin = isset($currentUser['user_type_id']) && $currentUser['user_type_id'] == 1;
+
+        // If user is not an admin, they cannot add projects
+        if (!$isAdmin) {
+            return self::response(2, 'Unauthorized');
+        }
+
+        // Get data from POST request
+        $projectId = $_POST['project_id'] ?? null;
+
+        // Fetch the project details to ensure it exists
+        $project = $this->crudOperator->select('project', ['project_id' => $projectId]);
+        if (count($project) == 0) {
+            return self::response(2, 'project not found');
+        }
+
+        // Delete the assignments related to the project
+        $this->crudOperator->delete('user_has_project', ['project_id' => $projectId]);
+
+        // get the tasks related to the project
+        $tasks = $this->crudOperator->select('task', ['project_project_id' => $projectId]);
+
+        //extract the task ids
+        $taskIds = array_map(function ($task) {
+            return $task['task_id'];
+        }, $tasks);
+
+        // delete the tasks related to the project
+        $deleteTask = new Task($this->apiPath, false);
+        foreach ($taskIds as $taskId) {
+            $deleteTask->delete($taskId);
+        }
+
+
+        // Delete the project details from the database
+        $this->crudOperator->delete('project', ['project_id' => $projectId]);
+
+        // Return the response
+        return self::response(1, 'project deleted successfully');
     }
 }
