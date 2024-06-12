@@ -28,7 +28,7 @@ class Project extends Api
     protected function view()
     {
         // Check if the request method is GET
-        if (!self::isPostMethod()) {
+        if (!self::isGETMethod()) {
             return self::response(2, INVALID_REQUEST_METHOD);
         }
 

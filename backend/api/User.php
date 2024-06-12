@@ -14,7 +14,6 @@ require_once __DIR__ . '/../model/mail/MailSender.php';
 require_once __DIR__ . '/../model/SessionManager.php';
 
 
-require_once __DIR__ . '/Test.php';
 
 class User extends Api
 {
