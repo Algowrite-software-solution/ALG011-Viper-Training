@@ -7,7 +7,7 @@
 <?php
 include "../public/view/component/custom/userProfile.com.php";
 
-include "../public/view/component/custom/projectManagement.com.php";
+include "../public/view/component/custom/dashborad.com.php";
 
 ?>
 
@@ -25,7 +25,7 @@ include "../public/view/component/custom/projectManagement.com.php";
             <img src="../../resources/images/home/closeicon.png" alt="Close Icon">
         </div>
         <ul class="hp-s1-menu">
-            <li><a href="#" class="active"><img src="../../resources/images/home/category.png" alt="Dashboard Icon">Dashboard</a></li>
+            <li><a href="#" class="active" id="dashboard-btn"><img src="../../resources/images/home/category.png" alt="Dashboard Icon">Dashboard</a></li>
             <li><a href="#" id="user-management-btn"><img src="../../resources/images/home/2-user.png" alt="User Icon">User Management</a></li>
             <li><a href="#" id="project-management-btn"><img src="../../resources/images/home/bag.png" alt="Bag Icon"> Project Management</a></li>
         </ul>
@@ -209,8 +209,8 @@ include "../public/view/component/custom/projectManagement.com.php";
     </section>
 </div>
 
-<!-- Project Management -->
-<section id="project-management-section" style="display: none;">
+<!-- Dashboard -->
+<section id="dashboard-section" style="display: none;">
     <div class="hp-s4-container">
         <div class="project-card">
             <div class="project-header">
@@ -342,6 +342,84 @@ include "../public/view/component/custom/projectManagement.com.php";
     </div>
 </section>
 
-</body>
+<!-- Project Management -->
+<section id="project-management-section" style="display: none;">
+    <div > 
+        <div class="container text-center">
+            <div class="row">  
+                <div class="col-7 d-flex flex-column">                
+                    <form action="/" method="post"> 
+                        <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
+                                <label class="ps-4 w-75" for="pname">Project Name</label>
+                                <input type="text" class="prj-input" id="pname" required>
+                        </div>                    
+                        <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
+                                <label class="ps-0 w-75" for="pname">Project ID</label>
+                                <input type="text" class="prj-input2" id="pname" placeholder="ALG0011" required>
+                        </div>
+                        <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
+                                <label class="ps-3 w-75" for="pname">Description</label>
+                                <textarea class="prj-input rounded-4" id="pname" rows="3"></textarea>
+                        </div>     
+                        <br>
+                        <div class="container-xxl"> 
+                            <div class="row">             
+                                <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center col">
+                                        <label class="ps-5 w-75" for="pname">Start Date</label>
+                                        <input type="date" class="prj-input3" id="pname" required>
+                                </div>
+                                <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center col">
+                                        <label class="ps-5 w-75" for="pname">End Date</label>
+                                        <input type="date" class="prj-input3" id="pname" required>
+                                </div>
+                            </div>
+                        </div> 
+                        <br>
+                        <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
+                                <label class="ps-3 w-75" for="pname">Add users</label>
+                                <select class="prj-input" >
+                                    <option selected> </option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                        </div>
+                    </form> 
+                </div>               
+                <div class="col project-card mx-5">
+                    <div class="project-header">
+                        <h2>Project Name</h2>
+                        <div class="project-status">
+                            <span class="status-dot green"></span>
+                            <span class="status-text">started</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <p class="project-id">ALG001</p>
+                        <p class="project-dates">
+                            <span>Start:</span>2024/05/30
+                            <span>End:</span>2024/05/30
+                        </p>
+                    </div>
+                    <hr class="hp-s4-divider">
+                    <div class="project-tasks">
+                        <h3>Tasks</h3>
+                        <div class="task">
+                            <span class="task-id">A003</span>
+                            <span class="task-status green"></span>
+                            <span class="task-name">Create UI</span>
+                        </div>
+                        <div class="task">
+                            <span class="task-id">A012</span>
+                            <span class="task-status yellow"></span>
+                            <span class="task-name">Develop admin panel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>      
+            <button type="submit" class="alg-btn" style="width: 91%; margin-left: 7%;">Create</button>
+            <button type="submit" class="alg-btn" style="width: 91%; margin-left: 7%;">Update</button>
+        </div>  
+    </div>
+</section>
 
-</html>

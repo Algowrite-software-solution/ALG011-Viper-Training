@@ -27,12 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectManagementBtn = document.getElementById('project-management-btn');
   const projectManagementSection = document.getElementById('project-management-section');
 
+  const dashboardBtn = document.getElementById('dashboard-btn');
+  const dashboardSection = document.getElementById('dashboard-section');
+
   const titleElement = document.querySelector('.hp-s1-title');
 
   const clearDisplayedSection = () => {
     userManagementSection.style.display = 'none';
     myProfileSection.style.display = 'none';
     projectManagementSection.style.display = 'none';
+    dashboardSection.style.display = 'none';
   };
 
   const showSectionAndSetTitle = (sectionElement, titleText) => {
@@ -40,6 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionElement.style.display = 'block';
     titleElement.textContent = titleText;
   };
+
+  dashboardBtn.addEventListener('click', () => {
+    showSectionAndSetTitle(dashboardSection, 'My Projects');
+  });
 
   userManagementBtn.addEventListener('click', () => {
     showSectionAndSetTitle(userManagementSection, 'User Management');
@@ -50,7 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   projectManagementBtn.addEventListener('click', () => {
-    showSectionAndSetTitle(projectManagementSection, 'My Projects');
+    showSectionAndSetTitle(projectManagementSection, 'Create Project');
   });
+  
 });
 

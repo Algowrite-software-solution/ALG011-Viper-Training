@@ -495,7 +495,7 @@ Description : this is the home layout css (hp- home page) */
   background-color: #ddd;
 }
 
-/* project management-section */
+/* dashboard-section */
 
 .hp-s4-container {
   display: flex;
@@ -654,6 +654,43 @@ Description : this is the home layout css (hp- home page) */
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Project Management */
+.hp-s5-container {    
+  margin-left: 280px;
+  margin-top: -10px;
+  padding-left: 20px;  
+  padding-right: 20px;  
+}
+
+.prj-input {
+  width: 170%;
+  margin: 5px auto;
+  font-size: var(--font-p-lg);
+  border-radius: 50px;
+  border: 1px solid #9ACFFF;
+  background-color: #9ACFFF;
+  padding: 10px 25px;
+}
+
+.prj-input2 {
+  width: 165%;
+  margin: 5px auto;
+  font-size: var(--font-p-lg);
+  border-radius: 50px;
+  border: 1px solid #CDCDCD;
+  background-color: #CDCDCD;
+  padding: 10px 25px;
+}
+
+.prj-input3 {
+  width: 55%;  
+  font-size: var(--font-p-lg);
+  border-radius: 50px;
+  border: 1px solid #CDCDCD;
+  background-color: #CDCDCD;
+  padding: 10px 25px;
 }
 
 @media (min-width: 992px) {
