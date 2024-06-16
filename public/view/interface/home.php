@@ -345,80 +345,134 @@ include "../public/view/component/custom/dashborad.com.php";
 <!-- Project Management -->
 <section id="project-management-section" style="display: none;">
     <div > 
-        <div class="container text-center">
+        <div class="container text-center " style="margin-left: 300px; ">
             <div class="row">  
                 <div class="col-7 d-flex flex-column">                
                     <form action="/" method="post"> 
                         <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
-                                <label class="ps-4 w-75" for="pname">Project Name</label>
+                                <label style="width: 300px; text-align: left;" for="pname">Project Name</label>
                                 <input type="text" class="prj-input" id="pname" required>
-                        </div>                    
+                        </div>  
+                        <br>                  
                         <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
-                                <label class="ps-0 w-75" for="pname">Project ID</label>
-                                <input type="text" class="prj-input2" id="pname" placeholder="ALG0011" required>
+                                <label style="width: 300px; text-align: left;" for="pid">Project ID</label>
+                                <input type="text" class="prj-input2" id="pid" placeholder="ALG0011" required>
                         </div>
+                        <br>
                         <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
-                                <label class="ps-3 w-75" for="pname">Description</label>
-                                <textarea class="prj-input rounded-4" id="pname" rows="3"></textarea>
+                                <label style="width: 300px; text-align: left;" for="description">Description</label>
+                                <textarea class="prj-input rounded-4" id="description" rows="3"></textarea>
                         </div>     
                         <br>
-                        <div class="container-xxl"> 
+                        <div class="container" style="margin-left: 0;"> 
                             <div class="row">             
-                                <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center col">
-                                        <label class="ps-5 w-75" for="pname">Start Date</label>
-                                        <input type="date" class="prj-input3" id="pname" required>
+                                <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center col-6" style="background-color: brown;">
+                                        <label style="text-align: left;" for="pname">Start Date</label>
+                                        <input type="date" class="prj-input3"  id="pname" required>
                                 </div>
-                                <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center col">
-                                        <label class="ps-5 w-75" for="pname">End Date</label>
-                                        <input type="date" class="prj-input3" id="pname" required>
+                                <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center col-6" style="background-color: darkorange;">
+                                        <label class="ps-5 w-75" for="pname" style="margin-left: 50px;">End Date</label>
+                                        <input type="date" class="prj-input3"  id="pname" required>
                                 </div>
                             </div>
                         </div> 
                         <br>
                         <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
-                                <label class="ps-3 w-75" for="pname">Add users</label>
+                                <label style="width: 300px; text-align: left;" for="addusers">Add users</label>
                                 <select class="prj-input" >
                                     <option selected> </option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">Sample</option>
+                                    <option value="2">Sample</option>
+                                    <option value="3">Sample</option>
                                 </select>
                         </div>
                     </form> 
                 </div>               
-                <div class="col project-card mx-5">
-                    <div class="project-header">
-                        <h2>Project Name</h2>
-                        <div class="project-status">
-                            <span class="status-dot green"></span>
-                            <span class="status-text">started</span>
+                <div class="col status-card mx-5">
+                    <div class="align-items-center">
+                        <p><b>Set Statue</b></p>                        
+                    </div>                    
+                    <div class="container text-center" style="margin-left: 45px;">
+                        <div class="row"> 
+                            <div class="col form-check form-switch ">
+                                <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="PlanningCheck" checked><br><br>
+                                <label class="form-check-label" style="display:flex; margin-left: -35px;" for="PlanningCheck">Planning</label>
+                            </div>
+                            <div class="col form-check form-switch ">
+                                <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="StartedCheck"><br><br>
+                                <label class="form-check-label" style="display:flex; margin-left: -35px;" for="StartedCheck">Started</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-details">
-                        <p class="project-id">ALG001</p>
-                        <p class="project-dates">
-                            <span>Start:</span>2024/05/30
-                            <span>End:</span>2024/05/30
-                        </p>
-                    </div>
-                    <hr class="hp-s4-divider">
-                    <div class="project-tasks">
-                        <h3>Tasks</h3>
-                        <div class="task">
-                            <span class="task-id">A003</span>
-                            <span class="task-status green"></span>
-                            <span class="task-name">Create UI</span>
+                        <br>
+                        <div class="row"> 
+                            <div class="col form-check form-switch ">
+                                <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="HoldCheck" ><br><br>
+                                <label class="form-check-label" style="display:flex; margin-left: -25px;" for="HoldCheck">Hold</label>
+                            </div>
+                            <div class="col form-check form-switch ">
+                                <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CancelledCheck"><br><br>
+                                <label class="form-check-label" style="display:flex; margin-left: -45px;" for="CancelledCheck">Cancelled</label>
+                            </div>
                         </div>
-                        <div class="task">
-                            <span class="task-id">A012</span>
-                            <span class="task-status yellow"></span>
-                            <span class="task-name">Develop admin panel</span>
+                        <br>
+                        <div class="col form-check form-switch " style="margin: 0 25%;">
+                            <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CompletedCheck" ><br><br>
+                            <label class="form-check-label" style="display:flex; margin-left: -45px;" for="CompletedCheck">Completed</label>
                         </div>
                     </div>
                 </div>
             </div>      
-            <button type="submit" class="alg-btn" style="width: 91%; margin-left: 7%;">Create</button>
-            <button type="submit" class="alg-btn" style="width: 91%; margin-left: 7%;">Update</button>
+            <button type="submit" class="alg-btn" style="width: 91%; margin-left: -10%;">Create</button>
+            <button type="submit" class="alg-btn" style="width: 91%; margin-left: -10%;">Update</button>
+
+            <br><br><br>
+            <div class="row">
+                <div class="col-3 project-card" style="height: 200px;">
+                    <div class="project-header">
+                        <h2>Project Name</h2>
+                        <img src="../../resources/images/home/edit_pencil.png" alt="Edit Icon" style="width: 15px; height: 15px; margin-right: -50px;"> 
+                        <img src="../../resources/images/home/deletebin.png" alt="Delete Icon" style="width: 15px; height: 15px;"> 
+                    </div>
+                    <p class="project-id" style="text-align: left;">ALG001</p>
+                    <div class="project-status">
+                        <span class="status-dot yellow"></span>
+                        <span class="status-text">hold</span>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="text-left" style="margin-left: -50px;">
+                            <div class="row" style="font-size: 13px; font-weight: 700;">
+                                <div class="col" style="color: rgba(134, 134, 134, 1);">Start:<br> <span style="color: black; margin-left: 30px;">2024/05/30<span></div>
+                                <div class="col" style="color: rgba(134, 134, 134, 1);">End:<br> <span style="color: black; margin-left: 30px;">2024/05/30<span></div>
+                            </div>
+                        </div> 
+                    </div>
+                    <hr class="hp-s4-divider">                
+                </div>
+
+                <div class="col-3 project-card mx-4" style="height: 200px;">
+                    <div class="project-header">
+                        <h2>Project Name</h2>
+                        <img src="../../resources/images/home/edit_pencil.png" alt="Edit Icon" style="width: 15px; height: 15px; margin-right: -50px;"> 
+                        <img src="../../resources/images/home/deletebin.png" alt="Delete Icon" style="width: 15px; height: 15px;"> 
+                    </div>
+                    <p class="project-id" style="text-align: left;">ALG001</p>
+                    <div class="project-status">
+                        <span class="status-dot yellow"></span>
+                        <span class="status-text">hold</span>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="text-left" style="margin-left: -50px;">
+                            <div class="row" style="font-size: 13px; font-weight: 700;">
+                                <div class="col" style="color: rgba(134, 134, 134, 1);">Start:<br> <span style="color: black; margin-left: 30px;">2024/05/30<span></div>
+                                <div class="col" style="color: rgba(134, 134, 134, 1);">End:<br> <span style="color: black; margin-left: 30px;">2024/05/30<span></div>
+                            </div>
+                        </div> 
+                    </div>                
+                    <hr class="hp-s4-divider">                
+                </div>
+            </div>
         </div>  
     </div>
 </section>

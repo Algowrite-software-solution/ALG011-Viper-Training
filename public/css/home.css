@@ -693,6 +693,15 @@ Description : this is the home layout css (hp- home page) */
   padding: 10px 25px;
 }
 
+.status-card {
+  background-color: #9ACFFF;
+  padding: 10px;
+  max-width: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 350px;
+  border-radius: 20px;
+}
+
 @media (min-width: 992px) {
   .hp-s1-sidebar {
     left: 0;
