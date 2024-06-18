@@ -586,6 +586,14 @@ Description : this is the home layout css (hp- home page) */
   border: 1px solid rgba(255, 255, 255, 1);
 }
 
+.hp-s5-divider {
+  border: 1px solid #9ACFFF;
+}
+
+.hp-s6-divider {
+  border: 2px solid #868686;
+}
+
 .project-tasks {
   margin-top: 20px;
 }
@@ -657,6 +665,11 @@ Description : this is the home layout css (hp- home page) */
 }
 
 /* Project Management */
+.prj-sec{
+  margin-left: 90px;
+  margin-top: -20px;
+}
+
 .hp-s5-container {    
   margin-left: 280px;
   margin-top: -10px;
@@ -687,6 +700,7 @@ Description : this is the home layout css (hp- home page) */
 .prj-input3 {
   width: 55%;  
   font-size: var(--font-p-lg);
+  margin-left: 60px;
   border-radius: 50px;
   border: 1px solid #CDCDCD;
   background-color: #CDCDCD;
@@ -696,13 +710,78 @@ Description : this is the home layout css (hp- home page) */
 .status-card {
   background-color: #9ACFFF;
   padding: 10px;
+  margin: 15px 20px;
   max-width: 350px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   height: 350px;
   border-radius: 20px;
 }
 
-@media (min-width: 992px) {
+.hp-s4-user-table {
+  margin-top: 0;
+  width: 90%;
+  border-collapse: collapse;
+}
+
+.hp-s4-user-table td a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: rgba(3, 135, 255, 1);
+}
+
+.hp-s4-user-table th,
+.hp-s4-user-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.hp-s4-user-table th {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.hp-s43-user-table th img {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+}
+
+.hp-s4-user-table td {
+  background-color: #f9f9f9;
+}
+
+.hp-s4-user-table .details {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(110, 112, 121, 1);
+}
+
+.prj-date-label{
+  text-align: left;
+  margin-left: 30px;
+}
+
+.prj-user-tb{
+  margin-left: 10%;
+}
+
+.prj-divider-size{
+  width: 90%;
+}
+
+.alg-btn-size{
+  width: 91%;
+  margin-left: -10%;
+}
+
+.prj-st-cardtop{
+  margin-left: 20px;
+}
+
+@media (min-width: 992px) {  
   .hp-s1-sidebar {
     left: 0;
     position: fixed;
@@ -735,6 +814,53 @@ Description : this is the home layout css (hp- home page) */
 }
 
 @media screen and (max-width: 992px) {
+  .prj-sec{
+    margin-left: 20px;
+    margin-top: -20px;
+  }
+  .prj-sec-col1{
+    width: 100%;
+  }
+  .prj-date-col1{
+    width: 100%;
+  }
+  .prj-date-col2{
+    width: 100%;
+    margin-top: 25px;
+  }
+  .prj-date-label1{
+    margin-left: 0px;
+    width: max-content;
+    margin-right: 9%;
+    white-space: nowrap;
+  }
+  .prj-date-label2{
+    margin-left: 0px;
+    width: max-content;
+    margin-right: 10%;
+    white-space: nowrap;
+  }
+  .prj-input3{
+    width: 100%;
+    margin-left: 0px;
+  }
+  .prj-user-tb{
+    margin-left: 0;
+  }
+  .prj-divider-size{
+    width: 100%;
+  }
+  .alg-btn-size{
+    width: 100%;
+    margin-left: 0;
+  }
+  .prj-st-card{
+    justify-content: center;
+  }
+  .prj-st-cardtop{
+    margin-top: 20px;
+    margin-left: 0;
+  }
   .hp-s4-container {
     margin-left: 0px;
     flex-direction: row;

@@ -343,12 +343,13 @@ include "../public/view/component/custom/dashborad.com.php";
 </section>
 
 <!-- Project Management -->
-<section id="project-management-section" style="display: none;">
+<section id="project-management-section" class="prj-sec">
     <div > 
-        <div class="container text-center " style="margin-left: 300px; ">
+        <div class="container text-center ">
+            <hr class="hp-s5-divider prj-divider-size" > 
             <div class="row">  
-                <div class="col-7 d-flex flex-column">                
-                    <form action="/" method="post"> 
+                <div class="col-7 d-flex flex-column prj-sec-col1">                
+                    <form action="/" method="post">
                         <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
                                 <label style="width: 300px; text-align: left;" for="pname">Project Name</label>
                                 <input type="text" class="prj-input" id="pname" required>
@@ -364,14 +365,14 @@ include "../public/view/component/custom/dashborad.com.php";
                                 <textarea class="prj-input rounded-4" id="description" rows="3"></textarea>
                         </div>     
                         <br>
-                        <div class="container" style="margin-left: 0;"> 
+                        <div> 
                             <div class="row">             
-                                <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center col-6" style="background-color: brown;">
-                                        <label style="text-align: left;" for="pname">Start Date</label>
+                                <div class="alg-text-dark fw-bold d-flex flex-row align-items-center col-6 prj-date-col1">
+                                        <label class="prj-date-label1" style="text-align: left;" for="pname">Start Date</label>
                                         <input type="date" class="prj-input3"  id="pname" required>
                                 </div>
-                                <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center col-6" style="background-color: darkorange;">
-                                        <label class="ps-5 w-75" for="pname" style="margin-left: 50px;">End Date</label>
+                                <div class="alg-text-dark fw-bold d-flex flex-row align-items-center col-6 prj-date-col2">
+                                        <label class="prj-date-label2" for="pname">End Date</label>
                                         <input type="date" class="prj-input3"  id="pname" required>
                                 </div>
                             </div>
@@ -386,47 +387,84 @@ include "../public/view/component/custom/dashborad.com.php";
                                     <option value="3">Sample</option>
                                 </select>
                         </div>
-                    </form> 
-                </div>               
-                <div class="col status-card mx-5">
-                    <div class="align-items-center">
-                        <p><b>Set Statue</b></p>                        
-                    </div>                    
-                    <div class="container text-center" style="margin-left: 45px;">
-                        <div class="row"> 
-                            <div class="col form-check form-switch ">
-                                <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="PlanningCheck" checked><br><br>
-                                <label class="form-check-label" style="display:flex; margin-left: -35px;" for="PlanningCheck">Planning</label>
+                    </form>
+                </div>   
+                <div class="col" style="max-width: 420px;">          
+                    <div class="status-card">
+                        <div class="align-items-center">
+                            <p><b>Set Statue</b></p>                        
+                        </div>                    
+                        <div class="container text-center" style="margin-left: 45px;">
+                            <div class="row"> 
+                                <div class="col form-check form-switch ">
+                                    <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="PlanningCheck" checked><br><br>
+                                    <label class="form-check-label" style="display:flex; margin-left: -35px;" for="PlanningCheck">Planning</label>
+                                </div>
+                                <div class="col form-check form-switch ">
+                                    <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="StartedCheck"><br><br>
+                                    <label class="form-check-label" style="display:flex; margin-left: -35px;" for="StartedCheck">Started</label>
+                                </div>
                             </div>
-                            <div class="col form-check form-switch ">
-                                <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="StartedCheck"><br><br>
-                                <label class="form-check-label" style="display:flex; margin-left: -35px;" for="StartedCheck">Started</label>
+                            <br>
+                            <div class="row"> 
+                                <div class="col form-check form-switch ">
+                                    <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="HoldCheck" ><br><br>
+                                    <label class="form-check-label" style="display:flex; margin-left: -25px;" for="HoldCheck">Hold</label>
+                                </div>
+                                <div class="col form-check form-switch ">
+                                    <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CancelledCheck"><br><br>
+                                    <label class="form-check-label" style="display:flex; margin-left: -45px;" for="CancelledCheck">Cancelled</label>
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <div class="row"> 
-                            <div class="col form-check form-switch ">
-                                <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="HoldCheck" ><br><br>
-                                <label class="form-check-label" style="display:flex; margin-left: -25px;" for="HoldCheck">Hold</label>
+                            <br>
+                            <div class="col form-check form-switch " style="margin: 0 25%;">
+                                <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CompletedCheck" ><br><br>
+                                <label class="form-check-label" style="display:flex; margin-left: -45px;" for="CompletedCheck">Completed</label>
                             </div>
-                            <div class="col form-check form-switch ">
-                                <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CancelledCheck"><br><br>
-                                <label class="form-check-label" style="display:flex; margin-left: -45px;" for="CancelledCheck">Cancelled</label>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="col form-check form-switch " style="margin: 0 25%;">
-                            <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CompletedCheck" ><br><br>
-                            <label class="form-check-label" style="display:flex; margin-left: -45px;" for="CompletedCheck">Completed</label>
                         </div>
                     </div>
-                </div>
-            </div>      
-            <button type="submit" class="alg-btn" style="width: 91%; margin-left: -10%;">Create</button>
-            <button type="submit" class="alg-btn" style="width: 91%; margin-left: -10%;">Update</button>
+                </div>  
+            </div>
+            <div class="prj-user-tb">
+                <hr class="hp-s6-divider prj-divider-size">
+                <table class="hp-s4-user-table">
+                    <thead>
+                        <tr style="text-align: left;">
+                            <th>ID</th>
+                            <th><img src="../../resources/images/home/user-panel.png" alt="Minimise Icon" width="20px">Name</th>
+                            <th>Email</th>
+                            <th>Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#">302012</a></td>
+                            <td>
+                                <div class="user-info"><img src="../../resources/images/home/userimage.png" alt="Avatar"><span>Eshmika Irosh</span>
+                                    <p>3 Variants</p>
+                                </div>
+                            </td>
+                            <td class="details">eshmika@gmail.com</td>
+                            <td><span class="type user">User</span></td>
+                            <td>
+                                <button class="action-button delete">
+                                    <img src="../../resources/images/home/deleteicon.png" alt="Delete Icon">
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br>
+                <hr class="hp-s6-divider prj-divider-size">
+            </div>       
+            <button type="submit" class="alg-btn alg-btn-size" >Create</button>
+            <button type="submit" class="alg-btn alg-btn-size" >Update</button>
 
-            <br><br><br>
-            <div class="row">
+            <br><br>
+            <hr class="hp-s5-divider prj-divider-size"> 
+            
+            <div class="row prj-st-card" >
                 <div class="col-3 project-card" style="height: 200px;">
                     <div class="project-header">
                         <h2>Project Name</h2>
@@ -450,7 +488,7 @@ include "../public/view/component/custom/dashborad.com.php";
                     <hr class="hp-s4-divider">                
                 </div>
 
-                <div class="col-3 project-card mx-4" style="height: 200px;">
+                <div class="col-3 project-card prj-st-cardtop" style="height: 200px;">
                     <div class="project-header">
                         <h2>Project Name</h2>
                         <img src="../../resources/images/home/edit_pencil.png" alt="Edit Icon" style="width: 15px; height: 15px; margin-right: -50px;"> 
