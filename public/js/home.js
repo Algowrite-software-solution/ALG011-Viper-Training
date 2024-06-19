@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const titleElement = document.querySelector('.hp-s1-title');
 
   const clearDisplayedSection = () => {
+    projectManagementSection.style.display = 'none';
     userManagementSection.style.display = 'none';
     myProfileSection.style.display = 'none';
-    projectManagementSection.style.display = 'none';
     dashboardSection.style.display = 'none';
   };
 
@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionElement.style.display = 'block';
     titleElement.textContent = titleText;
   };
+
+  // showSectionAndSetTitle(dashboardSection, 'My Projects');
 
   dashboardBtn.addEventListener('click', () => {
     showSectionAndSetTitle(dashboardSection, 'My Projects');

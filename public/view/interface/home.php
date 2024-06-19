@@ -343,8 +343,8 @@ include "../public/view/component/custom/dashborad.com.php";
 </section>
 
 <!-- Project Management -->
-<section id="project-management-section" class="prj-sec">
-    <div > 
+<section id="project-management-section" >
+    <div class="prj-sec"> 
         <div class="container text-center ">
             <hr class="hp-s5-divider prj-divider-size" > 
             <div class="row">  
@@ -389,35 +389,35 @@ include "../public/view/component/custom/dashborad.com.php";
                         </div>
                     </form>
                 </div>   
-                <div class="col" style="max-width: 420px;">          
+                <div class="col prj-status-box">          
                     <div class="status-card">
                         <div class="align-items-center">
                             <p><b>Set Statue</b></p>                        
                         </div>                    
-                        <div class="container text-center" style="margin-left: 45px;">
+                        <div class="text-center prj-status-box-data">
                             <div class="row"> 
-                                <div class="col form-check form-switch ">
+                                <div class="col form-check form-switch" >
                                     <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="PlanningCheck" checked><br><br>
                                     <label class="form-check-label" style="display:flex; margin-left: -35px;" for="PlanningCheck">Planning</label>
                                 </div>
-                                <div class="col form-check form-switch ">
+                                <div class="col form-check form-switch prj-status-box-switchsec">
                                     <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="StartedCheck"><br><br>
                                     <label class="form-check-label" style="display:flex; margin-left: -35px;" for="StartedCheck">Started</label>
                                 </div>
                             </div>
                             <br>
-                            <div class="row"> 
+                            <div class="row prj-status-box-row"> 
                                 <div class="col form-check form-switch ">
                                     <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="HoldCheck" ><br><br>
                                     <label class="form-check-label" style="display:flex; margin-left: -25px;" for="HoldCheck">Hold</label>
                                 </div>
-                                <div class="col form-check form-switch ">
+                                <div class="col form-check form-switch prj-status-box-switchsec2">
                                     <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CancelledCheck"><br><br>
                                     <label class="form-check-label" style="display:flex; margin-left: -45px;" for="CancelledCheck">Cancelled</label>
                                 </div>
                             </div>
                             <br>
-                            <div class="col form-check form-switch " style="margin: 0 25%;">
+                            <div class="form-check form-switch prj-status-box-switchsec3">
                                 <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CompletedCheck" ><br><br>
                                 <label class="form-check-label" style="display:flex; margin-left: -45px;" for="CompletedCheck">Completed</label>
                             </div>

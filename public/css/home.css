@@ -781,6 +781,18 @@ Description : this is the home layout css (hp- home page) */
   margin-left: 20px;
 }
 
+.prj-status-box{
+  max-width: 420px;
+}
+
+.prj-status-box-data{
+  margin-left: 70px;
+}
+
+.prj-status-box-switchsec3{
+  margin: 0 25%;
+}
+
 @media (min-width: 992px) {  
   .hp-s1-sidebar {
     left: 0;
@@ -867,10 +879,35 @@ Description : this is the home layout css (hp- home page) */
     align-items: center;
     justify-content: center;
   }
-
+  .status-card {
+    margin: 20px 0px;
+    max-width: 100%;
+    height: 150px;
+  }
+  .prj-status-box{
+    max-width: 100%;
+  }
   .project-card {
     width: 370px;
     height: 400px;
+  }
+  .prj-status-box-data{
+    margin-left: 15px;
+  }
+  .prj-status-box-switchsec{
+    margin-left: -56%;
+  }
+  .prj-status-box-switchsec2{
+    margin-left: -20%;
+  }
+  .prj-status-box-switchsec3{
+    margin: 0 0;  
+    margin-top: -98px;
+    margin-left: 89%;
+  }
+  .prj-status-box-row{
+    margin-left: 45%;
+    margin-top: -98px;
   }
 }
 
@@ -893,6 +930,25 @@ Description : this is the home layout css (hp- home page) */
 
   .filter-btn button {
     margin-top: 95%;
+  }
+
+  .prj-status-box-data{
+    margin-left: 15px;
+  }
+  .prj-status-box-switchsec{
+    margin-left: -60%;
+  }
+  .prj-status-box-switchsec2{
+    margin-left: -30%;
+  }
+  .prj-status-box-switchsec3{
+    margin: 0 0;  
+    margin-top: -98px;
+    margin-left: 83%;
+  }
+  .prj-status-box-row{
+    margin-left: 40%;
+    margin-top: -98px;
   }
 
 }
@@ -974,6 +1030,24 @@ Description : this is the home layout css (hp- home page) */
   .project-card {
     width: 370px;
     height: 400px;
+  }
+  .prj-status-box-data{
+    margin-left: 15px;
+  }
+  .prj-status-box-switchsec{
+    margin-left: -60%;
+  }
+  .prj-status-box-switchsec2{
+    margin-left: -30%;
+  }
+  .prj-status-box-switchsec3{
+    margin: 0 0;  
+    margin-top: -98px;
+    margin-left: 83%;
+  }
+  .prj-status-box-row{
+    margin-left: 40%;
+    margin-top: -98px;
   }
 }
 
