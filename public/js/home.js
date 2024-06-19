@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectManagementBtn = document.getElementById('project-management-btn');
   const projectManagementSection = document.getElementById('project-management-section');
 
+  const taskManagementBtn = document.getElementById('task-management-btn');
+  const taskManagementSection = document.getElementById('task-management-section');
+
   const dashboardBtn = document.getElementById('dashboard-btn');
   const dashboardSection = document.getElementById('dashboard-section');
 
@@ -37,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     userManagementSection.style.display = 'none';
     myProfileSection.style.display = 'none';
     dashboardSection.style.display = 'none';
+    taskManagementSection.style.display = 'none';
   };
 
   const showSectionAndSetTitle = (sectionElement, titleText) => {
@@ -45,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     titleElement.textContent = titleText;
   };
 
-  // showSectionAndSetTitle(dashboardSection, 'My Projects');
+  showSectionAndSetTitle(dashboardSection, 'My Projects');
+  // showSectionAndSetTitle(taskManagementSection, 'Create Tasks');
 
   dashboardBtn.addEventListener('click', () => {
     showSectionAndSetTitle(dashboardSection, 'My Projects');
@@ -61,6 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   projectManagementBtn.addEventListener('click', () => {
     showSectionAndSetTitle(projectManagementSection, 'Create Project');
+  });
+
+  taskManagementBtn.addEventListener('click', () => {
+    showSectionAndSetTitle(taskManagementSection, 'Create Tasks');
   });
   
 });

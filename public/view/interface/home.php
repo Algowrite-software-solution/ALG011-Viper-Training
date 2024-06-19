@@ -28,6 +28,7 @@ include "../public/view/component/custom/dashborad.com.php";
             <li><a href="#" class="active" id="dashboard-btn"><img src="../../resources/images/home/category.png" alt="Dashboard Icon">Dashboard</a></li>
             <li><a href="#" id="user-management-btn"><img src="../../resources/images/home/2-user.png" alt="User Icon">User Management</a></li>
             <li><a href="#" id="project-management-btn"><img src="../../resources/images/home/bag.png" alt="Bag Icon"> Project Management</a></li>
+            <li><a href="#" id="task-management-btn"><img src="../../resources/images/home/task management.png" alt="task icon"> Task Management</a></li>
         </ul>
     </div>
 
@@ -511,6 +512,146 @@ include "../public/view/component/custom/dashborad.com.php";
                     <hr class="hp-s4-divider">                
                 </div>
             </div>
+        </div>  
+    </div>
+</section>
+
+<!-- Task Management -->
+<section id="task-management-section" >
+    <div class="prj-sec"> 
+        <div class="container text-center ">
+            <hr class="hp-s5-divider prj-divider-size" > 
+            <div class="row">  
+                <div class="col-7 d-flex flex-column prj-sec-col1">                
+                    <form action="/" method="post">
+                        <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
+                                <label style="width: 300px; text-align: left;" for="pname">Task Name</label>
+                                <input type="text" class="prj-input" id="pname" required>
+                        </div>  
+                        <br>                  
+                        <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
+                                <label style="width: 300px; text-align: left;" for="pid">Task ID</label>
+                                <input type="text" class="prj-input2" id="pid" placeholder="0003A" required>
+                        </div>
+                        <br>
+                        <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
+                                <label style="width: 300px; text-align: left;" for="description">Description</label>
+                                <textarea class="prj-input rounded-4" id="description" rows="3"></textarea>
+                        </div>     
+                        <br>
+                        <div> 
+                            <div class="row">             
+                                <div class="alg-text-dark fw-bold d-flex flex-row align-items-center col-6 prj-date-col1">
+                                        <label class="prj-date-label1" style="text-align: left;" for="pname">Start Date</label>
+                                        <input type="date" class="prj-input3"  id="pname" required>
+                                </div>
+                                <div class="alg-text-dark fw-bold d-flex flex-row align-items-center col-6 prj-date-col2">
+                                        <label class="prj-date-label2" for="pname">End Date</label>
+                                        <input type="date" class="prj-input3"  id="pname" required>
+                                </div>
+                            </div>
+                        </div> 
+                        <br>
+                        <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
+                                <label style="width: 300px; text-align: left;" for="addusers">Set project</label>
+                                <select class="prj-input" >
+                                    <option selected> </option>
+                                    <option value="1">Sample</option>
+                                    <option value="2">Sample</option>
+                                    <option value="3">Sample</option>
+                                </select>
+                        </div>
+                        <div class="alg-text-dark fw-bold d-flex flex-row justify-content-center align-items-center">
+                                <label style="width: 300px; text-align: left;" for="addusers">Assign users</label>
+                                <select class="prj-input" >
+                                    <option selected> </option>
+                                    <option value="1">Sample</option>
+                                    <option value="2">Sample</option>
+                                    <option value="3">Sample</option>
+                                </select>
+                        </div>
+                        <div style="display: flex; margin-top: 10px;">
+                            <div style="background-color: #0387FF; width: 27%; text-align: left; padding: 10px; padding-left: 20px; display: flex; border-radius: 20px; margin-left: 135px;">
+                                <b>Eshmika Irosh</b>
+                                <img src="../../resources/images/home/Close Square.png" alt="close Icon" style="width: 25px; height: 25px; margin-left: 30px; justify-content: center;">
+                            </div>
+                            <div style="background-color: #0387FF; width: 27%; text-align: left; padding: 10px; padding-left: 20px; display: flex; border-radius: 20px; margin-left: 20px;">
+                                <b>Eshmika Irosh</b>
+                                <img src="../../resources/images/home/Close Square.png" alt="close Icon" style="width: 25px; height: 25px; margin-left: 30px; justify-content: center;">
+                            </div>
+                        </div>
+                    </form>
+                </div>   
+                <div class="col prj-status-box">          
+                    <div class="status-card2">
+                        <div class="align-items-center">
+                            <p><b>Set Statue</b></p>                        
+                        </div>                    
+                        <div class="text-center prj-status-box-data">
+                            <div class="row"> 
+                                <div class="col form-check form-switch" >
+                                    <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="PlanningCheck" checked><br><br>
+                                    <label class="form-check-label" style="display:flex; margin-left: -35px;" for="PlanningCheck">pending</label>
+                                </div>
+                                <div class="col form-check form-switch prj-status-box-switchsec">
+                                    <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="StartedCheck"><br><br>
+                                    <label class="form-check-label" style="display:flex; margin-left: -45px;" for="StartedCheck">in progress</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row prj-status-box-row"> 
+                                <div class="col form-check form-switch ">
+                                    <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="HoldCheck" ><br><br>
+                                    <label class="form-check-label" style="display:flex; margin-left: -45px;" for="HoldCheck">completed</label>
+                                </div>
+                                <div class="col form-check form-switch prj-status-box-switchsec2">
+                                    <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CancelledCheck"><br><br>
+                                    <label class="form-check-label" style="display:flex; margin-left: -35px;" for="CancelledCheck">deleted</label>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="prj-user-tb">
+                <hr class="hp-s6-divider prj-divider-size">
+            </div>       
+            <button type="submit" class="alg-btn alg-btn-size" >Create</button>
+            <button type="submit" class="alg-btn alg-btn-size" >Update</button>
+
+            <br><br>
+            <hr class="hp-s5-divider prj-divider-size"> 
+            
+            <table class="hp-s4-user-table">
+                <thead>
+                    <tr style="text-align: left;">
+                        <th>Task ID</th>
+                        <th>Task name</th>
+                        <th>Project name</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: left;">
+                    <tr>
+                        <td><a href="#">302012</a></td>
+                        <td class="details">0003AL</td>
+                        <td class="details">ALG00011</td>
+                        <td><span class="status active">in progress</span></td>
+                        <td>
+                            <button class="action-button edit">
+                                <img src="../../resources/images/home/editicon1.png" alt="Edit Icon">
+                            </button>
+                            <button class="action-button delete">
+                                <img src="../../resources/images/home/deleteicon.png" alt="Delete Icon">
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <hr class="hp-s6-divider prj-divider-size" > 
         </div>  
     </div>
 </section>
