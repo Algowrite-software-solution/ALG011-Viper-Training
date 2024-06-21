@@ -751,7 +751,7 @@ Description : this is the home layout css (hp- home page) */
   font-weight: 700;
 }
 
-.hp-s43-user-table th img {
+.hp-s4-user-table th img {
   width: 20px;
   height: 20px;
   margin-right: 7px;
@@ -800,6 +800,90 @@ Description : this is the home layout css (hp- home page) */
 
 .prj-status-box-switchsec3{
   margin: 0 25%;
+}
+
+/* task management */
+
+.task-name-card1{
+  background-color: #0387FF;
+  width: 27%;
+  text-align: left;
+  padding: 10px;
+  padding-left: 20px;
+  display: flex;
+  border-radius: 20px;
+  margin-left: 135px;
+}
+
+.task-name-card2{
+  background-color: #0387FF;
+  width: 27%;
+  text-align: left;
+  padding: 10px;
+  padding-left: 20px;
+  display: flex;
+  border-radius: 20px;
+  margin-left: 20px;
+  justify-content: center;
+}
+
+.task-namecard-img{
+  width: 25px;
+  height: 25px;
+  margin-left: 30px;
+  justify-content: center;
+}
+
+.task-s4-user-table {
+  margin-top: 0;
+  width: 90%;
+  border-collapse: collapse;
+}
+
+.task-s4-user-table td a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: rgba(3, 135, 255, 1);
+}
+
+.task-s4-user-table th,
+.task-s4-user-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-s4-user-table th {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.task-s4-user-table th img {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+}
+
+.task-s4-user-table td {
+  background-color: #f9f9f9;
+}
+
+.task-s4-user-table .details {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(110, 112, 121, 1);
+}
+
+.taskstatusactive {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: rgba(58, 255, 66, 0.16);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(61, 184, 58, 1);
 }
 
 @media (min-width: 992px) {  
@@ -923,6 +1007,36 @@ Description : this is the home layout css (hp- home page) */
     margin-left: 45%;
     margin-top: -98px;
   }
+  .task-name-card1{
+    width: 27%;
+    font-size: 15px;
+    padding: 10px;
+    padding-left: 20px;
+  }
+  .task-name-card2{
+    width: 27%;
+    font-size: 15px;
+    padding: 10px;
+    padding-left: 20px;
+  }
+  .task-status-box-switchsec1{
+    margin-left: 11%;
+  }
+  .task-status-box-switchsec2{
+    margin-left: -46%;
+  }
+  .task-status-box-switchsec3{
+    margin-left: -14%;
+  }
+  .task-status-box-row{
+    margin-left: 54%;
+    margin-top: -98px;
+  }
+  .task-s4-user-table {
+    margin-top: 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -964,7 +1078,55 @@ Description : this is the home layout css (hp- home page) */
     margin-left: 40%;
     margin-top: -98px;
   }
-
+  .task-name-card1{
+    width: 30%;
+    font-size: 13px;
+    padding: 10px;
+    padding-left: 20px;
+  }
+  .task-name-card2{
+    width: 30%;
+    font-size: 13px;
+    padding: 10px;
+    padding-left: 20px;
+  }
+  .task-namecard-img{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    justify-content: center;
+  }
+  .task-status-box-switchsec1{
+    margin-left: 9%;
+  }
+  .task-status-box-switchsec2{
+    margin-left: -48%;
+  }
+  .task-status-box-switchsec3{
+    margin-left: -14%;
+  }
+  .task-status-box-row{
+    margin-left: 53%;
+    margin-top: -98px;
+  }
+  .task-table-fontsize{
+    font-size: 13px;
+  }
+  .task-s4-user-table {
+    margin-top: 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .taskstatusactive {
+    padding: 0px;
+    font-size: 1px;
+    height: 25px;
+    width: 25px;
+    background-color: #00D615;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 5px;    
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -1062,6 +1224,48 @@ Description : this is the home layout css (hp- home page) */
   .prj-status-box-row{
     margin-left: 40%;
     margin-top: -98px;
+  }
+  .task-name-card1{
+    width: 130px;
+    font-size: 11px;
+    padding: 8px;
+    padding-left: 15px;
+  }
+  .task-name-card2{
+    width: 130px;
+    font-size: 11px;
+    padding: 8px;
+    padding-left: 10px;
+  }
+  .task-namecard-img{
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    justify-content: center;
+  }
+  .task-s4-user-table {
+    margin-top: 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .task-s4-user-table th {
+    font-size: 13px;
+  }
+  .task-s4-user-table td a {
+    font-size: 13px;
+  }
+  .task-s4-user-table .details {
+    font-size: 13px;
+  }
+  .taskstatusactive {
+    padding: 0px;
+    font-size: 1px;
+    height: 20px;
+    width: 20px;
+    background-color: #00D615;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 5px;    
   }
 }
 

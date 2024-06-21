@@ -571,13 +571,13 @@ include "../public/view/component/custom/dashborad.com.php";
                                 </select>
                         </div>
                         <div style="display: flex; margin-top: 10px;">
-                            <div style="background-color: #0387FF; width: 27%; text-align: left; padding: 10px; padding-left: 20px; display: flex; border-radius: 20px; margin-left: 135px;">
+                            <div class="task-name-card1">
                                 <b>Eshmika Irosh</b>
-                                <img src="../../resources/images/home/Close Square.png" alt="close Icon" style="width: 25px; height: 25px; margin-left: 30px; justify-content: center;">
+                                <img src="../../resources/images/home/Close Square.png" alt="close Icon" class="task-namecard-img">
                             </div>
-                            <div style="background-color: #0387FF; width: 27%; text-align: left; padding: 10px; padding-left: 20px; display: flex; border-radius: 20px; margin-left: 20px;">
-                                <b>Eshmika Irosh</b>
-                                <img src="../../resources/images/home/Close Square.png" alt="close Icon" style="width: 25px; height: 25px; margin-left: 30px; justify-content: center;">
+                            <div class="task-name-card2">
+                                <b>Viraj Kaushal</b>
+                                <img src="../../resources/images/home/Close Square.png" alt="close Icon" class="task-namecard-img">
                             </div>
                         </div>
                     </form>
@@ -589,22 +589,22 @@ include "../public/view/component/custom/dashborad.com.php";
                         </div>                    
                         <div class="text-center prj-status-box-data">
                             <div class="row"> 
-                                <div class="col form-check form-switch" >
+                                <div class="col form-check form-switch task-status-box-switchsec1" >
                                     <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="PlanningCheck" checked><br><br>
                                     <label class="form-check-label" style="display:flex; margin-left: -35px;" for="PlanningCheck">pending</label>
                                 </div>
-                                <div class="col form-check form-switch prj-status-box-switchsec">
+                                <div class="col form-check form-switch task-status-box-switchsec2">
                                     <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="StartedCheck"><br><br>
                                     <label class="form-check-label" style="display:flex; margin-left: -45px;" for="StartedCheck">in progress</label>
                                 </div>
                             </div>
                             <br>
-                            <div class="row prj-status-box-row"> 
+                            <div class="row task-status-box-row"> 
                                 <div class="col form-check form-switch ">
                                     <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="HoldCheck" ><br><br>
                                     <label class="form-check-label" style="display:flex; margin-left: -45px;" for="HoldCheck">completed</label>
                                 </div>
-                                <div class="col form-check form-switch prj-status-box-switchsec2">
+                                <div class="col form-check form-switch task-status-box-switchsec3">
                                     <input class="form-check-input" style="width: 65px; height: 35px;" type="checkbox" role="switch" id="CancelledCheck"><br><br>
                                     <label class="form-check-label" style="display:flex; margin-left: -35px;" for="CancelledCheck">deleted</label>
                                 </div>
@@ -623,7 +623,7 @@ include "../public/view/component/custom/dashborad.com.php";
             <br><br>
             <hr class="hp-s5-divider prj-divider-size"> 
             
-            <table class="hp-s4-user-table">
+            <table class="task-s4-user-table">
                 <thead>
                     <tr style="text-align: left;">
                         <th>Task ID</th>
@@ -638,7 +638,7 @@ include "../public/view/component/custom/dashborad.com.php";
                         <td><a href="#">302012</a></td>
                         <td class="details">0003AL</td>
                         <td class="details">ALG00011</td>
-                        <td><span class="status active">in progress</span></td>
+                        <td><span class="taskstatusactive">in progress</span></td>
                         <td>
                             <button class="action-button edit">
                                 <img src="../../resources/images/home/editicon1.png" alt="Edit Icon">

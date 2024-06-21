@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     titleElement.textContent = titleText;
   };
 
-  showSectionAndSetTitle(dashboardSection, 'My Projects');
-  // showSectionAndSetTitle(taskManagementSection, 'Create Tasks');
+  // showSectionAndSetTitle(dashboardSection, 'My Projects');
+  showSectionAndSetTitle(taskManagementSection, 'Create Tasks');
 
   dashboardBtn.addEventListener('click', () => {
     showSectionAndSetTitle(dashboardSection, 'My Projects');
